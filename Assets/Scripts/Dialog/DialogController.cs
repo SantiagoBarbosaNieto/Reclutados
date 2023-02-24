@@ -7,17 +7,21 @@ using Ink.Runtime;
 
 public class DialogController : MonoBehaviour
 {
-
+    public DialogPanelSO dialogPanelSO;
     private TMP_Text _dialogText;
     
     private TMP_Text _option1;
     private TMP_Text _option2;
     private TMP_Text _option3;
 
-    private List<TMP_Text> _options;
+    private Image _background;
+    private Image _character1;
+    private Image _character2;
+    private Image _characterSingle;
+
+    public List<TMP_Text> _options;
 
     private Story story;
-    public TextAsset inkAsset;
 
 
     // Start is called before the first frame update
@@ -36,7 +40,14 @@ public class DialogController : MonoBehaviour
         _options.Add(_option1);
         _options.Add(_option2);
         _options.Add(_option3);
-        story = new Story(inkAsset.text);
+
+        _background = transform.Find("Background").GetComponent<Image>();
+        _background.sprite = dialogPanelSO.background;
+
+        _characterSingle = transform.Find("CharacterSingle").GetComponent<Image>();
+        _characterSingle.sprite = dialogPanelSO.characterSingle;
+
+        story = new Story(dialogPanelSO.inkText.text);
         initStory();
     }
 
@@ -53,8 +64,9 @@ public class DialogController : MonoBehaviour
         if(choices.Count > 3) {
             Debug.LogError("The choices could not be loaded: A maximum of three choices is required");
         }
-        else if(choices.Count <= 0) {
-            Debug.LogError("The choices could not be loaded: At least one choice is required");
+        else if(choices.Count == 0) {
+            //Do something when the dialog ends
+            Debug.Log("Dialog ended");
         }
 
         for(int i = 0; i < choices.Count; i++) {
