@@ -4,9 +4,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Ink.Runtime;
+using UnityEngine.Events;
 
 public class DialogController : MonoBehaviour
 {
+    public UnityEvent onDialogEnd;
+
     public DialogPanelSO dialogPanelSO;
     private TMP_Text _dialogText;
     
@@ -19,14 +22,13 @@ public class DialogController : MonoBehaviour
     private Image _character2;
     private Image _characterSingle;
 
-    public List<TMP_Text> _options;
+    private Button _dialogEnd;
+
+    private List<TMP_Text> _options;
 
     private Story story;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
+     public void Init() {
         _dialogText = transform.Find("DialogText").GetComponent<TMP_Text>();
         
         _option1 = transform.Find("Option1").GetComponent<TMP_Text>();
@@ -47,15 +49,18 @@ public class DialogController : MonoBehaviour
         _characterSingle = transform.Find("CharacterSingle").GetComponent<Image>();
         _characterSingle.sprite = dialogPanelSO.characterSingle;
 
+        _dialogEnd = transform.Find("DialogEnd").GetComponent<Button>();
+        _dialogEnd.gameObject.SetActive(false);
+
         story = new Story(dialogPanelSO.inkText.text);
         initStory();
     }
 
-    void UpdateDialogText(string newText) {
+    private void UpdateDialogText(string newText) {
         _dialogText.text = newText;
     }
 
-    void UpdateAllOptions(List<Choice> choices) {
+    private void UpdateAllOptions(List<Choice> choices) {
 
         foreach (var option in _options) {
             option.gameObject.SetActive(false);
@@ -67,6 +72,7 @@ public class DialogController : MonoBehaviour
         else if(choices.Count == 0) {
             //Do something when the dialog ends
             Debug.Log("Dialog ended");
+            _dialogEnd.gameObject.SetActive(true);
         }
 
         for(int i = 0; i < choices.Count; i++) {
@@ -82,9 +88,16 @@ public class DialogController : MonoBehaviour
         UpdateAllOptions(story.currentChoices);
     }
 
+   
+
     private void initStory() {
         UpdateDialogText(story.ContinueMaximally());
         UpdateAllOptions(story.currentChoices);
+    }
+
+    public void DialogEnd() {
+        Debug.Log("Calling dialog end event");
+        onDialogEnd.Invoke();
     }
 
 }
