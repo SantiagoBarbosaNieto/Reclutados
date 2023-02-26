@@ -155,7 +155,7 @@ MonoBehaviour:
   canvas: {fileID: 232954646}
   dialogPrefab: {fileID: 1794210941830195386, guid: 4e240b65f174c4446983e4feeada3c25,
     type: 3}
-  dialogProgressionSO: {fileID: 11400000, guid: 21df069e5186a0a4ea7c7d97ca8dbd8e,
+  dialogProgressionSO: {fileID: 11400000, guid: 1ae84cf33b1f9dd499bb2de3bd77dfe9,
     type: 2}
 --- !u!4 &196423810
 Transform:

@@ -48,6 +48,9 @@ public class DialogController : MonoBehaviour
 
         _characterSingle = transform.Find("CharacterSingle").GetComponent<Image>();
         _characterSingle.sprite = dialogPanelSO.characterSingle;
+        if(_characterSingle.sprite == null) {
+            _characterSingle.gameObject.SetActive(false);
+        }
 
         _dialogEnd = transform.Find("DialogEnd").GetComponent<Button>();
         _dialogEnd.gameObject.SetActive(false);
