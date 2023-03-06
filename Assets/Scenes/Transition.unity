@@ -2624,6 +2624,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 6979701100843745668, guid: 0f02c7521bfb94a498c991337544497f,
     type: 3}
   content: {fileID: 1863664472}
+  valueObject: {fileID: 413800379}
 --- !u!1 &1863664471
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class ItemSpawner : MonoBehaviour
 {
     public Object itemPrefab;
     public Transform content;
+    public Transform valueObject;
 
     private GameObject prefab = null;
     void Awake() 
@@ -13,17 +14,22 @@ public class ItemSpawner : MonoBehaviour
 
         int day = PlayerPrefs.GetInt("day");
         int numEvents = PlayerPrefs.GetInt(day+"_events");
-
+        int total = 0;
         for(int i = 0; i < numEvents; i++)
         {
             string name = PlayerPrefs.GetString(day+"_event_name_"+i);
             int value = PlayerPrefs.GetInt(day+"_event_value_"+i);
-            
+            total += value;
+
             GameObject item = Instantiate (itemPrefab) as GameObject;
             item.transform.SetParent( content);
             item.GetComponent<ItemInitialize>().SetName(name);
             item.GetComponent<ItemInitialize>().SetValue(value);
         }
+
+        TMPro.TextMeshProUGUI  TMvalue = valueObject.GetComponent<TMPro.TextMeshProUGUI>();
+
+        TMvalue.text = "$ "  + (total >= 0 ? " " : "") + total.ToString();
 
     }
 
