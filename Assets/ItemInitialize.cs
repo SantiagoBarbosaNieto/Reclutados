@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ItemInitialize : MonoBehaviour
 {
-    public Transform item; 
     public string name = "Test";
-    public int value = 0;
+    public float value = 0;
     public Color positiveColor = Color.green;
     public Color negativeColor = Color.red;
     // Start is called before the first frame update
@@ -15,7 +14,7 @@ public class ItemInitialize : MonoBehaviour
     private Transform ValueGameObject;    
     void Start()
     {
-        NameGameObject = item.transform.Find("Name");
+        NameGameObject = transform.Find("Name");
         NameGameObject.GetComponent<TMPro.TextMeshProUGUI>().text = name;
         
 
@@ -24,7 +23,7 @@ public class ItemInitialize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ValueGameObject = item.transform.Find("Value");
+        ValueGameObject = transform.Find("Value");
         TMPro.TextMeshProUGUI TMvalue = ValueGameObject.GetComponent<TMPro.TextMeshProUGUI>();
         if (value >= 0)
         {
@@ -35,5 +34,15 @@ public class ItemInitialize : MonoBehaviour
             TMvalue.faceColor  = negativeColor;
         }
         TMvalue.text = "$ "  + (value >= 0 ? " " : "") + value.ToString();
+    }
+
+    public void SetName(string newName)
+    {
+        name = newName;
+    }
+
+    public void SetValue(int newVal)
+    {
+        value = newVal;
     }
 }
