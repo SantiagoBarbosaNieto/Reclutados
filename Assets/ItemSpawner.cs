@@ -25,6 +25,7 @@ public class ItemSpawner : MonoBehaviour
             item.transform.SetParent( content);
             item.GetComponent<ItemInitialize>().SetName(name);
             item.GetComponent<ItemInitialize>().SetValue(value);
+            item.transform.localScale = new Vector3(1,1,1);
         }
 
         TMPro.TextMeshProUGUI  TMvalue = valueObject.GetComponent<TMPro.TextMeshProUGUI>();
