@@ -21,6 +21,8 @@ public class MultiDialogController : MonoBehaviour
 
     private GameObject dialogInstance;
 
+
+
     private void Start() {
         ProgressDialog();
     }
@@ -31,6 +33,7 @@ public class MultiDialogController : MonoBehaviour
         dialogController.dialogPanelSO = dialogProgressionSO.dialogProgression[currentDialog];
         dialogController.onDialogEnd.AddListener(ChangeDialog);
         dialogController.Init();
+        AudioManager.Instance.PlaySound(dialogProgressionSO.musicClip);
     }
 
     private void ChangeDialog() {
@@ -38,6 +41,7 @@ public class MultiDialogController : MonoBehaviour
         currentDialog++;
         if(currentDialog >= dialogProgressionSO.dialogProgression.Count) {
             Debug.Log("Dialog progression ended");
+            AudioManager.Instance.StopSound();
         }
         else {
             Destroy(dialogInstance);

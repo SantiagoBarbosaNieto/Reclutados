@@ -7,4 +7,7 @@ public class DialogProgressionSO : ScriptableObject
 {
     [SerializeField]
     public List<DialogPanelSO> dialogProgression;
+
+    [SerializeField]
+    public AudioClip musicClip;
 }
