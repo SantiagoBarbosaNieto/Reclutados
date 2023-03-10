@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943bfd464150854499776c6b6b47a2ac, type: 3}
   m_Name: "PrimerD\xEDa2"
   m_EditorClassIdentifier: 
-  background: {fileID: 0}
-  inkText: {fileID: 0}
+  background: {fileID: 21300000, guid: 94405c4ffaf11a34d9918b1276fb8111, type: 3}
+  inkText: {fileID: 4900000, guid: be9f189e6a92a6a469426eddfac87d57, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
   characterSingle: {fileID: 0}
