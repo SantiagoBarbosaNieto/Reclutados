@@ -15,4 +15,4 @@ MonoBehaviour:
   _debugValue:
     scene: {fileID: 11400000, guid: 5eb69bdd82ffd304bac74e4e0c832d12, type: 2}
     loadingScreen: 0
-    dialogs: {fileID: 11400000, guid: 423a995f03c5d7e429ce6dd1224a5dac, type: 2}
+    dialogs: {fileID: 11400000, guid: 1ae84cf33b1f9dd499bb2de3bd77dfe9, type: 2}

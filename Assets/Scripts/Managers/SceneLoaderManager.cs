@@ -53,7 +53,7 @@ public class SceneLoaderManager : MonoBehaviour {
             }
             else {
                 // If no loading screen requeste, load it ASAP
-                StartCoroutine(ProcessLevelLoading(request));
+                StartCoroutine(ProcessDialogLoading(request));
             }
         }
     }
@@ -95,6 +95,24 @@ public class SceneLoaderManager : MonoBehaviour {
         }
     }
 
+    private IEnumerator ProcessDialogLoading(LoadDialogSceneRequest request) {
+
+        if (request.scene != null) {
+            var currentLoadedLevel = SceneManager.GetActiveScene();
+            SceneManager.UnloadSceneAsync(currentLoadedLevel);
+
+            AsyncOperation loadSceneProcess = SceneManager.LoadSceneAsync(request.scene.name, LoadSceneMode.Additive);
+
+            // Level is being loaded, it could take some seconds (or not). Waiting until is fully loaded
+            while (!loadSceneProcess.isDone) {
+                yield return null;
+            }
+
+            // Once the level is ready, activate it!
+            ActivateDialogProgression(request);
+        }
+    }
+
     private void ActivateLevel(LoadSceneRequest request) {
 
         // Set active
@@ -116,9 +134,8 @@ public class SceneLoaderManager : MonoBehaviour {
         SceneManager.SetActiveScene(loadedLevel);
         var dialogProgressionControl = GameObject.Instantiate(dialogProgressionPrefab);
         dialogProgressionControl.SetActive(false);
-
         //Set controller items
-        var canvas = FindObjectOfType<Canvas>();
+        var canvas = GameObject.Find("DialogCanvas").GetComponent<Canvas>();
         MultiDialogController controller = dialogProgressionControl.GetComponent<MultiDialogController>();
         controller.canvas = canvas;
         controller.dialogProgressionSO = request.dialogs;
