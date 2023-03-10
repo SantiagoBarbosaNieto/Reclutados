@@ -28,6 +28,10 @@ public class DialogController : MonoBehaviour
 
     private Story story;
 
+    private void OnCollisionEnter2D(Collision2D other) {
+    
+    }
+
      public void Init() {
         _dialogText = transform.Find("DialogPanel/DialogText").GetComponent<TMP_Text>();
         
