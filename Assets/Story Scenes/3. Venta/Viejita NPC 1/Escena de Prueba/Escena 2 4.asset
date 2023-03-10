@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Escena 2 4
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: fdfb5a17d916aff4490a94c25d6411d4, type: 3}
-  inkText: {fileID: 4900000, guid: 422ece022314d87498634c7e656411de, type: 3}
+  inkText: {fileID: 4900000, guid: c2f1583dd51b67c479e29c62e7d4a646, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
   characterSingle: {fileID: 0}

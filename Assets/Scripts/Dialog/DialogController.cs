@@ -29,13 +29,13 @@ public class DialogController : MonoBehaviour
     private Story story;
 
      public void Init() {
-        _dialogText = transform.Find("DialogText").GetComponent<TMP_Text>();
+        _dialogText = transform.Find("DialogPanel/DialogText").GetComponent<TMP_Text>();
         
-        _option1 = transform.Find("Option1").GetComponent<TMP_Text>();
+        _option1 = transform.Find("DialogPanel/Options/Option1").GetComponent<TMP_Text>();
         Debug.Log("Option 1 set to: " + _option1.text);
-        _option2 = transform.Find("Option2").GetComponent<TMP_Text>();
+        _option2 = transform.Find("DialogPanel/Options/Option2").GetComponent<TMP_Text>();
         Debug.Log("Option 2 set to: " + _option2.text);
-        _option3 = transform.Find("Option3").GetComponent<TMP_Text>();
+        _option3 = transform.Find("DialogPanel/Options/Option3").GetComponent<TMP_Text>();
         Debug.Log("Option 3 set to: " + _option3.text);
 
         _options = new List<TMP_Text>();
@@ -46,13 +46,13 @@ public class DialogController : MonoBehaviour
         _background = transform.Find("Background").GetComponent<Image>();
         _background.sprite = dialogPanelSO.background;
 
-        _characterSingle = transform.Find("CharacterSingle").GetComponent<Image>();
+        _characterSingle = transform.Find("DialogPanel/CharacterSingle").GetComponent<Image>();
         _characterSingle.sprite = dialogPanelSO.characterSingle;
         if(_characterSingle.sprite == null) {
             _characterSingle.gameObject.SetActive(false);
         }
 
-        _dialogEnd = transform.Find("DialogEnd").GetComponent<Button>();
+        _dialogEnd = transform.Find("DialogPanel/DialogEnd").GetComponent<Button>();
         _dialogEnd.gameObject.SetActive(false);
 
         story = new Story(dialogPanelSO.inkText.text);
