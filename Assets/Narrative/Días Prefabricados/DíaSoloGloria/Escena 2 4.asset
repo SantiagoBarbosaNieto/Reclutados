@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 943bfd464150854499776c6b6b47a2ac, type: 3}
-  m_Name: Escena 1 2
+  m_Name: Escena 2 4
   m_EditorClassIdentifier: 
-  background: {fileID: 21300000, guid: 94405c4ffaf11a34d9918b1276fb8111, type: 3}
-  inkText: {fileID: 4900000, guid: cbe52077f8c934345aebe676f328d37d, type: 3}
+  background: {fileID: 21300000, guid: fdfb5a17d916aff4490a94c25d6411d4, type: 3}
+  inkText: {fileID: 4900000, guid: b7f869286a3a91f4e8a47400de2b4351, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
-  characterSingle: {fileID: 21300000, guid: f0a9bbb011c38fb428c7f8d3caa5dd2c, type: 3}
+  characterSingle: {fileID: 0}

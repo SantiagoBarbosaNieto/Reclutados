@@ -21,7 +21,6 @@ Regaleme 3 unidades, papito.
 Papito tiene entienda que yo solo le deseo lo mejor, de pronto por eso puede que suene molesta pero no es el caso.
 * [No se preocupe, por el contrarió, le agradezco.] -> a3
 == a4 == 
-#+S3
 Igualmente papito que tenga un buen día.
 
 *[¡Igualmente señora!... Debo preguntarle el nombre la próxima vez.]->END
