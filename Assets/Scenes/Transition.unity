@@ -2625,6 +2625,7 @@ MonoBehaviour:
     type: 3}
   content: {fileID: 1863664472}
   valueObject: {fileID: 413800379}
+  numDia: {fileID: 1762798125}
 --- !u!1 &1863664471
 GameObject:
   m_ObjectHideFlags: 0
