@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Road
   m_EditorClassIdentifier: 
   sceneName: Road
+  sceneType: 1

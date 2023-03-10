@@ -32,11 +32,8 @@ public class DialogController : MonoBehaviour
         _dialogText = transform.Find("DialogPanel/DialogText").GetComponent<TMP_Text>();
         
         _option1 = transform.Find("DialogPanel/Options/Option1").GetComponent<TMP_Text>();
-        Debug.Log("Option 1 set to: " + _option1.text);
         _option2 = transform.Find("DialogPanel/Options/Option2").GetComponent<TMP_Text>();
-        Debug.Log("Option 2 set to: " + _option2.text);
         _option3 = transform.Find("DialogPanel/Options/Option3").GetComponent<TMP_Text>();
-        Debug.Log("Option 3 set to: " + _option3.text);
 
         _options = new List<TMP_Text>();
         _options.Add(_option1);
@@ -99,7 +96,6 @@ public class DialogController : MonoBehaviour
     }
 
     public void DialogEnd() {
-        Debug.Log("Calling dialog end event");
         onDialogEnd.Invoke();
     }
 

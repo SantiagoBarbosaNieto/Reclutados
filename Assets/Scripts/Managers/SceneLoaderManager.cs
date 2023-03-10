@@ -6,8 +6,9 @@ public class SceneLoaderManager : MonoBehaviour {
 
     [Header("Dependencies")]
     public LoadingScreenUI loadingScreenUI;
-
+    public GameObject dialogProgressionPrefab;
     private LoadSceneRequest _pendingRequest;
+
 
     // Function that will be called from a listener
     public void OnLoadMenuRequest(LoadSceneRequest request) {
@@ -23,6 +24,25 @@ public class SceneLoaderManager : MonoBehaviour {
         if (IsSceneAlreadyLoaded(request.scene)) {
             // Level is already loaded. Activate it
             ActivateLevel(request);
+        }
+        else {
+            // Level is not loaded
+            if (request.loadingScreen) {
+                // If a loading screen is requested, then show it and wait
+                this._pendingRequest = request;
+                this.loadingScreenUI.ToggleScreen(true);
+            }
+            else {
+                // If no loading screen requeste, load it ASAP
+                StartCoroutine(ProcessLevelLoading(request));
+            }
+        }
+    }
+
+    public void OnLoadDialogProgressionRequest(LoadDialogSceneRequest request) {
+        if (IsSceneAlreadyLoaded(request.scene)) {
+            // Level is already loaded. Activate it
+            ActivateDialogProgression(request);
         }
         else {
             // Level is not loaded
@@ -81,6 +101,29 @@ public class SceneLoaderManager : MonoBehaviour {
         var loadedLevel = SceneManager.GetSceneByName(request.scene.name);
         SceneManager.SetActiveScene(loadedLevel);
 
+        // Hide black loading screen
+        if (request.loadingScreen) {
+            this.loadingScreenUI.ToggleScreen(false);
+        }
+
+        // Clean status
+        this._pendingRequest = null;
+    }
+
+    private void ActivateDialogProgression(LoadDialogSceneRequest request) {
+        // Set active
+        var loadedLevel = SceneManager.GetSceneByName(request.scene.name);
+        SceneManager.SetActiveScene(loadedLevel);
+        var dialogProgressionControl = GameObject.Instantiate(dialogProgressionPrefab);
+        dialogProgressionControl.SetActive(false);
+
+        //Set controller items
+        var canvas = FindObjectOfType<Canvas>();
+        MultiDialogController controller = dialogProgressionControl.GetComponent<MultiDialogController>();
+        controller.canvas = canvas;
+        controller.dialogProgressionSO = request.dialogs;
+
+        dialogProgressionControl.SetActive(true);
         // Hide black loading screen
         if (request.loadingScreen) {
             this.loadingScreenUI.ToggleScreen(false);
