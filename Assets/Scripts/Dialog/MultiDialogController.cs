@@ -11,7 +11,7 @@ public class MultiDialogController : MonoBehaviour
     [SerializeField]
     public DialogProgressionSO dialogProgressionSO;
 
-    UnityEvent onMultiDialogEnd;
+    public UnityEvent onMultiDialogEnd;
 
     DialogController dialogController;
 
