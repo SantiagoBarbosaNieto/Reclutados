@@ -10,7 +10,7 @@ public class DialogController : MonoBehaviour
 {
     public UnityEvent onDialogEnd;
 
-    public DialogPanelSO dialogPanelSO;
+    public DialogSO dialogPanelSO;
     private TMP_Text _dialogText;
     
     private TMP_Text _option1;
@@ -74,8 +74,6 @@ public class DialogController : MonoBehaviour
             Debug.LogError("The choices could not be loaded: A maximum of three choices is required");
         }
         else if(choices.Count == 0) {
-            //Do something when the dialog ends
-            Debug.Log("Dialog ended");
             _dialogEnd.gameObject.SetActive(true);
         }
 

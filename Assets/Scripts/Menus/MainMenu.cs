@@ -1,15 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 // Uniti Engine
 using UnityEngine;
 //using UnityEngine.Debug;
 using UnityEngine.SceneManagement;
+using ScriptableObjectArchitecture;
 
 public class MainMenu : MonoBehaviour
 {
-    public void NewGame(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+    [SerializeField]
+    private LoadDialogSceneRequestGameEvent newGameEvent;
 
+    [SerializeField]
+    private SceneSO initialScene;
+    [SerializeField]
+    private DialogProgressionSO initialDialogs;
+
+    public void NewGame(){
+        LoadDialogSceneRequest request = new LoadDialogSceneRequest(initialScene, false, initialDialogs);
+        newGameEvent.Raise(request);
     }
     public void Exit()
     {

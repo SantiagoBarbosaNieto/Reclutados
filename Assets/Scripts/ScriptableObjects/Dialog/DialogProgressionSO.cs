@@ -6,7 +6,7 @@ using UnityEngine;
 public class DialogProgressionSO : ScriptableObject
 {
     [SerializeField]
-    public List<DialogPanelSO> dialogProgression;
+    public List<DialogSO> dialogProgression;
 
     [SerializeField]
     public AudioClip musicClip;

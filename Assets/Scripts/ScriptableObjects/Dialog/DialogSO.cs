@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu]
-public class DialogPanelSO : ScriptableObject
+public class DialogSO : ScriptableObject
 {
     [SerializeField]
     public Sprite background;   

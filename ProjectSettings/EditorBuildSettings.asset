@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Transition.unity
     guid: edea50992d5e33f46acabe874ac7a5ff
   - enabled: 1
-    path: Assets/Scenes/DialogScene.unity
+    path: Assets/Scenes/Dialog.unity
     guid: a0981bce9325bbe44a696a696e110d96
   - enabled: 1
     path: Assets/Scenes/Road.unity
