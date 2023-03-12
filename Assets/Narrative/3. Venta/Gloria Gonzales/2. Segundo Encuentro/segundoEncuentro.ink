@@ -28,11 +28,13 @@ Papito me acabo de presentar, cualquiera de los dos nombres que le di me gustan 
 
 == a4Disculpa ==
 //ACA SE LOGRA VENDER 2 UNIDADES DE LO QUE SEA
+#+S2
 Esta bien papito, regaleme 2 unidades si es tan amable
 * [A la orden señora Gloria] -> END
 
 == a4Perfecto ==
 // ACA SE LOGRA VENDER 5 UNIDADES DE LO QUE SEA
+#+S5
 Claro que lo es, usted ya dentro de poco será todo un hombre y me alegra ver que será uno honesto y trabajador. Vendame 5 unidades.
 
 * [Con mucho gusto] -> a5
@@ -40,30 +42,3 @@ Claro que lo es, usted ya dentro de poco será todo un hombre y me alegra ver qu
 ==a5==
 Gracias papito, si mañana me lo encuentro vuelvo y le compro.
 *[Usted es muy amable doña Gloria]->END
-
-/*
-== start ==
-Ay papito, yo lo vi ayer ayudando a su padre, muy bonito ya se parece a todo un hombre. ¿Cuentame que está vendiendo?
-
-* [Lo que ve señora] -> a2
-* [Tan querida, me da hasta pena venderle. Por mi se lo regalaba] -> a3
-== a2 ==
-Joven así no se le habla a una señora de mi edad por favor. Su madre se molestaría de saber como le habla a la gente.
-
-* [Lo siento doña, la verdad no se que me pasa.] -> b1
-
-== a3 ==
-Ay tan caballero, pero acá el trabajo y el esfuerzo se paga. Uno no puede vivir de la buena fe de los demás. 
-
-Regaleme 3 unidades, papito.
-
-* [Claro que sí, a la orden y que dios me la bendiga] -> a4
-
-== b1 ==
-Papito tiene entienda que yo solo le deseo lo mejor, de pronto por eso puede que suene molesta pero no es el caso.
-* [No se preocupe, por el contrarió, le agradezco.] -> a3
-== a4 == 
-Igualmente papito que tenga un buen día.
-
-*[¡Igualmente señora!... Debo preguntarle el nombre la próxima vez.]->END
-*/

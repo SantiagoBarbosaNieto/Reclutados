@@ -18,11 +18,13 @@ La verdad no me gusta mucho la idea de verte trabajando cada vez más, mucho men
 
 ==FinMalaActitud==
 //NO SE VENDE NADA
+#+S0
 Ay papito, pues yo tambien espero que así sea. No me tome a mal, pero ya no quisiera verlo por acá, quiero verlo estudiando.
 *[La entiendo doña Gloria, pero no se preocupe esto es temporal.]->END
 
 ==FinBuenaActitud==
 //SE VENDEN 2 UNIDADES
+#+S2
 Ah bueno, así sí me gusta verlo trabajando y estudiando. No debe ser fácil pero igual de guerrero que su padre. Regaleme 2 unidades de su mejor producto.
 
 *[Doña Gloria con mucho gusto]->END
