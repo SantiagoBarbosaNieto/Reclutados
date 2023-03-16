@@ -9,7 +9,6 @@ public class ItemSpawner : MonoBehaviour
     public Transform valueObject;
     public Transform numDia; 
 
-    private GameObject prefab = null;
     void Awake() 
     {
 

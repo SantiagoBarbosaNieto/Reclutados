@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemInitialize : MonoBehaviour
 {
-    public string name = "Test";
+    public new string name = "Test";
     public float value = 0;
     public Color positiveColor = Color.green;
     public Color negativeColor = Color.red;
