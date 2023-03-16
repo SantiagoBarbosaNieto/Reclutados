@@ -8,9 +8,12 @@ public class OptionClick : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     private TMP_Text option;
     public int optionIndex;
     public DialogController controller;
+    public AudioSource soundPlayer;
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
+        //play sfx
+        soundPlayer.Play();
         //Send event to set option
         controller.setStoryOption(optionIndex);
     }

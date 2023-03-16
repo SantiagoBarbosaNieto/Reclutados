@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c76569f83b83f4cae20dda794ba396, type: 3}
+  m_Name: LoadDialogSceneRequestGameEvent
+  m_EditorClassIdentifier: 
+  _debugValue:
+    scene: {fileID: 11400000, guid: 5eb69bdd82ffd304bac74e4e0c832d12, type: 2}
+    loadingScreen: 0
+    dialogs: {fileID: 11400000, guid: 423a995f03c5d7e429ce6dd1224a5dac, type: 2}
