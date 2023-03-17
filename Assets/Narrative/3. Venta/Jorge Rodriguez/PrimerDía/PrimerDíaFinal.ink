@@ -1,3 +1,5 @@
+-> start
+
 == start ==
 Bien hijo, para ser tu primera vez no te fue tan mal.
 

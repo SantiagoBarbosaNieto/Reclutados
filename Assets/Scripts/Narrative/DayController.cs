@@ -65,8 +65,9 @@ public class DayController : MonoBehaviour
 
         LoadSceneRequest currentRequest;
 
-        if(greeting.Count != 0)
+        if(greeting.Count != 0) {
             currentRequest = greeting.Dequeue();
+        }
         else if(level != null) {
             currentRequest = level;
             level = null;
