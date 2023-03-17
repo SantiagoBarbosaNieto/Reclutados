@@ -40,22 +40,17 @@ public class SceneLoaderManager : MonoBehaviour {
     }
 
     public void OnLoadDialogProgressionRequest(LoadDialogSceneRequest request) {
-        if (IsSceneAlreadyLoaded(request.scene)) {
-            // Level is already loaded. Activate it
-            ActivateDialogProgression(request);
+        // Level is not loaded
+        if (request.loadingScreen) {
+            // If a loading screen is requested, then show it and wait
+            this._pendingRequest = request;
+            this.loadingScreenUI.ToggleScreen(true);
         }
         else {
-            // Level is not loaded
-            if (request.loadingScreen) {
-                // If a loading screen is requested, then show it and wait
-                this._pendingRequest = request;
-                this.loadingScreenUI.ToggleScreen(true);
-            }
-            else {
-                // If no loading screen requeste, load it ASAP
-                StartCoroutine(ProcessDialogLoading(request));
-            }
+            // If no loading screen requeste, load it ASAP
+            StartCoroutine(ProcessDialogLoading(request));
         }
+
     }
 
     // Function that will be called from a listener
