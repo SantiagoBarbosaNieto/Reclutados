@@ -25,6 +25,8 @@ public class DayController : MonoBehaviour
     //The sales system is in place
     Queue<LoadDialogSceneRequest> sales;
 
+    LoadSceneRequest salesEnd;
+
     Queue<LoadDialogSceneRequest> dayEnd;
 
     //In the end of the day, the results will be shown
@@ -38,6 +40,7 @@ public class DayController : MonoBehaviour
         greeting = new Queue<LoadDialogSceneRequest>(day.greeting);
         level = day.level;
         sales = new Queue<LoadDialogSceneRequest>(day.sales);
+        salesEnd = day.salesEnd;
         dayEnd = new Queue<LoadDialogSceneRequest>(day.dayEnd);
         transition = day.transition;
         LoadOptionalScenes();
@@ -69,9 +72,16 @@ public class DayController : MonoBehaviour
             level = null;
         }
         else if(sales.Count != 0){
+            Debug.Log("sales");
             currentRequest = sales.Dequeue();
         }
+        else if(salesEnd != null) {
+            Debug.Log("salesEnd");
+            currentRequest = salesEnd;
+            salesEnd = null;
+        }
         else if(dayEnd.Count != 0) {
+            Debug.Log("dayEnd");
             currentRequest = dayEnd.Dequeue();
         }
         else if(transition != null) {
@@ -79,6 +89,7 @@ public class DayController : MonoBehaviour
         }
         else { //Fin del dia
             //Raise game event to go to the next day
+            Debug.Log("Aqui debe iniciar el siguiente día");
             return;
         }
 

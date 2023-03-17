@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScenes/TestScene.unity
     guid: d5d7e7f71ffb4a7429c1203a95ce1725
   - enabled: 1
+    path: Assets/Scenes/MockRegateo.unity
+    guid: 42af756f3437bee4aad68abcc02fa94c
+  - enabled: 1
     path: Assets/Scenes/Transition.unity
     guid: edea50992d5e33f46acabe874ac7a5ff
   - enabled: 1

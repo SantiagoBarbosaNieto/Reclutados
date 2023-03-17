@@ -24,6 +24,9 @@ MonoBehaviour:
   - scene: {fileID: 11400000, guid: 5eb69bdd82ffd304bac74e4e0c832d12, type: 2}
     loadingScreen: 0
     dialogs: {fileID: 11400000, guid: 33d0569448d5cd24c814109d90f26efd, type: 2}
+  salesEnd:
+    scene: {fileID: 11400000, guid: 9e12e0108ad4c6648afb1aff5b96b8fa, type: 2}
+    loadingScreen: 0
   dayEnd:
   - scene: {fileID: 11400000, guid: 5eb69bdd82ffd304bac74e4e0c832d12, type: 2}
     loadingScreen: 0
