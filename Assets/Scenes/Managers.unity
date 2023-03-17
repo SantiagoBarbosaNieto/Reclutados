@@ -583,7 +583,8 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: edb65ca0f8ae3624392942dd112a4b17,
+    type: 2}
   _event: {fileID: 11400000, guid: edb65ca0f8ae3624392942dd112a4b17, type: 2}
   _response:
     m_PersistentCalls:
@@ -637,7 +638,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.000030518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &479436780
 MonoBehaviour:
