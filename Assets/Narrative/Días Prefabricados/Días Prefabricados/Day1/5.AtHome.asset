@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df41d420582a73340b4688f24086d028, type: 3}
   m_Name: 5.AtHome
   m_EditorClassIdentifier: 
-  dialogProgression: []
+  dialogProgression:
+  - {fileID: 11400000, guid: e00342d9e929aee4e800cf6444ac559f, type: 2}
+  - {fileID: 11400000, guid: 8d3cea7c8615c3e4793084e9a608c6f5, type: 2}
   musicClip: {fileID: 0}

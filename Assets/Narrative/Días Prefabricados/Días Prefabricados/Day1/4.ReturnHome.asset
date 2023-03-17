@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogProgression:
   - {fileID: 11400000, guid: f904d45cb0425d545affa9c386fb9796, type: 2}
-  - {fileID: 11400000, guid: f904d45cb0425d545affa9c386fb9796, type: 2}
   musicClip: {fileID: 0}
