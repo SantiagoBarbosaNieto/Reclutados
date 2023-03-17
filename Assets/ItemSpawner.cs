@@ -7,12 +7,13 @@ public class ItemSpawner : MonoBehaviour
     public Object itemPrefab;
     public Transform content;
     public Transform valueObject;
+    public Transform numDia; 
 
-    private GameObject prefab = null;
     void Awake() 
     {
 
         int day = PlayerPrefs.GetInt("day");
+        numDia.GetComponent<TMPro.TextMeshProUGUI>().text = ""+day;
         int numEvents = PlayerPrefs.GetInt(day+"_events");
         int total = 0;
         for(int i = 0; i < numEvents; i++)
