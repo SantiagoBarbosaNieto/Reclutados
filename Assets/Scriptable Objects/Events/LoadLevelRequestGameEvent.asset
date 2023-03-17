@@ -15,3 +15,5 @@ MonoBehaviour:
   _debugValue:
     scene: {fileID: 11400000, guid: 7a5305fd5473eb942b832ba1e2c55f6b, type: 2}
     loadingScreen: 0
+    scene: {fileID: 11400000, guid: f25013ab155d264499dd0c668c13794f, type: 2}
+    loadingScreen: 1

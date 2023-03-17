@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Managers.unity
     guid: 92c25b988045af74689ee4210584129d
   - enabled: 1
+    path: Assets/Scenes/Road.unity
+    guid: cb6f58432d1359d4da2b74105d8879e5
+  - enabled: 1
     path: Assets/Scenes/Farm.unity
     guid: 2c31af6728bc19140ad2b40d8bf0802f
   - enabled: 1
