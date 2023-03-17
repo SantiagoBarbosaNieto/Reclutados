@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Events;
+using ScriptableObjectArchitecture;
 
 public class MultiDialogController : MonoBehaviour
 {
@@ -11,15 +11,13 @@ public class MultiDialogController : MonoBehaviour
     [SerializeField]
     public DialogProgressionSO dialogProgressionSO;
 
-    public UnityEvent onMultiDialogEnd;
-
     DialogController dialogController;
 
     private int currentDialog = 0;
 
     private GameObject dialogInstance;
 
-
+    public GameEvent multiDialogEnd;
 
     private void Start() {
         ProgressDialog();
@@ -45,7 +43,7 @@ public class MultiDialogController : MonoBehaviour
         if(currentDialog >= dialogProgressionSO.dialogProgression.Count) {
             Debug.Log("Dialog progression ended");
             AudioManager.Instance.StopSound();
-            onMultiDialogEnd.Invoke();
+            multiDialogEnd.Raise();
         }
         else {
             Destroy(dialogInstance);

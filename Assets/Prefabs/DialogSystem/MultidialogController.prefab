@@ -48,3 +48,4 @@ MonoBehaviour:
   dialogPrefab: {fileID: 1794210941830195386, guid: 4e240b65f174c4446983e4feeada3c25,
     type: 3}
   dialogProgressionSO: {fileID: 0}
+  multiDialogEnd: {fileID: 11400000, guid: edb65ca0f8ae3624392942dd112a4b17, type: 2}

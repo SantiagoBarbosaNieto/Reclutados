@@ -950,8 +950,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameEvent: {fileID: 11400000, guid: c95e6e9486a9213488039ff38c7eb55d, type: 2}
-  initialScene: {fileID: 11400000, guid: 5eb69bdd82ffd304bac74e4e0c832d12, type: 2}
-  initialDialogs: {fileID: 11400000, guid: 423a995f03c5d7e429ce6dd1224a5dac, type: 2}
+  initialDay: {fileID: 11400000, guid: 0f78497812f47824987eca22a92d4931, type: 2}
+  loadInitialDay: {fileID: 11400000, guid: 48b67f75ad204264c8c9ce01f01782a0, type: 2}
 --- !u!1 &821543609
 GameObject:
   m_ObjectHideFlags: 0

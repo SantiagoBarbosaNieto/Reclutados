@@ -1,22 +1,19 @@
 // Uniti Engine
 using UnityEngine;
 //using UnityEngine.Debug;
-using UnityEngine.SceneManagement;
 using ScriptableObjectArchitecture;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField]
-    private LoadDialogSceneRequestGameEvent newGameEvent;
 
     [SerializeField]
-    private SceneSO initialScene;
+    private DaySO initialDay;
     [SerializeField]
-    private DialogProgressionSO initialDialogs;
+    private LoadDayRequestGameEvent loadInitialDay;
 
     public void NewGame(){
-        LoadDialogSceneRequest request = new LoadDialogSceneRequest(initialScene, false, initialDialogs);
-        newGameEvent.Raise(request);
+        LoadDayRequest request = new LoadDayRequest(initialDay);
+        loadInitialDay.Raise(request);
     }
     public void Exit()
     {
