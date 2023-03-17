@@ -1,3 +1,5 @@
+-> start
+
 == start ==
 Regresas a tu cuarto y apenas logras escuhar a tu madre decir:
 

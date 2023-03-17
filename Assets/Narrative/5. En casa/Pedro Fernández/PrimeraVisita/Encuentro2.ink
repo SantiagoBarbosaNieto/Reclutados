@@ -1,3 +1,5 @@
+-> start
+
 == start ==
 Buenas noches, joven, disculpe el grito. ¿De casualidad su papá o su mamá no están en casa?
 *[¿Quién pregunta, disculpe?] -> a2nombre

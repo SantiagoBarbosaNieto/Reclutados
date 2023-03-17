@@ -1,3 +1,5 @@
+-> start
+
 == start ==
 Te despides de tu madrecita que se ve un poco desanimada y sales con tu padre al mercado del pueblo.
 ->END

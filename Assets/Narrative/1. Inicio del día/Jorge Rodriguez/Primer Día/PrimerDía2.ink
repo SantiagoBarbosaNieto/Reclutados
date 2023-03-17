@@ -1,3 +1,5 @@
+-> start
+
 == start ==
 Juanito, mi hijo, ¡buenos días!
 *[Buenos días, padre] -> a2

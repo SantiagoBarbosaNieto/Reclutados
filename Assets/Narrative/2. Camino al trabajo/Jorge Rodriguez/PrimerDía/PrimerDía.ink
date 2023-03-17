@@ -1,3 +1,5 @@
+-> start
+
 == start ==
 Listo, hijo. Gracias por acompañarme. Yo te enseñaré un par de cosas para que puedas hacerlo solo.
 *[...] -> a2

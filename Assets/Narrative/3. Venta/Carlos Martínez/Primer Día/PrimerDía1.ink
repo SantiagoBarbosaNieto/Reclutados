@@ -1,3 +1,5 @@
+-> start
+
 == start ==
 Don Jorge, mi buen amigo, ¿cuánto tiempo, eh? Ah, ya veo, su hijo lo está acompañando. -> a2
 

@@ -1,3 +1,5 @@
+-> start
+
 == start ==
 BUENOOOOO, RÁPIDO QUE HACE FRIO AFUERA.->END
 /*

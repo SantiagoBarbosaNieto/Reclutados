@@ -1,3 +1,5 @@
+-> start
+
 == start ==
 ¿Mijo como les fue hoy?
 *[Nos fue bien madre] ->a2
