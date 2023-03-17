@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df41d420582a73340b4688f24086d028, type: 3}
+  m_Name: 1. Greeting
+  m_EditorClassIdentifier: 
+  dialogProgression:
+  - {fileID: 11400000, guid: 7fd87ee15cf9976408c9a0e616350fa3, type: 2}
+  - {fileID: 11400000, guid: a0c988842a32f8b4ea8c8d49c72803a1, type: 2}
+  - {fileID: 11400000, guid: 04f627d775266b14d8b46be64f88d84d, type: 2}
+  musicClip: {fileID: 0}
