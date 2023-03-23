@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8246a3ca36dd24c5ca92d5b2c47b8cc5, type: 3}
-  m_Name: LoadLevelRequestGameEvent
+  m_Script: {fileID: 11500000, guid: df41d420582a73340b4688f24086d028, type: 3}
+  m_Name: ataque
   m_EditorClassIdentifier: 
-  _debugValue:
-    scene: {fileID: 11400000, guid: 2e5f67e54ff1aa849a6689e34ff8eca2, type: 2}
-    loadingScreen: 0
+  dialogProgression:
+  - {fileID: 11400000, guid: aa3bfeb52d0fd0646bd553cdad64505d, type: 2}
+  musicClip: {fileID: 0}

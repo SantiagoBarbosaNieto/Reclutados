@@ -44,6 +44,5 @@ public class TriggerChecker : MonoBehaviour
     public void advanceScene()
     {
         gameEvent.Raise();
-        this.gameObject.SetActive(false);
     }
 }
