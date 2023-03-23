@@ -3,20 +3,27 @@ using ScriptableObjectArchitecture;
 
 public class EventManager : MonoBehaviour
 {
-
     public static EventManager Instance {get; private set;}
 
-    public GameEvent NoMoneyEvent;
+    [SerializeField]
+    private GameEvent NoMoneyEvent;
 
-    public GameEvent AdvanceDayEvent;
-    public LoadDayRequestGameEvent LoadDayEvent;
-    public LoadDialogSceneRequestGameEvent LoadDialogSceneEvent;
-    public LoadSceneRequestGameEvent LoadSceneEvent;
+    [SerializeField]
+    private GameEvent AdvanceDayEvent;
+    [SerializeField]
+    private LoadDayRequestGameEvent LoadDayEvent;
+    [SerializeField]
+    private LoadDialogSceneRequestGameEvent LoadDialogSceneEvent;
+    [SerializeField]
+    private LoadSceneRequestGameEvent LoadSceneEvent;
 
 
-    public FloatGameEvent AddMoneyEvent; 
-    public IntGameEvent IncreaseCollaborationEvent;
-    public IntGameEvent EndBranchEvent;
+    [SerializeField]
+    private FloatGameEvent AddMoneyEvent; 
+    [SerializeField]
+    private IntGameEvent IncreaseCollaborationEvent;
+    [SerializeField]
+    private IntGameEvent EndBranchEvent;
 
 
     
