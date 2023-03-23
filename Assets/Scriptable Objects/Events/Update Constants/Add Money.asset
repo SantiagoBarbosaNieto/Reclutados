@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001ce7190bfda8a4d9ca56a17f8fdd0b, type: 3}
   m_Name: Add Money
   m_EditorClassIdentifier: 
-  _debugValue: 0
+  _debugValue: 10
