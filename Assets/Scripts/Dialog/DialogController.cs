@@ -84,9 +84,15 @@ public class DialogController : MonoBehaviour
     }
     
     public void setStoryOption(int choice) {
+        Choice selected = story.currentChoices[choice];
+        //Check if choices have tags associated
+        List<string> tags = selected.tags;
+        if(tags != null) {
+            Debug.Log("Una opcion ha generado " + tags.Count + " tags");
+        }
+
         story.ChooseChoiceIndex(choice);
         UpdateDialogText(story.ContinueMaximally());
-
         UpdateAllOptions(story.currentChoices);
     }
 
