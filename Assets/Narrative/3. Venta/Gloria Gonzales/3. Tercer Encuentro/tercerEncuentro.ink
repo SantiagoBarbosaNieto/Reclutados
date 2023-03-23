@@ -8,7 +8,7 @@ Papito una vez más nos vemos aca en el mercado.
 ==buenaActitud==
 Todo un caballero, ¿pero sí estás asistiendo a la escuela me imagino?
 
-*[Sí señora Gloria, mis padres tratan de dejarme estudiar en lo posible.]->FinBuenaActitud
+*[Sí señora Gloria, mis padres tratan de dejarme estudiar en lo posible. #pref money 20]->FinBuenaActitud
 *[Pues doña Gloria, a decir verdad eso es como un sorteo todas las mañanas para ver si me dejan ir o no.] ->malaActitud
 ==malaActitud==
 Papito pero usted esta muy niño aún para tener que trabajar tan seguido. Yo pense que las anteriores veces que me lo encontre eran días que salías temprano de la escuala.
