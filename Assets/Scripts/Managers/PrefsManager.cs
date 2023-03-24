@@ -24,6 +24,15 @@ public class PrefsManager : MonoBehaviour
         PlayerPrefs.SetFloat(ENDBRANCH, 0);
     }
 
+    private void Awake() {
+        if(Instance != null && Instance != this) {
+            Destroy(this);
+        }
+        else {
+            Instance = this;
+        }
+    }
+
     //Updates the amount of money the player has
     public void AddMoney(float money) {
 
