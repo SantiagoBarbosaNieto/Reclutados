@@ -6,7 +6,7 @@ Don Jorge, mi buen amigo, ¿cuánto tiempo, eh? Ah, ya veo, su hijo lo está aco
 == a2 ==
 Bueno joven, hoy es su día de suerte, ya que yo seré su primer cliente.
 *[Supongo que esas son buenas noticias] -> a3
-*[Esto será una buena práctica] -> a5
+*[Esto será una buena práctica] -> a6
 
 == a3 ==
 Ja ja ja, y ya comenzamos mal. Juanito, si yo fuera cualquier otra persona ahora mismo podría irme sin comprar nada y solamente hubieses perdido tiempo.
@@ -20,7 +20,7 @@ Juan, no acabamos de hablar sobre esto? Vamos que yo se que lo lograrás. ->a5
 == a4 ==
 No te preocupes, te conozco desde que eras chiquito Juan. Ahora, intentemos de nuevo. -> a5
 == a5 ==
-Intentemos de nuevo, bueno joven, hoy es su día de suerte, ya que yo seré su primer cliente.
+Entonces ahem, bueno joven, hoy es su día de suerte, ya que yo seré su primer cliente.
 *[Esto será una buena práctica] -> a6
 
 == a6 ==
