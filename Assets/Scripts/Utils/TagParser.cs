@@ -4,6 +4,7 @@ public class TagParser : MonoBehaviour
 {
 
     private const string PREF = "pref";
+    private const string REGATEO = "reg";
     private const string DP = "dp";
 
     public static void ParseTag(string tag) {
@@ -32,6 +33,18 @@ public class TagParser : MonoBehaviour
                     if(EventManager.Instance != null) {
                         EventManager.Instance.EndBranch(int.Parse(value));
                     }
+                    break;
+                default:
+                    Debug.LogError("Key " + key + " is not defined under pref tag");
+                    break;
+            }
+        }
+        else if (command == REGATEO)
+        {
+             switch(key) {
+                case "compra":
+                    Debug.Log("Compa de " + value + " unidades registrada");
+                    EventManager.Instance.AddMoney(float.Parse(value));
                     break;
                 default:
                     Debug.LogError("Key " + key + " is not defined under pref tag");

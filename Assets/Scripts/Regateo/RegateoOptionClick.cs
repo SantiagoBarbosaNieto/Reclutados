@@ -19,7 +19,7 @@ public class RegateoOptionClick : MonoBehaviour, IPointerClickHandler, IPointerE
     }
 
     void Start() {
-        option = GetComponent<TMP_Text>();
+        option = transform.GetChild(1).GetComponent<TMP_Text>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

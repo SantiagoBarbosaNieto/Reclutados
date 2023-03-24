@@ -26,7 +26,7 @@ public class RegateoController : MonoBehaviour
 
     private Button _dialogEnd;
 
-    private List<TMP_Text> _options;
+    private List<GameObject> _options;
 
     private Story story;
 
@@ -61,28 +61,39 @@ public class RegateoController : MonoBehaviour
 
     private void UpdateAllOptions(List<Choice> choices) {
 
-        foreach (var option in _options) {
-            option.gameObject.SetActive(false);
-        }
-
         if(choices.Count == 0) {
+            transform.Find("OptionsPanel").gameObject.SetActive(false);
             _dialogEnd.gameObject.SetActive(true);
         }
-
+        else
+        {
+            transform.Find("OptionsPanel").gameObject.SetActive(true);
+        }
+        if(_options != null)
+        {
+            foreach(GameObject op in _options)
+            {
+                Destroy(op);
+            }
+        }
+        _options = new List<GameObject>();
         for(int i = 0; i < choices.Count; i++) {
-            Transform instance = Instantiate(optionPrefab, new Vector3(0,0,0), new Quaternion(0,0,0,0)).transform;
+            Transform instance = Instantiate(optionPrefab,  _optionsContainer.transform).transform;
             instance.SetParent(_optionsContainer);
             instance.GetComponent<RegateoOptionClick>().optionIndex = i;
             instance.GetComponent<RegateoOptionClick>().controller = gameObject.GetComponent<RegateoController>();
             instance.GetComponent<RegateoOptionClick>().soundPlayer = gameObject.transform.Find("Audio/Click").GetComponent<AudioSource>();
+            TMP_Text opTitle = instance.GetChild(0).GetComponent<TMP_Text>();
+            opTitle.text = "Option " +  (i+1); 
             TMP_Text op = instance.GetChild(1).GetComponent<TMP_Text>();
             op.text = choices[i].text;
             
-            _options.Add(op);
+            _options.Add(instance.gameObject);
         }
     }
     
     public void setStoryOption(int choice) {
+        Debug.Log("CHOICE MADE: " + choice);
         Choice selected = story.currentChoices[choice];
         //Check if choices have tags associated
         List<string> tags = selected.tags;
