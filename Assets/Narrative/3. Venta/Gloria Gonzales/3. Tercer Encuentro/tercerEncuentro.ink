@@ -8,13 +8,13 @@ Papito una vez más nos vemos aca en el mercado.
 ==buenaActitud==
 Todo un caballero, ¿pero sí estás asistiendo a la escuela me imagino?
 
-*[Sí señora Gloria, mis padres tratan de dejarme estudiar en lo posible. #+S2]->FinBuenaActitud
+*[Sí señora Gloria, mis padres tratan de dejarme estudiar en lo posible. # reg compra 2]->FinBuenaActitud
 *[Pues doña Gloria, a decir verdad eso es como un sorteo todas las mañanas para ver si me dejan ir o no.] ->malaActitud
 ==malaActitud==
 Papito pero usted esta muy niño aún para tener que trabajar tan seguido. Yo pense que las anteriores veces que me lo encontre eran días que salías temprano de la escuala.
 
 La verdad no me gusta mucho la idea de verte trabajando cada vez más, mucho menos cuando te veo tan aburrido en esto.
-* [No se preocupe doña Gloria, yo creo que esto no durará mucho más #+S0]-> FinMalaActitud
+* [No se preocupe doña Gloria, yo creo que esto no durará mucho más # reg compra 0]-> FinMalaActitud
 
 ==FinMalaActitud==
 //NO SE VENDE NADA

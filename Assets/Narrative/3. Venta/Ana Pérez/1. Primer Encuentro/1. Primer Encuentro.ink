@@ -21,11 +21,11 @@ Debo admitir que me preocupa que no estes estudiando.
 
 == a4 ==
 Chiquillo es un joven muy atento, debo admitir que me gustaría que el mio creciera para ser así.
-*[Doña Ana es siempre muy querida, gracias #+S2] ->a5
+*[Doña Ana es siempre muy querida, gracias # reg compra 2] ->a5
 
 == a5 ==
 #+S2
 Bueno Chiqui, me gusto este rato que compartimos. Vendame dos unidades para esta tarde prepararle de comer a mi chiqui.
 *[Doña Ana, muchas gracias, aqui tiene.]
 
-->END
+->END   

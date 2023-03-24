@@ -31,10 +31,10 @@ Eso, trata siempre de mostrarle interes al cliente y así él tambien te lo most
 
 == a7 ==
 Eso muy bien, y cuanto más hables con un cliente más podrás saber sobre esa persona para el futuro y quien sabe, puede que con solo pasar un rato agradable este decida comprar algo. 
-*[¡Don Carlos muchas gracias! #pref money 20]->a9
+*[¡Don Carlos muchas gracias! # reg compra 2]->a9
 == a8 ==
 Entiendo Juan, pero creeme cuando te digo que a veces nada más con mantener una buena conversación es suficiente para que un cliente decida comprarte algo. 
-*[¡Don Carlos muchas gracias! #pref money 20]->a9
+*[¡Don Carlos muchas gracias! # reg compra 2]->a9
 
 == a9 ==
 #+S2
