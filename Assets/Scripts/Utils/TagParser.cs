@@ -8,12 +8,21 @@ public class TagParser : MonoBehaviour
 
     public static void ParseTag(string tag) {
         string[] splitTag = tag.Split(" ");
+        if(splitTag.Length != 3 && splitTag.Length != 4) {
+            Debug.LogError("The tag is not properly formatted");
+            return;
+        }
+
             
         string command = splitTag[0];
         string key = splitTag[1];
         string value = splitTag[2];
 
         if(command == PREF) {
+            if(splitTag.Length != 3) {
+                Debug.LogError("The tag is not properly formatted");
+                return;
+            }
             switch(key) {
                 case "money":
                     if(EventManager.Instance != null) {
@@ -40,10 +49,13 @@ public class TagParser : MonoBehaviour
         }
 
         else if(command == DP) {
-
-
-
+            
         } 
+
+        else {
+            Debug.LogError("The command " + command + " is not defined");
+            return;
+        }
 
     }
 

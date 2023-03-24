@@ -43,7 +43,8 @@ public class MultiDialogController : MonoBehaviour
         if(currentDialog >= dialogProgressionSO.dialogProgression.Count) {
             Debug.Log("Dialog progression ended");
             AudioManager.Instance.StopSound();
-            multiDialogEnd.Raise();
+            if(multiDialogEnd != null)
+                multiDialogEnd.Raise();
         }
         else {
             Destroy(dialogInstance);

@@ -9,6 +9,31 @@ public class SceneLoaderManager : MonoBehaviour {
     public GameObject dialogProgressionPrefab;
     private LoadSceneRequest _pendingRequest;
 
+    [SerializeField]
+    private bool loadInitialScene;
+    [SerializeField]
+    private SceneSO initialScene;
+
+    private void Start() {
+        if(loadInitialScene) {
+            if(initialScene != null) {
+                LoadSceneRequest request = new LoadSceneRequest(initialScene, false);
+                StartCoroutine(LoadInitialScene(request));
+            }   
+        }
+    }
+
+    private IEnumerator LoadInitialScene(LoadSceneRequest request) {
+        var sceneLoading = SceneManager.LoadSceneAsync(request.scene.name, LoadSceneMode.Additive);
+
+        while(!sceneLoading.isDone) {
+            yield return null;
+        }
+
+        var loadedLevel = SceneManager.GetSceneByName(request.scene.name);
+        SceneManager.SetActiveScene(loadedLevel);
+    }
+
 
     // Function that will be called from a listener
     public void OnLoadMenuRequest(LoadSceneRequest request) {

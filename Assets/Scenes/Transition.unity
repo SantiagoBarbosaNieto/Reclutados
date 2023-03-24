@@ -1829,6 +1829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780ae34c4550f5340bcdbea90dc51460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialDay: {fileID: 0}
+  loadInitialDay: {fileID: 0}
 --- !u!114 &1399745232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2787,6 +2789,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 6979701100843745668, guid: 0f02c7521bfb94a498c991337544497f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6979701100843745671, guid: 0f02c7521bfb94a498c991337544497f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2810,7 +2817,7 @@ PrefabInstance:
     - target: {fileID: 6979701100843745671, guid: 0f02c7521bfb94a498c991337544497f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6979701100843745671, guid: 0f02c7521bfb94a498c991337544497f,
         type: 3}
@@ -2820,7 +2827,7 @@ PrefabInstance:
     - target: {fileID: 6979701100843745671, guid: 0f02c7521bfb94a498c991337544497f,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6979701100843745671, guid: 0f02c7521bfb94a498c991337544497f,
         type: 3}
@@ -2870,12 +2877,12 @@ PrefabInstance:
     - target: {fileID: 6979701100843745671, guid: 0f02c7521bfb94a498c991337544497f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 387.4545
       objectReference: {fileID: 0}
     - target: {fileID: 6979701100843745671, guid: 0f02c7521bfb94a498c991337544497f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -56.8
       objectReference: {fileID: 0}
     - target: {fileID: 6979701100843745671, guid: 0f02c7521bfb94a498c991337544497f,
         type: 3}

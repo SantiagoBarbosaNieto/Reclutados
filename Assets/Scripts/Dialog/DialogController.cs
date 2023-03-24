@@ -95,7 +95,7 @@ public class DialogController : MonoBehaviour
         story.ChooseChoiceIndex(choice);
         UpdateDialogText(story.ContinueMaximally());
         UpdateAllOptions(story.currentChoices);
-    }
+   }
 
    
 
