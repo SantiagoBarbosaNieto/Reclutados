@@ -21,10 +21,10 @@ Me alegra papito, y hoy que tiene mijo para ver de que me antojo.
 Me alegra papito, y hoy que tiene mijo para ver de que me antojo.
 
 * [Lo mismo de siempre doña] -> a3
-* [Mas de lo mejor doña Gloria #pref money 50] -> a4Perfecto
+* [Mas de lo mejor doña Gloria #+S5] -> a4Perfecto
 == a3 ==
 Papito me acabo de presentar, cualquiera de los dos nombres que le di me gustan pero uselos.
-* [Disculpe doña Gloria, la costumbre #pref money 20] -> a4Disculpa
+* [Disculpe doña Gloria, la costumbre #+S2] -> a4Disculpa
 
 == a4Disculpa ==
 //ACA SE LOGRA VENDER 2 UNIDADES DE LO QUE SEA

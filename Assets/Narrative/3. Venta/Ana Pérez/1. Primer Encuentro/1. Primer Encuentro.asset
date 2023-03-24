@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1. Primer Encuentro
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: 0fca7f7114b21c145aaf5edc68c68229, type: 3}
-  inkText: {fileID: 0}
+  inkText: {fileID: 4900000, guid: 027cc84eabf9d4043866f5d3628b6210, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
   characterSingle: {fileID: 21300000, guid: 4508ced53932037478c04e67efa96d9a, type: 3}

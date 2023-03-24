@@ -30,7 +30,7 @@ Ja ja, me refería a las ventas, pero me alegra saber que aun tienes la escuela 
 
 == a7 ==
 Me puedes decir Isa nada más si así quieres. De paso aprovecho y te ayudo un poco. Dame un par de unidades.
-*[Isa muchas gracias, aqui tienes #pref money 20] -> a8
+*[Isa muchas gracias, aqui tienes #+S2] -> a8
 
 == a8 ==
 #+S2
