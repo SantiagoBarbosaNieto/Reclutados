@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: PrimeraVenta dp
   m_EditorClassIdentifier: 
   dialogProgression:
+  - {fileID: 11400000, guid: d9f9c0070abc26448909fa3f8de4f0f1, type: 2}
+  - {fileID: 11400000, guid: 11240a6cb36485d41b3aacf370057c26, type: 2}
   - {fileID: 11400000, guid: ed72920944570a74b912ad966117757d, type: 2}
+  - {fileID: 11400000, guid: fb5604cb200c6304eb262062a340f7ce, type: 2}
   musicClip: {fileID: 0}

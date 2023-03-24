@@ -1,7 +1,7 @@
 -> start
 
 == start ==
-Ay papito, yo lo vi ayer ayudando a su padre, muy bonito ya se parece a todo un hombre. ¿Cuentame que está vendiendo?
+Ay papito, yo lo vi ayudando a su padre, muy bonito ya se parece a todo un hombre. ¿Cuentame que está vendiendo?
 
 * [Lo que ve señora] -> a2
 * [Tan querida, me da hasta pena venderle. Por mi se lo regalaba] -> a3
