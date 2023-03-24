@@ -120,7 +120,7 @@ public class PrefsManager : MonoBehaviour
         List<(string,float)> events = new List<(string, float)>();
 
         int numEvents = GetNumEvents(day);
-        for( int i = 0; i < numEvents; i++)
+        for( int i = 1; i <= numEvents; i++)
         {
             events.Add(GetEvent(day, i));
         }

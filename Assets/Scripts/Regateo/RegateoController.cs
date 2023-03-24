@@ -93,7 +93,6 @@ public class RegateoController : MonoBehaviour
     }
     
     public void setStoryOption(int choice) {
-        Debug.Log("CHOICE MADE: " + choice);
         Choice selected = story.currentChoices[choice];
         //Check if choices have tags associated
         List<string> tags = selected.tags;

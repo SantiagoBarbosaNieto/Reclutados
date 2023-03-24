@@ -44,7 +44,7 @@ public class TagParser : MonoBehaviour
              switch(key) {
                 case "compra":
                     Debug.Log("Compa de " + value + " unidades registrada");
-                    EventManager.Instance.AddMoney(float.Parse(value));
+                    PrefsManager.Instance.AddRegateoMoney(float.Parse(value));
                     break;
                 default:
                     Debug.LogError("Key " + key + " is not defined under pref tag");

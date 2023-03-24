@@ -36,6 +36,7 @@ public class DayController : MonoBehaviour
 
     public void OnLoadDay(LoadDayRequest request) {
         Debug.Log("Day loaded successfully");
+        PlayerPrefs.DeleteAll();
         PrefsManager.Instance.SetDay(1);//TODO quitar esto y ponerlo en un lugar que tenga sentido
         DaySO day = request.day;
         greeting = new Queue<LoadDialogSceneRequest>(day.greeting);
