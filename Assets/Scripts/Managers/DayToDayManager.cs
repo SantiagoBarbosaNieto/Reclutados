@@ -16,10 +16,12 @@ public class DayToDayManager : MonoBehaviour
 
     public void StartNewDay() {
         index += 1;
-        if (dayProgression[index] != null) {
+        if (index < dayProgression.Count) {
             LoadDayRequest request = new LoadDayRequest(dayProgression[index]);
             PrefsManager.Instance.StartNewDay();
             loadDayRequestGameEvent.Raise(request);
+        } else {
+            Debug.Log("No hay mas dias para cargar: Aca se debe cargar uno de los finales");
         }
         
     }
