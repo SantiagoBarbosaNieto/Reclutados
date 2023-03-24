@@ -14,6 +14,11 @@ public class TagParser : MonoBehaviour
             return;
         }
 
+        if(splitTag.Length < 3)
+        {
+            Debug.Log("Se intentó leer un TAG no válido: " + tag);
+            return;
+        }
             
         string command = splitTag[0];
         string key = splitTag[1];
