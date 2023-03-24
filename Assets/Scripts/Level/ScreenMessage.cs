@@ -12,7 +12,7 @@ public class ScreenMessage : MonoBehaviour {
     public void PopUp() {
 
         int dinero = Random.Range(1, 5);
-        TransitionItem item = new TransitionItem(PrefsManager.Instance.GetDay(), 1, "Dinero que encontraste en el suelo", dinero);
+        TransitionItem item = new TransitionItem(PrefsManager.Instance.GetDay(), 1, "Dinero que encontraste", dinero);
 
         gameEvent.Raise(item);
 
@@ -22,13 +22,13 @@ public class ScreenMessage : MonoBehaviour {
             player.SetActive(false);
             popUpBox.SetActive(true);
             popUpText.text = "¡Encontraste $" + dinero + " en el suelo!";
-        }       
+        }
+        PrefsManager.Instance.eventHappendedTrue();       
     }
 
     public void ClosePopUp() {
         player.SetActive(true);
         popUpBox.SetActive(false);
-        PrefsManager.Instance.eventHappendedTrue();
     }
 
 }
