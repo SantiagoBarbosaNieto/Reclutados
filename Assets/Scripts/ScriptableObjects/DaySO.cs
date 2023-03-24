@@ -12,6 +12,8 @@ public class DaySO : ScriptableObject
 
     public List<LoadDialogSceneRequest> sales;
 
+    public LoadSceneRequest salesEnd;
+
     public List<LoadDialogSceneRequest> dayEnd;
 
     public LoadSceneRequest transition;

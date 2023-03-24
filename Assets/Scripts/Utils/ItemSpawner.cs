@@ -12,14 +12,16 @@ public class ItemSpawner : MonoBehaviour
     void Awake() 
     {
 
-        int day = PlayerPrefs.GetInt("day");
+        int day = PrefsManager.Instance.GetDay();
         numDia.GetComponent<TMPro.TextMeshProUGUI>().text = ""+day;
+
+        List<(string, float)> events = PrefsManager.Instance.GetEvents(day);
         int numEvents = PlayerPrefs.GetInt(day+"_events");
-        int total = 0;
-        for(int i = 0; i < numEvents; i++)
+        float total = 0;
+        foreach( (string,float)ev in events)
         {
-            string name = PlayerPrefs.GetString(day+"_event_name_"+i);
-            int value = PlayerPrefs.GetInt(day+"_event_value_"+i);
+            string name = ev.Item1;
+            float value = ev.Item2;
             total += value;
 
             GameObject item = Instantiate (itemPrefab) as GameObject;

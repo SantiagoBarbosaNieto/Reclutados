@@ -7,7 +7,33 @@ public class SceneLoaderManager : MonoBehaviour {
     [Header("Dependencies")]
     public LoadingScreenUI loadingScreenUI;
     public GameObject dialogProgressionPrefab;
+    public GameObject regateoProgressionPrefab;
     private LoadSceneRequest _pendingRequest;
+
+    [SerializeField]
+    private bool loadInitialScene;
+    [SerializeField]
+    private SceneSO initialScene;
+
+    private void Start() {
+        if(loadInitialScene) {
+            if(initialScene != null) {
+                LoadSceneRequest request = new LoadSceneRequest(initialScene, false);
+                StartCoroutine(LoadInitialScene(request));
+            }   
+        }
+    }
+
+    private IEnumerator LoadInitialScene(LoadSceneRequest request) {
+        var sceneLoading = SceneManager.LoadSceneAsync(request.scene.name, LoadSceneMode.Additive);
+
+        while(!sceneLoading.isDone) {
+            yield return null;
+        }
+
+        var loadedLevel = SceneManager.GetSceneByName(request.scene.name);
+        SceneManager.SetActiveScene(loadedLevel);
+    }
 
 
     // Function that will be called from a listener
@@ -104,7 +130,10 @@ public class SceneLoaderManager : MonoBehaviour {
             }
 
             // Once the level is ready, activate it!
-            ActivateDialogProgression(request);
+            if(request.scene.name.Equals("Regateo"))
+                ActivateRegateoDialogProgression(request);
+            else
+                ActivateDialogProgression(request);
         }
     }
 
@@ -114,6 +143,31 @@ public class SceneLoaderManager : MonoBehaviour {
         var loadedLevel = SceneManager.GetSceneByName(request.scene.name);
         SceneManager.SetActiveScene(loadedLevel);
 
+        // Hide black loading screen
+        if (request.loadingScreen) {
+            this.loadingScreenUI.ToggleScreen(false);
+        }
+
+        // Clean status
+        this._pendingRequest = null;
+    }
+
+    private void ActivateRegateoDialogProgression(LoadDialogSceneRequest request)
+    { 
+        // Set active
+        var loadedLevel = SceneManager.GetSceneByName(request.scene.name);
+        SceneManager.SetActiveScene(loadedLevel);
+        var regateoProgressionControl = GameObject.Instantiate(regateoProgressionPrefab);
+        regateoProgressionControl.SetActive(false);
+        if(GameObject.Find("RegateoCanvas") == null)
+            Debug.Log("NAME: ");
+        //Set controller items
+        var canvas = GameObject.Find("RegateoCanvas").GetComponent<Canvas>();
+        MultiRegateoController controller = regateoProgressionControl.GetComponent<MultiRegateoController>();
+        controller.canvas = canvas;
+        controller.dialogProgressionSO = request.dialogs;
+
+        regateoProgressionControl.SetActive(true);
         // Hide black loading screen
         if (request.loadingScreen) {
             this.loadingScreenUI.ToggleScreen(false);
