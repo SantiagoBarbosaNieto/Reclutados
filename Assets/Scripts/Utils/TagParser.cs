@@ -9,10 +9,7 @@ public class TagParser : MonoBehaviour
 
     public static void ParseTag(string tag) {
         string[] splitTag = tag.Split(" ");
-        if(splitTag.Length != 3 && splitTag.Length != 4) {
-            Debug.LogError("The tag is not properly formatted");
-            return;
-        }
+       
 
         if(splitTag.Length < 3)
         {
