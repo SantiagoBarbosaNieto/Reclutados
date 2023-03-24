@@ -15,6 +15,7 @@ public class PrefsManager : MonoBehaviour
     public const string VALUE_EVENT = "_event_value_";
 
 
+
     private void Start() {
         ResetPrefs();
     }
@@ -175,7 +176,7 @@ public class PrefsManager : MonoBehaviour
         PlayerPrefs.SetFloat(COLLABORATION, 0);
         PlayerPrefs.SetFloat(ENDBRANCH, 0);
         PlayerPrefs.SetFloat(TODAYSALES, 0);
-        PlayerPrefs.SetInt(DAY, 0);
+        PlayerPrefs.SetInt(DAY, 1);
         PlayerPrefs.SetInt("1_events", 0);
     }
 

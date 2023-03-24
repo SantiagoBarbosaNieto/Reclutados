@@ -949,9 +949,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780ae34c4550f5340bcdbea90dc51460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameEvent: {fileID: 11400000, guid: c95e6e9486a9213488039ff38c7eb55d, type: 2}
   initialDay: {fileID: 11400000, guid: 0f78497812f47824987eca22a92d4931, type: 2}
   loadInitialDay: {fileID: 11400000, guid: 48b67f75ad204264c8c9ce01f01782a0, type: 2}
+  startNewDay: {fileID: 11400000, guid: bba8bcb876f5aaf43a2d5dd1d48d6218, type: 2}
 --- !u!1 &821543609
 GameObject:
   m_ObjectHideFlags: 0

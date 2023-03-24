@@ -36,7 +36,6 @@ public class DayController : MonoBehaviour
 
     public void OnLoadDay(LoadDayRequest request) {
         Debug.Log("Day loaded successfully");
-        PrefsManager.Instance.StartNewDay();
         DaySO day = request.day;
         greeting = new Queue<LoadDialogSceneRequest>(day.greeting);
         level = day.level;

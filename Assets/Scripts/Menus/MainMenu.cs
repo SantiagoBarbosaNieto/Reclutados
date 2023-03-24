@@ -11,7 +11,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private LoadDayRequestGameEvent loadInitialDay;
 
+
+    [SerializeField]
+    private GameEvent startNewDay;
+
     public void NewGame(){
+        
+
         LoadDayRequest request = new LoadDayRequest(initialDay);
         PrefsManager.Instance.ResetPrefs();
         loadInitialDay.Raise(request);

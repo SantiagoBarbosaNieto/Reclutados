@@ -9,9 +9,9 @@ public class ItemSpawner : MonoBehaviour
     public Transform valueObject;
     public Transform numDia; 
 
-    void Awake() 
+    // Start is called before the first frame update
+    void Start()
     {
-
         int day = PrefsManager.Instance.GetDay();
         numDia.GetComponent<TMPro.TextMeshProUGUI>().text = ""+day;
 
@@ -34,13 +34,6 @@ public class ItemSpawner : MonoBehaviour
         TMPro.TextMeshProUGUI  TMvalue = valueObject.GetComponent<TMPro.TextMeshProUGUI>();
 
         TMvalue.text = "$ "  + (total >= 0 ? " " : "") + total.ToString();
-
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
