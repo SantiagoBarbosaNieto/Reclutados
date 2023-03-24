@@ -45,8 +45,8 @@ public class MultiRegateoController : MonoBehaviour
             AudioManager.Instance.StopSound();
             if(PrefsManager.Instance == null)
                 Debug.Log("ISNULL :/");
-            PrefsManager.Instance.AddEvent("Ventas del día", PrefsManager.Instance.GetRegateoMoney());
-            PrefsManager.Instance.SetRegateoMoney(0);
+            PrefsManager.Instance.AddEvent("Ventas del día", PrefsManager.Instance.GetSalesMoney());
+            PrefsManager.Instance.SetSalesMoney(0);
             multiDialogEnd.Raise();
         }
         else {

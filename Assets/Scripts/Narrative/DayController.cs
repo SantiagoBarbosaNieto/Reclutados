@@ -36,8 +36,7 @@ public class DayController : MonoBehaviour
 
     public void OnLoadDay(LoadDayRequest request) {
         Debug.Log("Day loaded successfully");
-        PlayerPrefs.DeleteAll();
-        PrefsManager.Instance.SetDay(1);//TODO quitar esto y ponerlo en un lugar que tenga sentido
+        PrefsManager.Instance.StartNewDay();
         DaySO day = request.day;
         greeting = new Queue<LoadDialogSceneRequest>(day.greeting);
         level = day.level;
@@ -92,7 +91,6 @@ public class DayController : MonoBehaviour
         else { //Fin del dia
             //Raise game event to go to the next day
             Debug.Log("Aqui debe iniciar el siguiente día");
-            PrefsManager.Instance.AdvanceDay();
             return;
         }
 

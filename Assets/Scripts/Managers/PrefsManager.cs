@@ -8,18 +8,15 @@ public class PrefsManager : MonoBehaviour
     public const string COLLABORATION = "collaboration";
     public const string ENDBRANCH = "endBranch";
     public const string TODAYSALES = "todaySales";
-    public const string REGATEO_MONEY = "regMoney";
     public const string DAY = "dia";
-
     public const string NUMEVENTS = "_events";
-
     public const string NAME_EVENT = "_event_name_";
     public const string VALUE_EVENT = "_event_value_";
 
 
     private void Start() {
         PlayerPrefs.SetFloat(MONEY, 0);
-        PlayerPrefs.SetFloat(REGATEO_MONEY, 0);
+        PlayerPrefs.SetFloat(TODAYSALES, 0);
         PlayerPrefs.SetFloat(COLLABORATION, 0);
         PlayerPrefs.SetFloat(ENDBRANCH, 0);
         ResetPrefs();
@@ -48,9 +45,6 @@ public class PrefsManager : MonoBehaviour
         PlayerPrefs.SetFloat(MONEY, PlayerPrefs.GetFloat(MONEY) + money);
     }
 
-    public void UpdateDaySales(float money) {
-        PlayerPrefs.SetFloat(TODAYSALES, PlayerPrefs.GetFloat(TODAYSALES) +  money);
-    }
 
     //Updates the amount of times the player has collaborated with the guerrilla
     public void UpdateCollaboration(int collaboration) {
@@ -136,19 +130,19 @@ public class PrefsManager : MonoBehaviour
         return events;
     }
 
-    public void AddRegateoMoney(float value)
+    public void AddSalesMoney(float value)
     {
-        PlayerPrefs.SetFloat(REGATEO_MONEY, GetRegateoMoney()+value);
+        PlayerPrefs.SetFloat(TODAYSALES, GetSalesMoney()+value);
     }
 
-    public void SetRegateoMoney(float value)
+    public void SetSalesMoney(float value)
     {
-        PlayerPrefs.SetFloat(REGATEO_MONEY, value);
+        PlayerPrefs.SetFloat(TODAYSALES, value);
     }
 
-    public float GetRegateoMoney()
+    public float GetSalesMoney()
     {
-        return PlayerPrefs.GetFloat(REGATEO_MONEY);
+        return PlayerPrefs.GetFloat(TODAYSALES);
     }
 
     //Adds a transition item to the back of the 
@@ -170,14 +164,14 @@ public class PrefsManager : MonoBehaviour
         PlayerPrefs.SetFloat(COLLABORATION, 0);
         PlayerPrefs.SetFloat(ENDBRANCH, 0);
         PlayerPrefs.SetFloat(TODAYSALES, 0);
-        PlayerPrefs.SetInt("day", 1);
+        PlayerPrefs.SetInt(DAY, 1);
         PlayerPrefs.SetInt("1_events", 0);
     }
 
     public void StartNewDay() {
-        PlayerPrefs.SetFloat(TODAYSALES, 0);
-        PlayerPrefs.SetInt("day", + PlayerPrefs.GetInt("day" + 1));
-        PlayerPrefs.SetInt(PlayerPrefs.GetInt("day") + "_events", 0);
+        SetSalesMoney(0);
+        AdvanceDay();
+        PlayerPrefs.SetInt(GetDay() + "_events", 0);
     }
 
 }
