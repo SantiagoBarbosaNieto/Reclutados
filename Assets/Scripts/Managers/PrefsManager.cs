@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PrefsManager : MonoBehaviour
 {
+    public static PrefsManager Instance {get; private set;}
     public const string MONEY = "money";
     public const string COLLABORATION = "collaboration";
     public const string ENDBRANCH = "endBranch";
@@ -76,6 +77,11 @@ public class PrefsManager : MonoBehaviour
         PlayerPrefs.SetString(day+NAME_EVENT+num, eventName);
         PlayerPrefs.SetFloat(day+VALUE_EVENT+num, eventValue);
     }
+    public void AddEvent( string eventName, float eventValue)
+    {
+        int day = GetDay();
+        AddEvent(day, eventName, eventValue);
+    }
 
     public int GetNumEvents(int day)
     {
@@ -116,6 +122,11 @@ public class PrefsManager : MonoBehaviour
     public void AddRegateoMoney(float value)
     {
         PlayerPrefs.SetFloat(REGATEO_MONEY, GetRegateoMoney()+value);
+    }
+
+    public void SetRegateoMoney(float value)
+    {
+        PlayerPrefs.SetFloat(REGATEO_MONEY, value);
     }
 
     public float GetRegateoMoney()

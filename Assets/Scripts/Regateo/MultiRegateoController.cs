@@ -43,6 +43,8 @@ public class MultiRegateoController : MonoBehaviour
         if(currentDialog >= dialogProgressionSO.dialogProgression.Count) {
             Debug.Log("Dialog progression ended");
             AudioManager.Instance.StopSound();
+            PrefsManager.Instance.AddEvent("Ventas del día", PrefsManager.Instance.GetRegateoMoney());
+            PrefsManager.Instance.SetRegateoMoney(0);
             multiDialogEnd.Raise();
         }
         else {
