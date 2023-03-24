@@ -20,8 +20,7 @@ Juan, no acabamos de hablar sobre esto? Vamos que yo se que lo lograrás. ->a5
 == a4 ==
 No te preocupes, te conozco desde que eras chiquito Juan. Ahora, intentemos de nuevo. -> a5
 == a5 ==
-Bueno joven, hoy es su día de suerte, ya que yo seré su primer cliente.
-*[Supongo que esas son buenas noticias #-I1] -> a3b
+Intentemos de nuevo, bueno joven, hoy es su día de suerte, ya que yo seré su primer cliente.
 *[Esto será una buena práctica] -> a6
 
 == a6 ==
