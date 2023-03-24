@@ -41,7 +41,7 @@ public class ItemInitialize : MonoBehaviour
         name = newName;
     }
 
-    public void SetValue(int newVal)
+    public void SetValue(float newVal)
     {
         value = newVal;
     }

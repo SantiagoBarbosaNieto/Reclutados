@@ -213,6 +213,8 @@ MonoBehaviour:
   loadingScreenUI: {fileID: 842577876}
   dialogProgressionPrefab: {fileID: 6062325270579487407, guid: c95c9b745d6cad847b9223c426594561,
     type: 3}
+  regateoProgressionPrefab: {fileID: 6062325270579487407, guid: e9a4990facb6e9049b0250ef22d28af5,
+    type: 3}
   loadInitialScene: 1
   initialScene: {fileID: 11400000, guid: 7a5305fd5473eb942b832ba1e2c55f6b, type: 2}
 --- !u!4 &152846878

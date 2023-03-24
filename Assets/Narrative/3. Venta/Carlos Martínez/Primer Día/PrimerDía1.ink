@@ -21,7 +21,7 @@ Juan, no acabamos de hablar sobre esto? Vamos que yo se que lo lograrás. ->a5
 No te preocupes, te conozco desde que eras chiquito Juan. Ahora, intentemos de nuevo. -> a5
 == a5 ==
 Bueno joven, hoy es su día de suerte, ya que yo seré su primer cliente.
-*[Supongo que esas son buenas noticias] -> a3b
+*[Supongo que esas son buenas noticias #-I1] -> a3b
 *[Esto será una buena práctica] -> a6
 
 == a6 ==
@@ -31,10 +31,10 @@ Eso, trata siempre de mostrarle interes al cliente y así él tambien te lo most
 
 == a7 ==
 Eso muy bien, y cuanto más hables con un cliente más podrás saber sobre esa persona para el futuro y quien sabe, puede que con solo pasar un rato agradable este decida comprar algo. 
-*[¡Don Carlos muchas gracias!]->a9
+*[¡Don Carlos muchas gracias! #pref money 20]->a9
 == a8 ==
 Entiendo Juan, pero creeme cuando te digo que a veces nada más con mantener una buena conversación es suficiente para que un cliente decida comprarte algo. 
-*[¡Don Carlos muchas gracias!]->a9
+*[¡Don Carlos muchas gracias! #pref money 20]->a9
 
 == a9 ==
 #+S2
