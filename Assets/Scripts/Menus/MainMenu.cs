@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame(){
         LoadDayRequest request = new LoadDayRequest(initialDay);
+        PrefsManager.Instance.ResetPrefs();
         loadInitialDay.Raise(request);
     }
     public void Exit()
