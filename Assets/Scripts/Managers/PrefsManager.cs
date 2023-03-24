@@ -5,6 +5,7 @@ public class PrefsManager : MonoBehaviour
 {
     public static PrefsManager Instance {get; private set;}
     public const string MONEY = "money";
+    public const string EVENT_HAPPENED = "event_happened";
     public const string COLLABORATION = "collaboration";
     public const string ENDBRANCH = "endBranch";
     public const string TODAYSALES = "todaySales";
@@ -15,10 +16,6 @@ public class PrefsManager : MonoBehaviour
 
 
     private void Start() {
-        PlayerPrefs.SetFloat(MONEY, 0);
-        PlayerPrefs.SetFloat(TODAYSALES, 0);
-        PlayerPrefs.SetFloat(COLLABORATION, 0);
-        PlayerPrefs.SetFloat(ENDBRANCH, 0);
         ResetPrefs();
     }
 
@@ -45,7 +42,21 @@ public class PrefsManager : MonoBehaviour
         PlayerPrefs.SetFloat(MONEY, PlayerPrefs.GetFloat(MONEY) + money);
     }
 
+    //Updates value of event_happened
+    public void eventHappendedTrue() {
 
+        PlayerPrefs.SetInt(EVENT_HAPPENED, 1);
+    }
+
+    public void eventHappendedFalse() {
+
+        PlayerPrefs.SetInt(EVENT_HAPPENED, 0);
+    }
+
+    public int getEventHappended() {
+        return PlayerPrefs.GetInt(EVENT_HAPPENED);
+    }
+    
     //Updates the amount of times the player has collaborated with the guerrilla
     public void UpdateCollaboration(int collaboration) {
         PlayerPrefs.SetInt(COLLABORATION, GetCollaboration() + collaboration);
@@ -159,7 +170,7 @@ public class PrefsManager : MonoBehaviour
 
     public void ResetPrefs() {
         PlayerPrefs.DeleteAll();
-
+        PlayerPrefs.SetInt(EVENT_HAPPENED, 0);
         PlayerPrefs.SetFloat(MONEY, 0);
         PlayerPrefs.SetFloat(COLLABORATION, 0);
         PlayerPrefs.SetFloat(ENDBRANCH, 0);
@@ -169,6 +180,7 @@ public class PrefsManager : MonoBehaviour
     }
 
     public void StartNewDay() {
+        PlayerPrefs.SetInt(EVENT_HAPPENED, 0);
         SetSalesMoney(0);
         AdvanceDay();
         PlayerPrefs.SetInt(GetDay() + "_events", 0);
