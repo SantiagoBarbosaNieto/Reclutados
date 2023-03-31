@@ -1,10 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
 
 public class DayController : MonoBehaviour
 {
+    [SerializeField]
+    private SceneSO dialogScene;
+
+    [SerializeField]
+    DialogEventManager optionalDialogsManager;
+
     [SerializeField]
     public LoadDialogSceneRequestGameEvent LoadDialogSceneRequest;
     public LoadSceneRequestGameEvent LoadLevelRequest;
@@ -35,23 +40,39 @@ public class DayController : MonoBehaviour
     private bool dayLoaded = false;
 
     public void OnLoadDay(LoadDayRequest request) {
-        Debug.Log("Day loaded successfully");
         DaySO day = request.day;
+        Debug.Log("Day " + day.number + " loaded successfully");
         greeting = new Queue<LoadDialogSceneRequest>(day.greeting);
         level = day.level;
         sales = new Queue<LoadDialogSceneRequest>(day.sales);
         salesEnd = day.salesEnd;
         dayEnd = new Queue<LoadDialogSceneRequest>(day.dayEnd);
         transition = day.transition;
-        LoadOptionalScenes();
+        LoadOptionalScenes(day.number);
         dayLoaded = true;
         Advance();
     }
 
     //This method is meant to load the optional dialogs that are added through the players desitions
     //How the system to queue these optional scenes will work is still yet to be decided.
-    private void LoadOptionalScenes() {
-        
+    private void LoadOptionalScenes(int day) {
+        Dictionary<int, List<DialogEvent>> optionalDialogEvents = optionalDialogsManager.optionalDialogEvents;
+        if(optionalDialogEvents.ContainsKey(day)) {
+            Debug.Log("DayController: New optional dialogs being added");
+            List<DialogEvent> eventosOpcionalesDelDia = optionalDialogEvents[day];
+            foreach(var evento in eventosOpcionalesDelDia) {
+                string queue = evento.queue;
+                DialogProgressionSO dp = evento.dp;
+
+                LoadDialogSceneRequest loadRequest = new LoadDialogSceneRequest(dialogScene, false, dp);
+
+                switch(queue) {
+                    case "greeting":
+                        greeting.Enqueue(loadRequest);
+                        break;
+                }
+            }
+        }
     }
 
 

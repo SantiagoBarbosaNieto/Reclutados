@@ -98,7 +98,7 @@ public class RegateoController : MonoBehaviour
         List<string> tags = selected.tags;
         if(tags != null) {
             Debug.Log("Una opcion ha generado " + tags.Count + " tags");
-            TagParser.ParseTag(tags[0]);
+            TagParser.Instance.ParseTag(tags[0]);
         }
 
         story.ChooseChoiceIndex(choice);

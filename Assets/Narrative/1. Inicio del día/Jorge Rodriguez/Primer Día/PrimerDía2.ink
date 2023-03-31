@@ -2,7 +2,7 @@
 
 == start ==
 Juanito, mi hijo, ¡buenos días!
-*[Buenos días, padre] -> a2
+*[Buenos días, padre #dp ataque greeting 2] -> a2
 
 == a2 ==
 ¿Qué tal, cómo dormiste?

@@ -9,7 +9,7 @@ Hello world
 
 
 == second ==
-* [add a dialogProgression called "simpatia" to the greeting queue of day 3 #dp simpatia greeting 3] -> start
+* [add a dialogProgression called "ataque" to the greeting queue of day 2 #dp ataque greeting 2] -> start
 * [end] -> END
 
 -> END
