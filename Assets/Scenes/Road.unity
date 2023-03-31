@@ -1795,6 +1795,18 @@ MonoBehaviour:
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 680233083}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 183262125}
         m_TargetAssemblyTypeName: ScreenMessage, Assembly-CSharp
         m_MethodName: PopUp
@@ -8442,12 +8454,12 @@ PrefabInstance:
     - target: {fileID: 2561051085164596609, guid: 42a9df5afc6b76e47b2d424294492586,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.000021219254
+      value: -0.000019550323
       objectReference: {fileID: 0}
     - target: {fileID: 2561051085164596609, guid: 42a9df5afc6b76e47b2d424294492586,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0055081844
+      value: -0.0043621063
       objectReference: {fileID: 0}
     - target: {fileID: 2561051085164596609, guid: 42a9df5afc6b76e47b2d424294492586,
         type: 3}

@@ -12,6 +12,7 @@ public class ScreenMessage : MonoBehaviour {
     public void PopUp() {
 
         int dinero = Random.Range(1, 5);
+        Debug.Log("EVENT CALLED");
         TransitionItem item = new TransitionItem(PrefsManager.Instance.GetDay(), 1, "Dinero que encontraste", dinero);
 
         gameEvent.Raise(item);

@@ -95,8 +95,8 @@ public class PrefsManager : MonoBehaviour
 
     public void AddEvent(int day, string eventName, float eventValue)
     {
-        int num = GetNumEvents(day) +1;
-        PlayerPrefs.SetInt(day+NUMEVENTS, num);
+        int num = GetNumEvents(day);
+        PlayerPrefs.SetInt(day+NUMEVENTS, num+1);
         PlayerPrefs.SetString(day+NAME_EVENT+num, eventName);
         PlayerPrefs.SetFloat(day+VALUE_EVENT+num, eventValue);
     }
@@ -134,7 +134,7 @@ public class PrefsManager : MonoBehaviour
         List<(string,float)> events = new List<(string, float)>();
 
         int numEvents = GetNumEvents(day);
-        for( int i = 1; i <= numEvents; i++)
+        for( int i = 0; i < numEvents; i++)
         {
             events.Add(GetEvent(day, i));
         }
@@ -161,12 +161,12 @@ public class PrefsManager : MonoBehaviour
     public void AddTransitionItem(TransitionItem transitionItem) {
         int day = transitionItem.day;
         string desc = transitionItem.description;
-        int id = PlayerPrefs.GetInt(day+"_events"); //The id in TransitionItem gets ignored whoops.
+        int id = PlayerPrefs.GetInt(day+NUMEVENTS); //The id in TransitionItem gets ignored whoops.
         float money = transitionItem.money;
 
-        PlayerPrefs.SetString(day+"_event_name_"+id, desc);
-        PlayerPrefs.SetInt(day+"_event_value_"+id, (int)money);
-        PlayerPrefs.SetInt(day+"_events", PlayerPrefs.GetInt(day+"_events")+1);
+        PlayerPrefs.SetString(day+NAME_EVENT+id, desc);
+        PlayerPrefs.SetFloat(day+VALUE_EVENT+id, money);
+        PlayerPrefs.SetInt(day+NUMEVENTS, PlayerPrefs.GetInt(day+"_events")+1);
     }
 
     public void ResetPrefs() {
