@@ -70,6 +70,12 @@ public class DayController : MonoBehaviour
                     case "greeting":
                         greeting.Enqueue(loadRequest);
                         break;
+                    case "sales":
+                        sales.Enqueue(loadRequest);
+                        break;
+                    case "dayEnd":
+                        dayEnd.Enqueue(loadRequest);
+                        break;
                 }
             }
         }
