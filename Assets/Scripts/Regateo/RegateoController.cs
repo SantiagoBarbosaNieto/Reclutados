@@ -56,7 +56,26 @@ public class RegateoController : MonoBehaviour
     }
 
     private void UpdateDialogText(string newText) {
-        _dialogText.text = newText;
+        _optionsContainer.gameObject.SetActive(false);
+        _dialogText.text = "";
+        //_dialogText.text = "<color=#FA6238>" + newText + "</color>";
+        StartCoroutine(AppearText(_dialogText, newText, "<color=#000000>", "<color=#FFFFFF>"));
+
+    }
+
+    private IEnumerator AppearText(TMP_Text t, string newText, string backgroundColor, string foregroundColor)
+    {   
+        string stopColor = "</color>";
+        string finalString = "";
+        for(int i = 0; i < newText.Length; i++)
+        {
+            finalString = foregroundColor + newText.Substring(0, i) + stopColor + backgroundColor + newText.Substring(i, newText.Length-i) + stopColor;
+            t.text = finalString;
+            yield return new WaitForSeconds(0.05f);
+        }
+        _optionsContainer.gameObject.SetActive(true);
+
+        yield return null;
     }
 
     private void UpdateAllOptions(List<Choice> choices) {
@@ -84,7 +103,7 @@ public class RegateoController : MonoBehaviour
             instance.GetComponent<RegateoOptionClick>().controller = gameObject.GetComponent<RegateoController>();
             instance.GetComponent<RegateoOptionClick>().soundPlayer = gameObject.transform.Find("Audio/Click").GetComponent<AudioSource>();
             TMP_Text opTitle = instance.GetChild(0).GetComponent<TMP_Text>();
-            opTitle.text = "Option " +  (i+1); 
+            opTitle.text = "Opción " +  (i+1); 
             TMP_Text op = instance.GetChild(1).GetComponent<TMP_Text>();
             op.text = choices[i].text;
             
