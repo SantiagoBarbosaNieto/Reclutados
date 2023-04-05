@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df41d420582a73340b4688f24086d028, type: 3}
+  m_Name: 3. Venta
+  m_EditorClassIdentifier: 
+  dialogProgression:
+  - {fileID: 11400000, guid: 10f12a431429f86409b2af163cbb9db6, type: 2}
+  - {fileID: 11400000, guid: 42ef9a405a603914b985081ad0efc042, type: 2}
+  - {fileID: 11400000, guid: 89912ef41821aab4f98a36c77c55401e, type: 2}
+  - {fileID: 11400000, guid: 19f301f15c2add944acf08ae48248a95, type: 2}
+  musicClip: {fileID: 0}
