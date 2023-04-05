@@ -22,21 +22,25 @@ public class TagParser : MonoBehaviour
     private const string REGATEO = "reg";
     private const string DP = "dp";
 
+    private const string PLAY = "play";
+
+    private const string STOP = "stop";
+
     public void ParseTag(string tag) {
         string[] splitTag = tag.Split(" ");
        
 
-        if(splitTag.Length < 3)
+        if(splitTag.Length < 1)
         {
             Debug.Log("Se intentó leer un TAG no válido: " + tag);
             return;
         }
             
         string command = splitTag[0];
-        string key = splitTag[1];
-        string value = splitTag[2];
 
         if(command == PREF) {
+            string key = splitTag[1];
+            string value = splitTag[2];
             if(splitTag.Length != 3) {
                 Debug.LogError("The tag is not properly formatted");
                 return;
@@ -67,6 +71,8 @@ public class TagParser : MonoBehaviour
         }
         else if (command == REGATEO)
         {
+            string key = splitTag[1];
+            string value = splitTag[2];
              switch(key) {
                 case "compra":
                     Debug.Log("Compa de " + value + " unidades registrada");
@@ -102,7 +108,60 @@ public class TagParser : MonoBehaviour
                 Debug.LogError("There was an error loading the Dialog progression: " + dp);
             }
             
-        } 
+        }
+
+        //play [looped?] [continuous?] [sound]
+        //Plays @sound either oneshot or looped. 
+        //If continuous is true, the audio will play from the AudioManager meaning that it will continue playing even after the object parent is destroyed. Must use "stop" command in order to stop it
+        //If continuous is false, the audio will be instantiated in the parent and will go away once the parent is destroyed
+
+        else if(command == PLAY) {
+            if(splitTag.Length != 4) {
+                Debug.Log("The tag is not properly formatted");
+            }
+            string looped = splitTag[1];
+            string continuous = splitTag[2];
+            string sound = splitTag[3];
+
+            Debug.Log("Attempting to play: " + sound);
+
+            //TODO finish PLAY and STOP
+            try {
+
+                bool isContinuous = bool.Parse(continuous);
+                bool isLooped = bool.Parse(looped);
+                AudioClip clip = Resources.Load("SFX/" + sound) as AudioClip;
+
+                if (clip == null) {
+                    Debug.Log("The clip " + "SFX/" + sound + " was not found");
+                }
+
+                if(isContinuous) {
+
+                    Debug.Log("Attempting to play from audio manager");
+                    if(AudioManager.Instance != null) {
+                        if(isLooped) 
+                            AudioManager.Instance.PlaySoundLooped(clip);
+                        else 
+                            AudioManager.Instance.PlaySound(clip);
+                    }
+                }
+                else {
+                    AudioSource.PlayClipAtPoint(clip, transform.position);
+                }
+
+            } catch (FormatException) {
+                Debug.Log("The tag is not properly formatted: continuous must be a bool");
+            } catch (Exception) {
+                Debug.Log("There was an error loading the audio clip: " + sound);
+            }
+        }
+
+        else if(command == STOP) {
+            if(AudioManager.Instance != null) {
+                AudioManager.Instance.StopSound();
+            }
+        }
 
         else {
             Debug.LogError("The command " + command + " is not defined");

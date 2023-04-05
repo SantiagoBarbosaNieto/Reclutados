@@ -25,6 +25,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PlaySoundLooped(AudioClip sound) {
+        if(sound != null) {
+            audioPlayer.clip = sound;
+            audioPlayer.loop = true;
+            audioPlayer.Play();
+        }
+    }
+
     public void StopSound(){
         audioPlayer.Stop();
     }

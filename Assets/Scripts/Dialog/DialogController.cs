@@ -89,7 +89,9 @@ public class DialogController : MonoBehaviour
         List<string> tags = selected.tags;
         if(tags != null) {
             Debug.Log("Una opcion ha generado " + tags.Count + " tags");
-            TagParser.Instance.ParseTag(tags[0]);
+            foreach(var tag in tags) {
+                TagParser.Instance.ParseTag(tag);
+            }
         }
 
         story.ChooseChoiceIndex(choice);

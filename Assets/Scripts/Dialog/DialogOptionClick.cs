@@ -12,8 +12,11 @@ public class DialogOptionClick : MonoBehaviour, IPointerClickHandler, IPointerEn
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
+        if(AudioManager.Instance != null)
         //play sfx
-        soundPlayer.Play();
+            AudioManager.Instance.PlaySound(soundPlayer.clip);
+        else
+            Debug.Log("There is no Audio manager on the scene to play the clip");
         //Send event to set option
         controller.setStoryOption(optionIndex);
     }
