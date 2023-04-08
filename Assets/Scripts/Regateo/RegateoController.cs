@@ -86,6 +86,8 @@ public class RegateoController : MonoBehaviour
             yield return new WaitForSeconds(0.1f/(3+typeWriterSpeed));
         }
         _optionsContainer.gameObject.SetActive(true);
+        _fastForward.gameObject.SetActive(false);
+
 
         yield return null;
     }
