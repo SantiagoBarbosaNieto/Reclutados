@@ -59,7 +59,7 @@ public class RegateoController : MonoBehaviour
         _optionsContainer.gameObject.SetActive(false);
         _dialogText.text = "";
         //_dialogText.text = "<color=#FA6238>" + newText + "</color>";
-        StartCoroutine(AppearText(_dialogText, newText, "<color=#000000>", "<color=#FFFFFF>"));
+        StartCoroutine(AppearText(_dialogText, newText, "<color=#040118>", "<color=#FFFFFF>"));
 
     }
 

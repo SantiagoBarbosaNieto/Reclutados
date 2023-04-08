@@ -22,6 +22,8 @@ public class DialogController : MonoBehaviour
     private Image _character2;
     private Image _characterSingle;
 
+    private Transform _optionsContainer;
+
     private Button _dialogEnd;
 
     private List<TMP_Text> _options;
@@ -38,6 +40,8 @@ public class DialogController : MonoBehaviour
         _option1 = transform.Find("DialogPanel/Options/Option1").GetComponent<TMP_Text>();
         _option2 = transform.Find("DialogPanel/Options/Option2").GetComponent<TMP_Text>();
         _option3 = transform.Find("DialogPanel/Options/Option3").GetComponent<TMP_Text>();
+        
+        _optionsContainer = transform.Find("DialogPanel/Options");
 
         _options = new List<TMP_Text>();
         _options.Add(_option1);
@@ -53,7 +57,7 @@ public class DialogController : MonoBehaviour
             _characterSingle.gameObject.SetActive(false);
         }
 
-        _dialogEnd = transform.Find("DialogPanel/DialogEnd").GetComponent<Button>();
+        _dialogEnd = transform.Find("DialogPanel/Options/DialogEnd").GetComponent<Button>();
         _dialogEnd.gameObject.SetActive(false);
 
         story = new Story(dialogPanelSO.inkText.text);
@@ -61,7 +65,26 @@ public class DialogController : MonoBehaviour
     }
 
     private void UpdateDialogText(string newText) {
-        _dialogText.text = newText;
+        _optionsContainer.gameObject.SetActive(false);
+        _dialogText.text = "";
+        //_dialogText.text = "<color=#FA6238>" + newText + "</color>";
+        StartCoroutine(AppearText(_dialogText, newText, "<color=#040118>", "<color=#FFFFFF>"));
+
+    }
+
+    private IEnumerator AppearText(TMP_Text t, string newText, string backgroundColor, string foregroundColor)
+    {   
+        string stopColor = "</color>";
+        string finalString = "";
+        for(int i = 0; i < newText.Length; i++)
+        {
+            finalString = foregroundColor + newText.Substring(0, i) + stopColor + backgroundColor + newText.Substring(i, newText.Length-i) + stopColor;
+            t.text = finalString;
+            yield return new WaitForSeconds(0.05f);
+        }
+        _optionsContainer.gameObject.SetActive(true);
+
+        yield return null;
     }
 
     private void UpdateAllOptions(List<Choice> choices) {
