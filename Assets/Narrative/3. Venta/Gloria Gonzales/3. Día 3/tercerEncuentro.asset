@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: tercerEncuentro
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: 0fca7f7114b21c145aaf5edc68c68229, type: 3}
-  inkText: {fileID: 4900000, guid: 149ed9a08836c4640ad7c54c9a21cd27, type: 3}
+  inkText: {fileID: 4900000, guid: c1a0c0a49b218a9428543b6ae166775b, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
   characterSingle: {fileID: 21300000, guid: e0c73ee9b04e94046b21461191645951, type: 3}

@@ -25,7 +25,16 @@ public class RegateoController : MonoBehaviour
     private Image _characterSingle;
 
     private Button _dialogEnd;
+    private Button _fastForward;
 
+    #if DEBUG
+    private int _initialTypeSpeed = 10;
+    #else
+    public int _initialTypeSpeed = 1;
+    #endif
+
+    [Range(0, 20)]
+    public int typeWriterSpeed = 0;
     private List<GameObject> _options;
 
     private Story story;
@@ -35,6 +44,7 @@ public class RegateoController : MonoBehaviour
     }
 
      public void Init() {
+        typeWriterSpeed = _initialTypeSpeed;
         _dialogText = transform.Find("DialogPanel/DialogText").GetComponent<TMP_Text>();
         
         _optionsContainer = transform.Find("OptionsPanel/Scroll View/Viewport/Content");
@@ -50,6 +60,8 @@ public class RegateoController : MonoBehaviour
 
         _dialogEnd = transform.Find("DialogPanel/DialogEnd").GetComponent<Button>();
         _dialogEnd.gameObject.SetActive(false);
+
+        _fastForward = transform.Find("DialogPanel/FastForward").GetComponent<Button>();
 
         story = new Story(dialogPanelSO.inkText.text);
         initStory();
@@ -71,7 +83,7 @@ public class RegateoController : MonoBehaviour
         {
             finalString = foregroundColor + newText.Substring(0, i) + stopColor + backgroundColor + newText.Substring(i, newText.Length-i) + stopColor;
             t.text = finalString;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f/(3+typeWriterSpeed));
         }
         _optionsContainer.gameObject.SetActive(true);
 
@@ -119,6 +131,8 @@ public class RegateoController : MonoBehaviour
             Debug.Log("Una opcion ha generado " + tags.Count + " tags");
             TagParser.Instance.ParseTag(tags[0]);
         }
+        typeWriterSpeed = _initialTypeSpeed;
+        _fastForward.gameObject.SetActive(true);
 
         story.ChooseChoiceIndex(choice);
         UpdateDialogText(story.ContinueMaximally());
@@ -134,5 +148,10 @@ public class RegateoController : MonoBehaviour
 
     public void DialogEnd() {
         onDialogEnd.Invoke();
+    }
+
+    public void FastForward() {
+        typeWriterSpeed = 20;
+        _fastForward.gameObject.SetActive(false);
     }
 }

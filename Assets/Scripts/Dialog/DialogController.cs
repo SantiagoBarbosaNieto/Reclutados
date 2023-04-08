@@ -25,6 +25,17 @@ public class DialogController : MonoBehaviour
     private Transform _optionsContainer;
 
     private Button _dialogEnd;
+    private Button _fastForward;
+
+    #if DEBUG
+    private int _initialTypeSpeed = 10;
+    #else
+    public int _initialTypeSpeed = 1;
+    #endif
+
+    [Range(0, 20)]
+    public int typeWriterSpeed = 0;
+    
 
     private List<TMP_Text> _options;
 
@@ -60,6 +71,8 @@ public class DialogController : MonoBehaviour
         _dialogEnd = transform.Find("DialogPanel/Options/DialogEnd").GetComponent<Button>();
         _dialogEnd.gameObject.SetActive(false);
 
+        _fastForward = transform.Find("DialogPanel/FastForward").GetComponent<Button>();
+
         story = new Story(dialogPanelSO.inkText.text);
         initStory();
     }
@@ -80,7 +93,7 @@ public class DialogController : MonoBehaviour
         {
             finalString = foregroundColor + newText.Substring(0, i) + stopColor + backgroundColor + newText.Substring(i, newText.Length-i) + stopColor;
             t.text = finalString;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f/(3+typeWriterSpeed));
         }
         _optionsContainer.gameObject.SetActive(true);
 
@@ -116,6 +129,8 @@ public class DialogController : MonoBehaviour
                 TagParser.Instance.ParseTag(tag);
             }
         }
+        typeWriterSpeed = _initialTypeSpeed;
+        _fastForward.gameObject.SetActive(true);
 
         story.ChooseChoiceIndex(choice);
         UpdateDialogText(story.ContinueMaximally());
@@ -131,6 +146,10 @@ public class DialogController : MonoBehaviour
 
     public void DialogEnd() {
         onDialogEnd.Invoke();
+    }
+    public void FastForward() {
+        typeWriterSpeed = 20;
+        _fastForward.gameObject.SetActive(false);
     }
 
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2. Fin del Encuentro
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: 0fca7f7114b21c145aaf5edc68c68229, type: 3}
-  inkText: {fileID: 4900000, guid: 503e62bc9e707ae43a4e27cf8c4f0a1c, type: 3}
+  inkText: {fileID: 4900000, guid: 4bdae9c062e833e4b914deade1d268f8, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
   characterSingle: {fileID: 0}
