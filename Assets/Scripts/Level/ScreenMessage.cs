@@ -36,12 +36,12 @@ public class ScreenMessage : MonoBehaviour {
             if(opcion == 2) {
                 TransitionItem item = new TransitionItem(PrefsManager.Instance.GetDay(), 1, "Dinero que encontraste", dinero);
                 gameEvent.Raise(item);
-                PrefsManager.Instance.UpdateMoney(dinero);
+                PrefsManager.Instance.AddSalesMoney(dinero);
             }
             else if(opcion == 3) {
                 TransitionItem item = new TransitionItem(PrefsManager.Instance.GetDay(), 1, "Dinero que perdiste", -dinero);
                 gameEvent.Raise(item);
-                PrefsManager.Instance.UpdateMoney(-dinero);
+                PrefsManager.Instance.AddSalesMoney(-dinero);
             }
         }    
     }

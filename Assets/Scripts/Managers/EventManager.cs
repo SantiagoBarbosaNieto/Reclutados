@@ -24,7 +24,10 @@ public class EventManager : MonoBehaviour
     private IntGameEvent IncreaseCollaborationEvent;
     [SerializeField]
     private IntGameEvent EndBranchEvent;
-
+    [SerializeField]
+    public GameEvent UpdateUIEvent;
+    [SerializeField]
+    public BoolGameEvent EnableUIEvent;
 
     
     private void Awake() {
@@ -70,6 +73,14 @@ public class EventManager : MonoBehaviour
 
     public void EndBranch(int branch) {
         EndBranchEvent.Raise(branch);
+    }
+
+    public void UpdateUI() {
+        UpdateUIEvent.Raise();
+    }
+
+    public void EnableUI(bool enable) {
+        EnableUIEvent.Raise(enable);
     }
 
 }

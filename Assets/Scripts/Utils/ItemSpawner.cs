@@ -17,6 +17,11 @@ public class ItemSpawner : MonoBehaviour
 
         List<(string, float)> events = PrefsManager.Instance.GetEvents(day);
         int numEvents = PlayerPrefs.GetInt(day+"_events");
+        GameObject item = Instantiate (itemPrefab) as GameObject;
+        item.transform.SetParent( content);
+        item.GetComponent<ItemInitialize>().SetName("Ahorros");
+        item.GetComponent<ItemInitialize>().SetValue(PrefsManager.Instance.GetMoney());
+        item.transform.localScale = new Vector3(1,1,1);
         float total = 0;
         foreach( (string,float)ev in events)
         {
@@ -24,7 +29,7 @@ public class ItemSpawner : MonoBehaviour
             float value = ev.Item2;
             total += value;
 
-            GameObject item = Instantiate (itemPrefab) as GameObject;
+            item = Instantiate (itemPrefab) as GameObject;
             item.transform.SetParent( content);
             item.GetComponent<ItemInitialize>().SetName(name);
             item.GetComponent<ItemInitialize>().SetValue(value);
@@ -34,6 +39,7 @@ public class ItemSpawner : MonoBehaviour
         TMPro.TextMeshProUGUI  TMvalue = valueObject.GetComponent<TMPro.TextMeshProUGUI>();
 
         TMvalue.text = "$ "  + (total >= 0 ? " " : "") + total.ToString();
+        PrefsManager.Instance.AddMoney(total);
     }
 
     // Update is called once per frame
