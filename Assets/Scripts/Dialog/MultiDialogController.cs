@@ -1,5 +1,6 @@
 using UnityEngine;
 using ScriptableObjectArchitecture;
+using System.Collections;
 
 public class MultiDialogController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MultiDialogController : MonoBehaviour
     public GameEvent multiDialogEnd;
 
     private void Start() {
+        StartCoroutine(DelayPlaySound(dialogProgressionSO.musicClip));
         ProgressDialog();
     }
 
@@ -29,12 +31,13 @@ public class MultiDialogController : MonoBehaviour
         dialogController.dialogPanelSO = dialogProgressionSO.dialogProgression[currentDialog];
         dialogController.onDialogEnd.AddListener(ChangeDialog);
         dialogController.Init();
-        AudioManager.Instance.PlaySound(dialogProgressionSO.musicClip);
     }
 
     //Called from the "Dialog End" Button within the dialogPrefab. This button is
     //only visible when a current dialog ends
     private void ChangeDialog() {
+        
+
         Debug.Log("Dialog end event received");
         currentDialog++;
 
@@ -50,6 +53,12 @@ public class MultiDialogController : MonoBehaviour
             Destroy(dialogInstance);
             ProgressDialog();
         }
+    }
+
+    IEnumerator DelayPlaySound(AudioClip clip) {
+        Debug.Log("Delaying sound");
+        yield return new WaitForSeconds(0.1f);
+        AudioManager.Instance.PlaySound(clip);
     }
 
 }
