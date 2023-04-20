@@ -22,6 +22,8 @@ public class DialogController : MonoBehaviour
     private Image _character2;
     private Image _characterSingle;
 
+    private TMP_Text _characterSingleName;
+
     private Transform _optionsContainer;
 
     private Button _dialogEnd;
@@ -63,6 +65,7 @@ public class DialogController : MonoBehaviour
         _background.sprite = dialogPanelSO.background;
 
         _characterSingle = transform.Find("DialogPanel/CharacterSingle").GetComponent<Image>();
+        _characterSingleName = transform.Find("DialogPanel/CharacterSingle/Nombre").GetComponent<TMP_Text>();
         _characterSingle.sprite = dialogPanelSO.characterSingle;
         if(_characterSingle.sprite == null) {
             _characterSingle.gameObject.SetActive(false);
@@ -75,6 +78,7 @@ public class DialogController : MonoBehaviour
 
         story = new Story(dialogPanelSO.inkText.text);
         initStory();
+        UpdateName();
     }
 
     private void UpdateDialogText(string newText) {
@@ -136,6 +140,18 @@ public class DialogController : MonoBehaviour
         story.ChooseChoiceIndex(choice);
         UpdateDialogText(story.ContinueMaximally());
         UpdateAllOptions(story.currentChoices);
+   }
+
+   private void UpdateName(){
+         if(_characterSingle.sprite != null) {
+                _characterSingleName.gameObject.SetActive(true);
+                _characterSingleName.text = _characterSingle.sprite.name;
+          }
+          else
+          {
+            _characterSingleName.gameObject.SetActive(false);
+          }
+          
    }
 
    

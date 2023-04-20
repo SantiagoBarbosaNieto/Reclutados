@@ -51,6 +51,7 @@ public class DayController : MonoBehaviour
         LoadOptionalScenes(day.number);
         dayLoaded = true;
         Advance();
+        EventManager.Instance.EnableUI(true);
     }
 
     //This method is meant to load the optional dialogs that are added through the players desitions
@@ -112,6 +113,10 @@ public class DayController : MonoBehaviour
             currentRequest = dayEnd.Dequeue();
         }
         else if(transition != null && transition.scene != null) {
+            EventManager.Instance.EnableUI(false);
+            int day = PrefsManager.Instance.GetDay();
+            TransitionItem item = new TransitionItem(day, 0, "Gastos del día", -1.2f*day);
+            PrefsManager.Instance.AddTransitionItem(item);
             currentRequest = transition;
         }
         else { //Fin del dia

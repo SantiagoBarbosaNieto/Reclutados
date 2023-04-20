@@ -16,6 +16,7 @@ public class PrefsManager : MonoBehaviour
 
 
 
+
     private void Start() {
         ResetPrefs();
     }
@@ -33,6 +34,7 @@ public class PrefsManager : MonoBehaviour
     public void AddMoney(float money) {
 
         PlayerPrefs.SetFloat(MONEY, GetMoney() + money);
+        EventManager.Instance.UpdateUI();
     }
 
     public float GetMoney()
@@ -41,6 +43,7 @@ public class PrefsManager : MonoBehaviour
     }
     public void UpdateMoney(float money) {
         PlayerPrefs.SetFloat(MONEY, PlayerPrefs.GetFloat(MONEY) + money);
+        EventManager.Instance.UpdateUI();
     }
 
     //Updates value of event_happened
@@ -86,6 +89,7 @@ public class PrefsManager : MonoBehaviour
     public void AdvanceDay()
     {
         PlayerPrefs.SetInt(DAY, GetDay()+1);
+        EventManager.Instance.UpdateUI();
     }
 
     public int GetDay()
@@ -145,11 +149,13 @@ public class PrefsManager : MonoBehaviour
     public void AddSalesMoney(float value)
     {
         PlayerPrefs.SetFloat(TODAYSALES, GetSalesMoney()+value);
+        EventManager.Instance.UpdateUI();
     }
 
     public void SetSalesMoney(float value)
     {
         PlayerPrefs.SetFloat(TODAYSALES, value);
+        EventManager.Instance.UpdateUI();
     }
 
     public float GetSalesMoney()
@@ -178,6 +184,7 @@ public class PrefsManager : MonoBehaviour
         PlayerPrefs.SetFloat(TODAYSALES, 0);
         PlayerPrefs.SetInt(DAY, 1);
         PlayerPrefs.SetInt("1_events", 0);
+        EventManager.Instance.UpdateUI();
     }
 
     public void StartNewDay() {
@@ -185,6 +192,7 @@ public class PrefsManager : MonoBehaviour
         SetSalesMoney(0);
         AdvanceDay();
         PlayerPrefs.SetInt(GetDay() + "_events", 0);
+        EventManager.Instance.UpdateUI();
     }
 
 }

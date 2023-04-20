@@ -23,6 +23,7 @@ public class RegateoController : MonoBehaviour
     private Image _character1;
     private Image _character2;
     private Image _characterSingle;
+    private TMP_Text _characterSingleName;
 
     private Button _dialogEnd;
     private Button _fastForward;
@@ -53,18 +54,20 @@ public class RegateoController : MonoBehaviour
         _background.sprite = dialogPanelSO.background;
 
         _characterSingle = transform.Find("DialogPanel/CharacterSingle").GetComponent<Image>();
+        _characterSingleName = transform.Find("DialogPanel/CharacterSingle/Nombre").GetComponent<TMP_Text>();
         _characterSingle.sprite = dialogPanelSO.characterSingle;
         if(_characterSingle.sprite == null) {
             _characterSingle.gameObject.SetActive(false);
         }
 
-        _dialogEnd = transform.Find("DialogPanel/DialogEnd").GetComponent<Button>();
+        _dialogEnd = transform.Find("DialogEnd").GetComponent<Button>();
         _dialogEnd.gameObject.SetActive(false);
 
         _fastForward = transform.Find("DialogPanel/FastForward").GetComponent<Button>();
 
         story = new Story(dialogPanelSO.inkText.text);
         initStory();
+        UpdateName();
     }
 
     private void UpdateDialogText(string newText) {
@@ -141,6 +144,17 @@ public class RegateoController : MonoBehaviour
         UpdateAllOptions(story.currentChoices);
     }
 
+   private void UpdateName(){
+         if(_characterSingle.sprite != null) {
+                _characterSingleName.gameObject.SetActive(true);
+                _characterSingleName.text = _characterSingle.sprite.name;
+          }
+          else
+          {
+            _characterSingleName.gameObject.SetActive(false);
+          }
+          
+   }
    
 
     private void initStory() {
