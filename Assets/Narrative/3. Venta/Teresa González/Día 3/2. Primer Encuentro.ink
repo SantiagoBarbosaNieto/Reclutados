@@ -10,7 +10,7 @@ Ay Juanito, mi madre me contó que no estabas en el colegio.
 
 == a3 ==
 Hmm, ¿y cuanto tiempo más estarás trabajando?
-*[Tere, la verdad no lo se #-P1]->a4
+*[Tere, la verdad no lo se]->a4
 *[Tendria que preguntarle a mis padres a ver que me dicen] ->a4
 
 == a4 ==
