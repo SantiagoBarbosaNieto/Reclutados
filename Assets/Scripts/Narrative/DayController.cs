@@ -112,6 +112,9 @@ public class DayController : MonoBehaviour
             currentRequest = dayEnd.Dequeue();
         }
         else if(transition != null && transition.scene != null) {
+            int day = PrefsManager.Instance.GetDay();
+            TransitionItem item = new TransitionItem(day, 0, "Gastos del día", -1.2f*day);
+            PrefsManager.Instance.AddTransitionItem(item);
             currentRequest = transition;
         }
         else { //Fin del dia
