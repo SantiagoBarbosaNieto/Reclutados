@@ -23,6 +23,8 @@ public class GameLoader : MonoBehaviour {
     private DaySO day4;
     [SerializeField]
     private DaySO day5;
+    [SerializeField]
+    private DaySO day6;
 
     
     [SerializeField]
@@ -98,6 +100,14 @@ public class GameLoader : MonoBehaviour {
                         PrefsManager.Instance.ResetPrefs();
                         loadDay.Raise(request);
                         Debug.Log("Day 5 loaded!");
+                        break;
+
+                    case 6:
+                        Debug.Log("Attempting to load day 6... ");
+                        request = new LoadDayRequest(day6);
+                        PrefsManager.Instance.ResetPrefs();
+                        loadDay.Raise(request);
+                        Debug.Log("Day 6 loaded!");
                         break;
 
                     default:
