@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class TextSceneController : MonoBehaviour
@@ -10,9 +9,8 @@ public class TextSceneController : MonoBehaviour
     [SerializeField]
     private TMP_Text text;
 
-    [SerializeField]
     [TextArea(6, 10)]
-    private string debugText;
+    public string debugText;
 
     [SerializeField]
     private Button exit;
@@ -20,15 +18,13 @@ public class TextSceneController : MonoBehaviour
     [SerializeField]
     private Image image;
 
-    [SerializeField]
-    private float fadeTime = 100f;
+    public float fadeTime = 100f;
 
-    [SerializeField]
     [Range(0, 20)]
-    private int typeWriterSpeed = 0;
+    public int typeWriterSpeed = 0;
 
     private void Start() {
-        exit.gameObject.SetActive(false);
+        exit.gameObject.SetActive(true);
         exit.onClick.AddListener(OnExit);
         StartCoroutine(PrintTextCoroutine());
     }
@@ -63,8 +59,7 @@ public class TextSceneController : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("Unloading scene");
-        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Text"));
+        Destroy(gameObject);
     }
 
     private IEnumerator PrintTextCoroutine()
