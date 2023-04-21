@@ -199,8 +199,8 @@ MonoBehaviour:
   IncreaseCollaborationEvent: {fileID: 11400000, guid: 252502a88f6b8034199cd4f27a71b1c1,
     type: 2}
   EndBranchEvent: {fileID: 11400000, guid: fc512f35601b9f14d84dcc80ac722054, type: 2}
-  UpdateUIEvent: {fileID: 0}
-  EnableUIEvent: {fileID: 0}
+  UpdateUIEvent: {fileID: 11400000, guid: c4813ffdd25289447afab03ffaa29a03, type: 2}
+  EnableUIEvent: {fileID: 11400000, guid: 9fe541bd8eef30841b389b4924b580fd, type: 2}
 --- !u!4 &105996503
 Transform:
   m_ObjectHideFlags: 0
