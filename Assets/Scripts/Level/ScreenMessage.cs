@@ -13,7 +13,7 @@ public class ScreenMessage : MonoBehaviour {
     public void PopUp() {
 
         int dinero = UnityEngine.Random.Range(1, 5);
-        int opcion = UnityEngine.Random.Range(0, 3);
+        int opcion = UnityEngine.Random.Range(0, 4);
 
         String[] posibleEventsDescription = new String[4];
         posibleEventsDescription[0] = "¿...? Escuchas sonidos extraños viniendo del bosque. Será mejor ignorarlos...";
