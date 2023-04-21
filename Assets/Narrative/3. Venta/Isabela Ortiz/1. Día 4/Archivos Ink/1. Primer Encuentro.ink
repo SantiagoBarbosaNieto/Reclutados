@@ -18,7 +18,7 @@ Sí sí, espero que no te haya dejado aburrido ni nada por estar acá y no en la
 
 == a4 ==
 Me extraña, sobre todo porque lo que he escuchado de mi hermanastro, es que el señor Rodriguez siempre la ha ido lo suficientemente bien como para que su hijo se vea en la necesidad de trabajar.
-*[Si le digo la verdad, no estoy muy seguro tampoco la razón. #+I3] -> a5
+*[Si le digo la verdad, no estoy muy seguro tampoco la razón. ] -> a5
 == a5 ==
 Ya veo... Y cuenteme Juan, ¿como le ha ido el día de hoy?
 *[Sabe, no me puedo quejar mucho, a parte de ir menos a la escuela bien] -> a6

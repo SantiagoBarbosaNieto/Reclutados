@@ -18,7 +18,7 @@ MonoBehaviour:
     loadingScreen: 0
     dialogs: {fileID: 11400000, guid: de24bdeb9814fca49b3ea4a74dd653b0, type: 2}
   level:
-    scene: {fileID: 11400000, guid: f25013ab155d264499dd0c668c13794f, type: 2}
+    scene: {fileID: 11400000, guid: fb65775e3016aaf4fb3aa110d01262c0, type: 2}
     loadingScreen: 0
   sales:
   - scene: {fileID: 11400000, guid: 5eb69bdd82ffd304bac74e4e0c832d12, type: 2}
