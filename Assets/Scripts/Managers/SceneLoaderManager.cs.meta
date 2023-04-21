@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dbef4431a4a2f9843814a13ee51ac347
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - loadingScreenUI: {instanceID: 0}
+  - dialogProgressionPrefab: {instanceID: 0}
+  - regateoProgressionPrefab: {instanceID: 0}
+  - initialScene: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

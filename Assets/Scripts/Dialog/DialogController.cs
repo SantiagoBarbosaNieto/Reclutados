@@ -10,7 +10,7 @@ public class DialogController : MonoBehaviour
 {
     public UnityEvent onDialogEnd;
 
-    public DialogPanelSO dialogPanelSO;
+    public DialogSO dialogPanelSO;
     private TMP_Text _dialogText;
     
     private TMP_Text _option1;
@@ -28,15 +28,16 @@ public class DialogController : MonoBehaviour
 
     private Story story;
 
+    private void OnCollisionEnter2D(Collision2D other) {
+    
+    }
+
      public void Init() {
-        _dialogText = transform.Find("DialogText").GetComponent<TMP_Text>();
+        _dialogText = transform.Find("DialogPanel/DialogText").GetComponent<TMP_Text>();
         
-        _option1 = transform.Find("Option1").GetComponent<TMP_Text>();
-        Debug.Log("Option 1 set to: " + _option1.text);
-        _option2 = transform.Find("Option2").GetComponent<TMP_Text>();
-        Debug.Log("Option 2 set to: " + _option2.text);
-        _option3 = transform.Find("Option3").GetComponent<TMP_Text>();
-        Debug.Log("Option 3 set to: " + _option3.text);
+        _option1 = transform.Find("DialogPanel/Options/Option1").GetComponent<TMP_Text>();
+        _option2 = transform.Find("DialogPanel/Options/Option2").GetComponent<TMP_Text>();
+        _option3 = transform.Find("DialogPanel/Options/Option3").GetComponent<TMP_Text>();
 
         _options = new List<TMP_Text>();
         _options.Add(_option1);
@@ -46,10 +47,13 @@ public class DialogController : MonoBehaviour
         _background = transform.Find("Background").GetComponent<Image>();
         _background.sprite = dialogPanelSO.background;
 
-        _characterSingle = transform.Find("CharacterSingle").GetComponent<Image>();
+        _characterSingle = transform.Find("DialogPanel/CharacterSingle").GetComponent<Image>();
         _characterSingle.sprite = dialogPanelSO.characterSingle;
+        if(_characterSingle.sprite == null) {
+            _characterSingle.gameObject.SetActive(false);
+        }
 
-        _dialogEnd = transform.Find("DialogEnd").GetComponent<Button>();
+        _dialogEnd = transform.Find("DialogPanel/DialogEnd").GetComponent<Button>();
         _dialogEnd.gameObject.SetActive(false);
 
         story = new Story(dialogPanelSO.inkText.text);
@@ -70,8 +74,6 @@ public class DialogController : MonoBehaviour
             Debug.LogError("The choices could not be loaded: A maximum of three choices is required");
         }
         else if(choices.Count == 0) {
-            //Do something when the dialog ends
-            Debug.Log("Dialog ended");
             _dialogEnd.gameObject.SetActive(true);
         }
 
@@ -82,11 +84,18 @@ public class DialogController : MonoBehaviour
     }
     
     public void setStoryOption(int choice) {
+        Choice selected = story.currentChoices[choice];
+        //Check if choices have tags associated
+        List<string> tags = selected.tags;
+        if(tags != null) {
+            Debug.Log("Una opcion ha generado " + tags.Count + " tags");
+            TagParser.Instance.ParseTag(tags[0]);
+        }
+
         story.ChooseChoiceIndex(choice);
         UpdateDialogText(story.ContinueMaximally());
-
         UpdateAllOptions(story.currentChoices);
-    }
+   }
 
    
 
@@ -96,7 +105,6 @@ public class DialogController : MonoBehaviour
     }
 
     public void DialogEnd() {
-        Debug.Log("Calling dialog end event");
         onDialogEnd.Invoke();
     }
 
