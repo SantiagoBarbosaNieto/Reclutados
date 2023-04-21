@@ -996,6 +996,12 @@ MonoBehaviour:
   notificationObject: {fileID: 2027788437}
   notificationTitle: {fileID: 70940726}
   notificationContent: {fileID: 351831466}
+  day1: {fileID: 11400000, guid: 0f78497812f47824987eca22a92d4931, type: 2}
+  day2: {fileID: 11400000, guid: 5c27b85ab617c634391e86d8604741da, type: 2}
+  day3: {fileID: 0}
+  day4: {fileID: 0}
+  day5: {fileID: 0}
+  loadDay: {fileID: 11400000, guid: 48b67f75ad204264c8c9ce01f01782a0, type: 2}
 --- !u!114 &795922013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,7 +1607,6 @@ GameObject:
   - component: {fileID: 1526827977}
   - component: {fileID: 1526827976}
   - component: {fileID: 1526827975}
-  - component: {fileID: 1526827978}
   m_Layer: 5
   m_Name: loadButton
   m_TagString: Untagged
@@ -1736,23 +1741,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526827973}
   m_CullTransparentMesh: 1
---- !u!114 &1526827978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526827973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f8db5de3f784a44a82656e86569c46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveDirectory: Saves
-  saveName: savedGame
-  notificationObject: {fileID: 0}
-  notificationTitle: {fileID: 0}
-  notificationContent: {fileID: 0}
 --- !u!1 &1560206385
 GameObject:
   m_ObjectHideFlags: 0
