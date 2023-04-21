@@ -6,7 +6,7 @@ Chiquillo buenos días.
 == a1 ==
 Chiqui muy bien, no más mirando que comprar para darle de comer a mi pequeño esta tarde.
 *[Que pequeño tan afortunado de contar con una madre como usted doña Ana #+P1] -> a2
-*[Pues no se preocupe más que acá le traigo solo lo mejor para que el niño crezca #+I2] ->a2
+*[Pues no se preocupe más que acá le traigo solo lo mejor para que el niño crezca] ->a2
 
 == a2 ==
 Tan lido el chiquillo, le comento que justo pasé porque me comento Gloria que estabas en estas trabajando.

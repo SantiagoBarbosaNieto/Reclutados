@@ -20,7 +20,8 @@ public class ItemSpawner : MonoBehaviour
         GameObject item = Instantiate (itemPrefab) as GameObject;
         item.transform.SetParent( content);
         item.GetComponent<ItemInitialize>().SetName("Ahorros");
-        item.GetComponent<ItemInitialize>().SetValue(PrefsManager.Instance.GetMoney());
+        float ahorro = PrefsManager.Instance.GetMoney();
+        item.GetComponent<ItemInitialize>().SetValue(ahorro);
         item.transform.localScale = new Vector3(1,1,1);
         float total = 0;
         foreach( (string,float)ev in events)
@@ -37,8 +38,8 @@ public class ItemSpawner : MonoBehaviour
         }
 
         TMPro.TextMeshProUGUI  TMvalue = valueObject.GetComponent<TMPro.TextMeshProUGUI>();
-
-        TMvalue.text = "$ "  + (total >= 0 ? " " : "") + total.ToString();
+        float screenTotal = total + ahorro;
+        TMvalue.text = "$ "  + (screenTotal >= 0 ? " " : "") + screenTotal.ToString();
         PrefsManager.Instance.AddMoney(total);
     }
 
