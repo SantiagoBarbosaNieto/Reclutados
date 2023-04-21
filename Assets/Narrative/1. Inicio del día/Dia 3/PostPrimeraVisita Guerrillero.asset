@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b4e41a49db9cf4e40bf37977ec5281ec, type: 2}
   - {fileID: 11400000, guid: 90b329c577359bf4cbf21ed59a891b4f, type: 2}
   - {fileID: 11400000, guid: eef5ed3f4340b3c4c90cf7a3c2027712, type: 2}
-  musicClip: {fileID: 8300000, guid: 86de5b24cd44892488a64728139a1053, type: 3}
+  musicClip: {fileID: 8300000, guid: 05c9aba1daa0ff94a851905a62d29407, type: 3}

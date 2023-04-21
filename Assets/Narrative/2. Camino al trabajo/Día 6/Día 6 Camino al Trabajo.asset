@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df41d420582a73340b4688f24086d028, type: 3}
-  m_Name: "Inicio D\xEDa 4"
+  m_Name: "D\xEDa 6 Camino al Trabajo"
   m_EditorClassIdentifier: 
   dialogProgression:
-  - {fileID: 11400000, guid: 7a97a34367b556844be79c6fa3a311b0, type: 2}
-  - {fileID: 11400000, guid: ddee9a6218f2d2648a70d42729cefde5, type: 2}
+  - {fileID: 11400000, guid: af806757bc37b8b42b218b5f705e74b0, type: 2}
+  - {fileID: 11400000, guid: 111b61a351e32304c83c58b103959dbd, type: 2}
   musicClip: {fileID: 8300000, guid: 05c9aba1daa0ff94a851905a62d29407, type: 3}

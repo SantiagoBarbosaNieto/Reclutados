@@ -2,8 +2,8 @@
 
 == start ==
 Buenas noches, joven, disculpe el grito. ¿De casualidad su papá o su mamá no están en casa?
-*[¿Quién pregunta, disculpe? #stop #play true true Tracks/eerie/Hazy-Darkness_Looping] -> a2nombre
-*[No tardan en regresar #stop #play true true Tracks/eerie/Hazy-Darkness_Looping] -> a2
+*[¿Quién pregunta, disculpe? #stop #play true false Tracks/eerie/Hazy-Darkness_Looping] -> a2nombre
+*[No tardan en regresar #stop #play true false Tracks/eerie/Hazy-Darkness_Looping] -> a2
 
 == a2nombre ==
 Eso no es importante, y créame cuando le digo que es mejor no volver a hacer preguntas. ¿Sus padres están en casa?
@@ -11,8 +11,8 @@ Eso no es importante, y créame cuando le digo que es mejor no volver a hacer pr
 
 == a2 ==
 Huh, con que se están escondiendo y mandan al hijo a dar la cara por ellos.
-*[¿Perdón? #play true true Misc/mixkit-slow-heartbeat-494] -> a3
-*[¿Ah, sí? #play true true Misc/mixkit-heartbeat-medium-speed-495] -> a3ataque
+*[¿Perdón? #play true false Misc/mixkit-slow-heartbeat-494] -> a3
+*[¿Ah, sí? #play true false Misc/mixkit-heartbeat-medium-speed-495] -> a3ataque
 
 == a3ataque ==
 #+I3
