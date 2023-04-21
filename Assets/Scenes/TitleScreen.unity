@@ -998,9 +998,9 @@ MonoBehaviour:
   notificationContent: {fileID: 351831466}
   day1: {fileID: 11400000, guid: 0f78497812f47824987eca22a92d4931, type: 2}
   day2: {fileID: 11400000, guid: 5c27b85ab617c634391e86d8604741da, type: 2}
-  day3: {fileID: 0}
-  day4: {fileID: 0}
-  day5: {fileID: 0}
+  day3: {fileID: 11400000, guid: 743d673cb4f7319489609a612378f7da, type: 2}
+  day4: {fileID: 11400000, guid: 5ba851f8d1378ce4383cbdebaa81a468, type: 2}
+  day5: {fileID: 11400000, guid: e06a293f080c86a4fb657b7eacaa50ff, type: 2}
   loadDay: {fileID: 11400000, guid: 48b67f75ad204264c8c9ce01f01782a0, type: 2}
 --- !u!114 &795922013
 MonoBehaviour:
