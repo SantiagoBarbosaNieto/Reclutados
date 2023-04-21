@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "PrimerD\xEDa2"
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: cdc9ae3c5658bde4ea48fbaf22c4f8c1, type: 3}
-  inkText: {fileID: 4900000, guid: 7a48fe9971c46a6499521d0bc1ed2378, type: 3}
+  inkText: {fileID: 4900000, guid: 14320c60830a4bd44a28d60ecd1b7946, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
   characterSingle: {fileID: 0}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943bfd464150854499776c6b6b47a2ac, type: 3}
   m_Name: "3. D\xEDa 4"
   m_EditorClassIdentifier: 
-  background: {fileID: 0}
-  inkText: {fileID: 0}
+  background: {fileID: 21300000, guid: fdfb5a17d916aff4490a94c25d6411d4, type: 3}
+  inkText: {fileID: 4900000, guid: d82eff93afa55a14d81b7d6fc8939373, type: 3}
   character1: {fileID: 0}
   character2: {fileID: 0}
   characterSingle: {fileID: 0}

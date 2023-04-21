@@ -155,7 +155,7 @@ MonoBehaviour:
   canvas: {fileID: 232954646}
   dialogPrefab: {fileID: 1794210941830195386, guid: 4e240b65f174c4446983e4feeada3c25,
     type: 3}
-  dialogProgressionSO: {fileID: 11400000, guid: 961171fb3a6a8a64ebd178bbb25111cf,
+  dialogProgressionSO: {fileID: 11400000, guid: a29ed624fdfcab14f8b62c85f90833c6,
     type: 2}
   multiDialogEnd: {fileID: 0}
 --- !u!4 &196423810

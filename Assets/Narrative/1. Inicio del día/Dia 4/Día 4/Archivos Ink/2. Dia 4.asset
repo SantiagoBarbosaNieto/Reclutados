@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: 5731dad60e5e1594e8d16617e43d0290, type: 3}
   inkText: {fileID: 4900000, guid: 00b4e9d459cbb91438533098464d9846, type: 3}
-  character1: {fileID: 21300000, guid: f51e43ae1c8f4c64b9ccfa017f362762, type: 3}
+  character1: {fileID: 0}
   character2: {fileID: 0}
-  characterSingle: {fileID: 0}
+  characterSingle: {fileID: 21300000, guid: 25146b9afeff2da44a3001ae5bfab8d6, type: 3}

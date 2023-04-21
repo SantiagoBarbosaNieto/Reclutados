@@ -16,4 +16,4 @@ MonoBehaviour:
   inkText: {fileID: 4900000, guid: 325bf24e74cc6d949b0db3ccbe1b0fa1, type: 3}
   character1: {fileID: 21300000, guid: ba0d1821db384c64299f440bdfd67fc4, type: 3}
   character2: {fileID: 0}
-  characterSingle: {fileID: 0}
+  characterSingle: {fileID: 21300000, guid: ba0d1821db384c64299f440bdfd67fc4, type: 3}
