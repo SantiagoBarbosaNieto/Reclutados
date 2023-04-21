@@ -1,0 +1,1 @@
+﻿{"inkVersion":21,"root":[[{"->":"start"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"start":["^De regreso a casa escuchas una voz que te llama. ",{"->":"a2"},"\n",{"#f":1}],"a2":["^¡Juan, espera un momento!","\n","end",{"#f":1}],"#f":1}],"listDefs":{}}

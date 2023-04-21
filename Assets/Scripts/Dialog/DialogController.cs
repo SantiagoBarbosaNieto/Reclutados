@@ -22,7 +22,22 @@ public class DialogController : MonoBehaviour
     private Image _character2;
     private Image _characterSingle;
 
+    private TMP_Text _characterSingleName;
+
+    private Transform _optionsContainer;
+
     private Button _dialogEnd;
+    private Button _fastForward;
+
+    #if DEBUG
+    private int _initialTypeSpeed = 10;
+    #else
+    public int _initialTypeSpeed = 1;
+    #endif
+
+    [Range(0, 20)]
+    public int typeWriterSpeed = 0;
+    
 
     private List<TMP_Text> _options;
 
@@ -38,6 +53,8 @@ public class DialogController : MonoBehaviour
         _option1 = transform.Find("DialogPanel/Options/Option1").GetComponent<TMP_Text>();
         _option2 = transform.Find("DialogPanel/Options/Option2").GetComponent<TMP_Text>();
         _option3 = transform.Find("DialogPanel/Options/Option3").GetComponent<TMP_Text>();
+        
+        _optionsContainer = transform.Find("DialogPanel/Options");
 
         _options = new List<TMP_Text>();
         _options.Add(_option1);
@@ -48,20 +65,44 @@ public class DialogController : MonoBehaviour
         _background.sprite = dialogPanelSO.background;
 
         _characterSingle = transform.Find("DialogPanel/CharacterSingle").GetComponent<Image>();
+        _characterSingleName = transform.Find("DialogPanel/CharacterSingle/Nombre").GetComponent<TMP_Text>();
         _characterSingle.sprite = dialogPanelSO.characterSingle;
         if(_characterSingle.sprite == null) {
             _characterSingle.gameObject.SetActive(false);
         }
 
-        _dialogEnd = transform.Find("DialogPanel/DialogEnd").GetComponent<Button>();
+        _dialogEnd = transform.Find("DialogPanel/Options/DialogEnd").GetComponent<Button>();
         _dialogEnd.gameObject.SetActive(false);
+
+        _fastForward = transform.Find("DialogPanel/FastForward").GetComponent<Button>();
 
         story = new Story(dialogPanelSO.inkText.text);
         initStory();
+        UpdateName();
     }
 
     private void UpdateDialogText(string newText) {
-        _dialogText.text = newText;
+        _optionsContainer.gameObject.SetActive(false);
+        _dialogText.text = "";
+        //_dialogText.text = "<color=#FA6238>" + newText + "</color>";
+        StartCoroutine(AppearText(_dialogText, newText, "<color=#040118>", "<color=#FFFFFF>"));
+
+    }
+
+    private IEnumerator AppearText(TMP_Text t, string newText, string backgroundColor, string foregroundColor)
+    {   
+        string stopColor = "</color>";
+        string finalString = "";
+        for(int i = 0; i < newText.Length; i++)
+        {
+            finalString = foregroundColor + newText.Substring(0, i) + stopColor + backgroundColor + newText.Substring(i, newText.Length-i) + stopColor;
+            t.text = finalString;
+            yield return new WaitForSeconds(0.1f/(3+typeWriterSpeed));
+        }
+        _optionsContainer.gameObject.SetActive(true);
+        _fastForward.gameObject.SetActive(false);
+
+        yield return null;
     }
 
     private void UpdateAllOptions(List<Choice> choices) {
@@ -89,12 +130,28 @@ public class DialogController : MonoBehaviour
         List<string> tags = selected.tags;
         if(tags != null) {
             Debug.Log("Una opcion ha generado " + tags.Count + " tags");
-            TagParser.Instance.ParseTag(tags[0]);
+            foreach(var tag in tags) {
+                TagParser.Instance.ParseTag(tag);
+            }
         }
+        typeWriterSpeed = _initialTypeSpeed;
+        _fastForward.gameObject.SetActive(true);
 
         story.ChooseChoiceIndex(choice);
         UpdateDialogText(story.ContinueMaximally());
         UpdateAllOptions(story.currentChoices);
+   }
+
+   private void UpdateName(){
+         if(_characterSingle.sprite != null) {
+                _characterSingleName.gameObject.SetActive(true);
+                _characterSingleName.text = _characterSingle.sprite.name;
+          }
+          else
+          {
+            _characterSingleName.gameObject.SetActive(false);
+          }
+          
    }
 
    
@@ -106,6 +163,10 @@ public class DialogController : MonoBehaviour
 
     public void DialogEnd() {
         onDialogEnd.Invoke();
+    }
+    public void FastForward() {
+        typeWriterSpeed = 20;
+        _fastForward.gameObject.SetActive(false);
     }
 
 }

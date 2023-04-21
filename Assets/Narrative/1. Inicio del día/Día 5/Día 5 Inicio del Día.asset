@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df41d420582a73340b4688f24086d028, type: 3}
+  m_Name: "D\xEDa 5 Inicio del D\xEDa"
+  m_EditorClassIdentifier: 
+  dialogProgression:
+  - {fileID: 11400000, guid: d507b4f9fe4aee64ca22a163e60d662a, type: 2}
+  - {fileID: 11400000, guid: a7be6034ccb38cb468057fc2ce85a044, type: 2}
+  - {fileID: 11400000, guid: 2db76d731db24ca42806e1253786e0e7, type: 2}
+  musicClip: {fileID: 8300000, guid: 05c9aba1daa0ff94a851905a62d29407, type: 3}
