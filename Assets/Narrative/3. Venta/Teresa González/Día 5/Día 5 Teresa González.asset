@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df41d420582a73340b4688f24086d028, type: 3}
   m_Name: "D\xEDa 5 Teresa Gonz\xE1lez"
   m_EditorClassIdentifier: 
-  dialogProgression: []
+  dialogProgression:
+  - {fileID: 11400000, guid: 37c38c67ad3160a4aae36d02fee93ddb, type: 2}
+  - {fileID: 11400000, guid: 92a71d10d574f3f408bb5dcf0d230126, type: 2}
+  - {fileID: 11400000, guid: 47f4ea24dc3040f479fc6a35235eac9e, type: 2}
   musicClip: {fileID: 8300000, guid: a3bf1088bf74fa64882360e16c9bfd96, type: 3}

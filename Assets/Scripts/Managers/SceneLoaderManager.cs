@@ -39,8 +39,7 @@ public class SceneLoaderManager : MonoBehaviour {
     // Function that will be called from a listener
     public void OnLoadMenuRequest(LoadSceneRequest request) {
         if (IsSceneAlreadyLoaded(request.scene) == false) {
-            // Menus are loaded instantly
-            SceneManager.LoadScene(request.scene.sceneName);
+            StartCoroutine(ProcessLevelLoading(request));
         }
     }
 

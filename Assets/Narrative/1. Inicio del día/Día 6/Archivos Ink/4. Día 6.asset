@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943bfd464150854499776c6b6b47a2ac, type: 3}
+  m_Name: "4. D\xEDa 6"
+  m_EditorClassIdentifier: 
+  background: {fileID: 21300000, guid: 5731dad60e5e1594e8d16617e43d0290, type: 3}
+  inkText: {fileID: 4900000, guid: 59ecfe3da16caaf4e9a40c2742d09220, type: 3}
+  character1: {fileID: 21300000, guid: 25146b9afeff2da44a3001ae5bfab8d6, type: 3}
+  character2: {fileID: 0}
+  characterSingle: {fileID: 21300000, guid: 25146b9afeff2da44a3001ae5bfab8d6, type: 3}

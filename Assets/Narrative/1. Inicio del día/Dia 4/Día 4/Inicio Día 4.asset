@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogProgression:
   - {fileID: 11400000, guid: 7a97a34367b556844be79c6fa3a311b0, type: 2}
   - {fileID: 11400000, guid: ddee9a6218f2d2648a70d42729cefde5, type: 2}
-  musicClip: {fileID: 8300000, guid: 86de5b24cd44892488a64728139a1053, type: 3}
+  musicClip: {fileID: 8300000, guid: 05c9aba1daa0ff94a851905a62d29407, type: 3}
