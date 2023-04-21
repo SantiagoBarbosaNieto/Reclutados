@@ -29,11 +29,7 @@ public class DialogController : MonoBehaviour
     private Button _dialogEnd;
     private Button _fastForward;
 
-    #if DEBUG
-    private int _initialTypeSpeed = 10;
-    #else
     public int _initialTypeSpeed = 1;
-    #endif
 
     [Range(0, 20)]
     public int typeWriterSpeed = 0;
