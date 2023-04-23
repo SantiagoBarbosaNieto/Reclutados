@@ -25,7 +25,7 @@ public static class RegateoCharacterFactory
         List<RegateoOrder> orders = new List<RegateoOrder>();
 
         foreach(var product in products) {
-            orders.Add(new RegateoOrder(regateoCharacterSO.GeneratePedido(product.Value, product.Key.name), product.Key, product.Value));
+            orders.Add(new RegateoOrder(regateoCharacterSO.GeneratePedido(product.Value, product.Key.name, product.Key.pluralName), product.Key, product.Value));
         }
 
         return new RegateoCharacter(regateoCharacterSO, orders);
@@ -34,11 +34,25 @@ public static class RegateoCharacterFactory
 
     private static RegateoProduct GetRandomProduct(List<RegateoProduct> potentialProducts, RegateoCharacterSO regateoCharacterSO) {
 
+        RegateoCharacterProbabilidadProducto[] probabilidadProductos = regateoCharacterSO.GetProductosProbabilidad();
         if(potentialProducts.Count == 0)
             throw new System.Exception("No hay productos disponibles");
 
-        // TODO aplicar distribucion
+        int totalWeight = 0;
+        foreach(var producto in probabilidadProductos) {
+            totalWeight += producto.probabilidad;
+        }
 
+        int randomWeight = Random.Range(0, totalWeight);
+
+        foreach(var producto in probabilidadProductos) {
+            if(randomWeight < producto.probabilidad)
+                return potentialProducts.Find(p => p.id == producto.idProducto);
+            randomWeight -= producto.probabilidad;
+        }
+
+
+        // if distribution doesnt work, return random product
         return potentialProducts[Random.Range(0, potentialProducts.Count)];
 
     }

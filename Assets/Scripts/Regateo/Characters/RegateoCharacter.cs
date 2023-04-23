@@ -47,7 +47,7 @@ public class RegateoCharacter {
 
     public string GeneratePedido(RegateoOrder order)
     {
-        return regateoCharacterSO.GeneratePedido(order.amount, order.product.name);
+        return regateoCharacterSO.GeneratePedido(order.amount, order.product.name, order.product.pluralName);
     }
 
 
@@ -91,11 +91,11 @@ public class RegateoOrder {
     }
 
     private string GenerateOfferMessage() {
-        string productPlurable = amount > 1 ? product.name+"s" : product.name;
+        string productPlurable = amount > 1 ? product.pluralName : product.name;
 
         string total = string.Format("{0:C0}", amount * product.price);
 
-        string message = $"{amount} {productPlurable} por {product.price} pesos por {product.name}: {total}";
+        string message = $"{amount} {productPlurable} por {product.price} pesos cada {product.name}: {total}";
 
         return message;
     }

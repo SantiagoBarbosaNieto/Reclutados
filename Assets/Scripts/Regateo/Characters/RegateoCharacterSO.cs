@@ -13,18 +13,9 @@ public class RegateoCharacterSO : ScriptableObject
 
     [Space (10)]
 
-    [Header("Distribucion de probabilidades: La suma debe ser 100%")]
+    [Header("Distribucion de probabilidades")]
     [SerializeField]
-    [Range(0, 100)]
-    private int percentPlatanos;
-
-    [SerializeField]
-    [Range(0, 100)]
-    private int percentPapas;
-
-    [SerializeField]
-    [Range(0, 100)]
-    private int percentCafe;
+    private RegateoCharacterProbabilidadProducto[] productosProbabilidad;
 
     [Space(10)]
     [Header("Tolerancia al regateo")]
@@ -90,28 +81,26 @@ public class RegateoCharacterSO : ScriptableObject
     }
     
 
-    public string GeneratePedido(int cantidad, string producto)
+    public string GeneratePedido(int cantidad, string nombreProducto, string nombreProductoPlural)
     {
-        bool plurable = producto == "plátano" || producto == "papa";
-        string nombreProd = plurable && cantidad > 1? producto + "s" : producto;
-
         string pedido = pedidos[Random.Range(0, pedidos.Count)];
+
+        if(cantidad > 1) 
+            pedido = pedido.Replace("y", nombreProductoPlural);
+        else
+            pedido = pedido.Replace("y", nombreProducto);
         pedido = pedido.Replace("x", cantidad.ToString());
-        pedido = pedido.Replace("y", nombreProd);
 
         return pedido;
     }
 
-    public int GetPlatanosProbability() {
-        return percentPlatanos;
-    }
-
-    public int GetPapasProbability() {
-        return percentPapas;
-    }
-
-    public int GetCafeProbability() {
-        return percentCafe;
+    public int GetProductProbability(int id) {
+        foreach(RegateoCharacterProbabilidadProducto producto in productosProbabilidad) {
+            if(producto.idProducto == id) {
+                return producto.probabilidad;
+            }
+        }
+        return 0;
     }
 
     public string GenerateDespedida()
@@ -143,6 +132,10 @@ public class RegateoCharacterSO : ScriptableObject
 
     public Sprite GetSprite() {
         return sprite;
+    }
+
+    public RegateoCharacterProbabilidadProducto[] GetProductosProbabilidad() {
+        return productosProbabilidad;
     }
 
 }

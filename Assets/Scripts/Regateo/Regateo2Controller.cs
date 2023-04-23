@@ -1,23 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 // TODO Big refactor was necessary. Check if everythin works well.
 public class Regateo2Controller : MonoBehaviour
 {
+
+    //This list should be generated from a global list of products
     private List<RegateoProduct> allProducts = new List<RegateoProduct>() {
-        new RegateoProduct("papa", 10, 0),
-        new RegateoProduct("plátano", 20, 1),
-        new RegateoProduct("cafe", 5, 2),
+        new RegateoProduct("papa", "papas", 10, 0),
+        new RegateoProduct("plátano", "plátanos", 20, 1),
+        new RegateoProduct("bolsa de cafe", "bolsas de cafe", 5, 2),
+        new RegateoProduct("panela", "panelas", 5, 3),
     };
 
     [SerializeField]
-    private List<RegateoCharacterSO> allCharacters; 
+    public UnityEvent OnRegateoTerminado;
+    
+
+    //This list should be generated from a global list of characters. It can also be customized in case the
+    //current day requires it
+    [SerializeField]
+    private List<RegateoCharacterSO> currentAvailableCharacters = new List<RegateoCharacterSO>();
 
     [SerializeField]
     [Range(0, 100)]
     private int priceIncreasePercent = 10;
-
-    private List<RegateoCharacterSO> chosenCharacters = new List<RegateoCharacterSO>();
 
     private RegateoCharacter regateoCharacter;
 
@@ -29,42 +37,40 @@ public class Regateo2Controller : MonoBehaviour
 
     private States currentState;
 
-    private void Start() {
-        regateoCharacter = GenerateRegateoCharacter();
-        pedidosDisponibles = regateoCharacter.OrdersCount();
-
+    private void Start()
+    {
         regateoView.GetSiguientePedidoEvent().AddListener(UpdateStateSiguiente);
-
         regateoView.GetOptRegatearEvent().AddListener(Regatear);
         regateoView.GetOptSiEvent().AddListener(AceptarOferta);
-        regateoView.GetOptNoEvent().AddListener(RechazarOferta); 
+        regateoView.GetOptNoEvent().AddListener(RechazarOferta);
 
-        regateoView.UpdateCharacterImage(regateoCharacter.GetImage());
-        regateoView.UpdateCharacterName(regateoCharacter.GetName());
-
+        CreateRegateoCharacter();
         currentState = States.Saludo;
         UpdateStateSiguiente();
     }
 
-    // Generate random character
-    private RegateoCharacter GenerateRegateoCharacter() {
-        RegateoCharacterSO randomRegateoCharacter = null;
-
-        int maxIterations = 100;
-        do {
-            randomRegateoCharacter = allCharacters[Random.Range(0, allCharacters.Count)];
-            maxIterations--;
-        } while(chosenCharacters.Contains(randomRegateoCharacter) && maxIterations > 0);
-        // TODO test para no repetir personajes
-        
-        if(maxIterations == 0) {
-            Debug.LogError("No se pudo encontrar un personaje que no se haya usado, quizas haya muy pocos personajes comparado con la cantidad de personajes maxima");
-            throw new System.Exception("No se pudo encontrar un personaje que no se haya usado, quizas haya muy pocos personajes comparado con la cantidad de personajes maxima");
+    public void CreateRegateoCharacter()
+    {
+        if (currentAvailableCharacters.Count == 0)
+        {
+            Debug.LogError("No hay personajes disponibles para este regateo. Quizas quieras refrescar el controlador");
+            return;
         }
 
-        chosenCharacters.Add(randomRegateoCharacter);
+        regateoCharacter = GenerateRegateoCharacter();
+        pedidosDisponibles = regateoCharacter.OrdersCount();
+    }
+
+    // Generate random character
+    private RegateoCharacter GenerateRegateoCharacter()
+    {
+        RegateoCharacterSO randomRegateoCharacter = null;
+
+        randomRegateoCharacter = currentAvailableCharacters[Random.Range(0, currentAvailableCharacters.Count)];
 
         RegateoCharacter regateoCharacter = RegateoCharacterFactory.CreateRegateoCharacter(randomRegateoCharacter, allProducts);
+
+        currentAvailableCharacters.Remove(randomRegateoCharacter);
 
         return regateoCharacter;
     }
@@ -78,37 +84,44 @@ public class Regateo2Controller : MonoBehaviour
     // 
 
     //Finite State Machine
-    private enum States {
+    private enum States
+    {
         Saludo,
         Pedido,
-        Despedida,
-        Esperando,
+        RegateoTerminado,
     }
 
-    private void UpdateStateSiguiente() {
+    private void UpdateStateSiguiente()
+    {
 
-        switch(currentState) {
+        Debug.Log("Current State: " + currentState);
+        switch (currentState)
+        {
             case States.Saludo:
                 currentState = Saludo();
                 break;
             case States.Pedido:
                 currentState = Pedido();
                 break;
-            case States.Despedida:
-                currentState = Despedida();
+            case States.RegateoTerminado:
+                OnRegateoTerminado.Invoke();
                 break;
-            
+
             default:
                 Debug.LogError("Estado no valido");
                 break;
         }
     }
 
-    private States Saludo() {
-        if(regateoCharacter == null) {
+    private States Saludo()
+    {
+        if (regateoCharacter == null)
+        {
             Debug.Log("RegateoCharacter is null");
         }
         DialogOption();
+        regateoView.UpdateCharacterImage(regateoCharacter.GetImage());
+        regateoView.UpdateCharacterName(regateoCharacter.GetName());
 
         string saludo = regateoCharacter.GenerateSaludo();
         regateoView.UpdateDialogo(saludo);
@@ -116,9 +129,11 @@ public class Regateo2Controller : MonoBehaviour
         return States.Pedido;
     }
 
-    private States Pedido() {
+    private States Pedido()
+    {
         // Check if pedidos left
-        if(regateoCharacter.OrdersAvailable()) {
+        if (regateoCharacter.OrdersAvailable())
+        {
             // Get next order
             RegateoOrder nextOrder = regateoCharacter.orders[0];
             regateoCharacter.RemoveOrder(nextOrder);
@@ -138,23 +153,28 @@ public class Regateo2Controller : MonoBehaviour
             return States.Pedido;
         }
 
-        else {
-            return States.Despedida;
+        //If not, check if there are characters available
+        else
+        {
+            DialogOption();
+            regateoView.UpdateDialogo(regateoCharacter.GenerateDespedida());
+            if (currentAvailableCharacters.Count == 0)
+            {
+                Debug.Log("No hay mas personajes disponibles");
+                Debug.Log("Regateo over");
+                return States.RegateoTerminado;
+            }
+
+            else
+            {
+                CreateRegateoCharacter();
+                return States.Saludo;
+            }
         }
     }
 
-    
-    private States Despedida() {
-        DialogOption();
-        regateoView.UpdateDialogo(regateoCharacter.GenerateDespedida());
-
-        // TODO salir del regateo
-        Debug.Log("Regateo over");
-
-        return States.Despedida;
-    }
-
-    private void PedidoOption() {
+    private void PedidoOption()
+    {
         regateoView.SetOptRegatearActive(true);
         regateoView.SetOfertaActive(true);
         regateoView.SetComentarioActive(true);
@@ -163,7 +183,8 @@ public class Regateo2Controller : MonoBehaviour
         regateoView.SetSiguientePedidoActive(false);
     }
 
-    private void DialogOption() {
+    private void DialogOption()
+    {
         regateoView.SetOfertaActive(false);
         regateoView.SetComentarioActive(false);
         regateoView.SetOptRegatearActive(false);
@@ -173,17 +194,20 @@ public class Regateo2Controller : MonoBehaviour
     }
 
     // Decision Options ----------------
-    private void AceptarOferta() {
+    private void AceptarOferta()
+    {
         DialogOption();
         regateoView.UpdateDialogo(regateoCharacter.GenerateTrato());
     }
 
-    private void RechazarOferta() {
+    private void RechazarOferta()
+    {
         DialogOption();
         regateoView.UpdateDialogo(regateoCharacter.GenerateRechazo());
     }
 
-    private void Regatear() {
+    private void Regatear()
+    {
         DialogOption();
 
         float tol = regateoCharacter.GetTolerance();
@@ -195,18 +219,20 @@ public class Regateo2Controller : MonoBehaviour
 
         string mensaje = "";
 
-        if(random <= tol) {
+        if (random <= tol)
+        {
             // Regateo exitoso
             mensaje = regateoCharacter.GenerateTrato();
             // TODO decrease products, increase money
         }
-        else {
+        else
+        {
             // Regateo fallido
             mensaje = regateoCharacter.GenerateMalTrato();
         }
 
         regateoView.UpdateDialogo(mensaje);
-        
+
     }
     // -------------------------------
 

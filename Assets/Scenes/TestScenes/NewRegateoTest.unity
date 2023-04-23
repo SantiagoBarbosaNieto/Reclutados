@@ -2848,12 +2848,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907c6eb4060cd6443a725fc69e9d4a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allProducts: []
-  allCharacters:
-  - {fileID: 11400000, guid: 1af2e8097bebc7d498c447a9850bca01, type: 2}
+  currentAvailableCharacters:
   - {fileID: 11400000, guid: d888251550f096e4d97f92157cf9fdd9, type: 2}
   - {fileID: 11400000, guid: f0c9ac44db1b2e74aae1736f80d14ec0, type: 2}
+  - {fileID: 11400000, guid: 1af2e8097bebc7d498c447a9850bca01, type: 2}
   priceIncreasePercent: 10
+  regateoView: {fileID: 1794210940318802209}
 --- !u!114 &1794210940318802209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2868,7 +2868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterImage: {fileID: 1794210940242962918}
   characterName: {fileID: 7422356654191493665}
-  dialogo: {fileID: 0}
+  dialogo: {fileID: 1794210941186630844}
   oferta: {fileID: 574224921}
   comentario: {fileID: 1363188801}
   optRegatear: {fileID: 914620592}
