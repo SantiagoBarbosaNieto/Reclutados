@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef979aebbca23ae4982cdd551e4d8481, type: 3}
+  m_Name: Ejemplo 2
+  m_EditorClassIdentifier: 
+  name: Joan d'Arc
+  sprite: {fileID: 21300000, guid: 5eea95454b846da4ca3425a0db960d0d, type: 3}
+  percentPlatanos: 20
+  percentPapas: 30
+  percentCafe: 50
+  toleranciaBase: 40
+  saludos:
+  - Buenas joven como le va?
+  - Buenas tardes
+  - Buenas mijo como esta?
+  pedidos:
+  - Regaleme por favor x y
+  - Por favor x y
+  - Deme x y
+  despedidas:
+  - Gracias joven, hasta luego
+  - Gracias mijo, que le vaya bien
+  - Hasta luego joven se me cuida
+  malTrato:
+  - No joven no me alcanza
+  - Esta muy caro mijo
+  - Antes no era tan caro
+  trato:
+  - Listo pues mijo
+  - Lo compro
+  - Esta bien joven, se lo compro
+  rechazo:
+  - Bueno pues

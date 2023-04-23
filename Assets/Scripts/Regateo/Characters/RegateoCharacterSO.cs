@@ -16,15 +16,15 @@ public class RegateoCharacterSO : ScriptableObject
     [Header("Distribucion de probabilidades: La suma debe ser 100%")]
     [SerializeField]
     [Range(0, 100)]
-    private float percentPlatanos;
+    private int percentPlatanos;
 
     [SerializeField]
     [Range(0, 100)]
-    private float percentPapas;
+    private int percentPapas;
 
     [SerializeField]
     [Range(0, 100)]
-    private float percentCafe;
+    private int percentCafe;
 
     [Space(10)]
     [Header("Tolerancia al regateo")]
@@ -33,7 +33,7 @@ public class RegateoCharacterSO : ScriptableObject
     [SerializeField]
     private float toleranciaBase;
     
-    private float tolerancia;
+    public float tolerancia {get; private set;}
 
 
     [Space (10)]
@@ -80,7 +80,7 @@ public class RegateoCharacterSO : ScriptableObject
         "Bueno pues",
     };
 
-    private void Start() {
+    private void OnEnable() {
         tolerancia = toleranciaBase;
     }
 
@@ -92,17 +92,26 @@ public class RegateoCharacterSO : ScriptableObject
 
     public string GeneratePedido(int cantidad, string producto)
     {
-        bool plurable = producto == "plátanos" || producto == "papas";
+        bool plurable = producto == "plátano" || producto == "papa";
+        string nombreProd = plurable && cantidad > 1? producto + "s" : producto;
 
         string pedido = pedidos[Random.Range(0, pedidos.Count)];
-        pedido = pedido.Replace("y", cantidad.ToString());
-        pedido = pedido.Replace("x", producto);
-
-        if (plurable && cantidad > 1)
-            pedido += "s";
-        
+        pedido = pedido.Replace("x", cantidad.ToString());
+        pedido = pedido.Replace("y", nombreProd);
 
         return pedido;
+    }
+
+    public int GetPlatanosProbability() {
+        return percentPlatanos;
+    }
+
+    public int GetPapasProbability() {
+        return percentPapas;
+    }
+
+    public int GetCafeProbability() {
+        return percentCafe;
     }
 
     public string GenerateDespedida()
@@ -126,6 +135,14 @@ public class RegateoCharacterSO : ScriptableObject
 
     public void DecreaseTolerancia(float decrement) {
         tolerancia -= decrement;
+    }
+
+    public string GetName() {
+        return name;
+    }
+
+    public Sprite GetSprite() {
+        return sprite;
     }
 
 }
