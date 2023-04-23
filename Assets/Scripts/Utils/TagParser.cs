@@ -42,7 +42,7 @@ public class TagParser : MonoBehaviour
             string key = splitTag[1];
             string value = splitTag[2];
             if(splitTag.Length != 3) {
-                Debug.LogError("The tag is not properly formatted");
+                Debug.Log("The tag is not properly formatted");
                 return;
             }
             switch(key) {
@@ -65,7 +65,7 @@ public class TagParser : MonoBehaviour
                     }
                     break;
                 default:
-                    Debug.LogError("Key " + key + " is not defined under pref tag");
+                    Debug.Log("Key " + key + " is not defined under pref tag");
                     break;
             }
         }
@@ -79,7 +79,7 @@ public class TagParser : MonoBehaviour
                     PrefsManager.Instance.AddSalesMoney(float.Parse(value));
                     break;
                 default:
-                    Debug.LogError("Key " + key + " is not defined under pref tag");
+                    Debug.Log("Key " + key + " is not defined under pref tag");
                     break;
             }
         }
@@ -164,7 +164,7 @@ public class TagParser : MonoBehaviour
         }
 
         else {
-            Debug.LogError("The command " + command + " is not defined");
+            Debug.Log("The command " + command + " is not defined");
             return;
         }
 

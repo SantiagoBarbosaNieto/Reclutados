@@ -1032,8 +1032,8 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1980, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1120,6 +1120,7 @@ MonoBehaviour:
   day3: {fileID: 11400000, guid: 743d673cb4f7319489609a612378f7da, type: 2}
   day4: {fileID: 11400000, guid: 5ba851f8d1378ce4383cbdebaa81a468, type: 2}
   day5: {fileID: 11400000, guid: e06a293f080c86a4fb657b7eacaa50ff, type: 2}
+  day6: {fileID: 11400000, guid: 34fe4f5a8b80d2e499a7e8ecb45d1293, type: 2}
   loadDay: {fileID: 11400000, guid: 48b67f75ad204264c8c9ce01f01782a0, type: 2}
 --- !u!114 &795922013
 MonoBehaviour:

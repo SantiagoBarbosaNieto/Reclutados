@@ -33,6 +33,7 @@ public class GameLoader : MonoBehaviour {
     public void LoadFromFile() {
 
         string path = saveDirectory + "/" + saveName + ".bin";
+        bool gameLoaded = true;
         LoadDayRequest request;
 
         Debug.Log("LOADING DATA...");
@@ -49,17 +50,6 @@ public class GameLoader : MonoBehaviour {
                 SaveGameData loadData = (SaveGameData) formatter.Deserialize(saveFile);
 
                 saveFile.Close();
-
-                Debug.Log("~~~ LOADED GAME DATA ~~~");
-                Debug.Log("MONEY: " + loadData.money);
-                Debug.Log("COLLABORATION: " + loadData.collaboration);
-                Debug.Log("END_BRANCH: " + loadData.endBranch);
-                Debug.Log("DAY: " + loadData.day);
-
-                PrefsManager.Instance.UpdateMoney(loadData.money);
-                PrefsManager.Instance.SetDay(loadData.day);
-                PrefsManager.Instance.UpdateEndBranch(loadData.endBranch);
-                PrefsManager.Instance.UpdateCollaboration(loadData.collaboration);
 
                 switch (loadData.day) {
                     case 1:
@@ -111,10 +101,22 @@ public class GameLoader : MonoBehaviour {
                         break;
 
                     default:
-                        PrefsManager.Instance.ResetPrefs();
                         Debug.Log("Loading error: Day not found");
+                        gameLoaded = false;
                         break;
                 }
+
+                PrefsManager.Instance.UpdateMoney(loadData.money);
+                PrefsManager.Instance.SetDay(loadData.day);
+                PrefsManager.Instance.UpdateEndBranch(loadData.endBranch);
+                PrefsManager.Instance.UpdateCollaboration(loadData.collaboration);
+
+                Debug.Log("~~~ LOADED GAME DATA ~~~");
+                Debug.Log("MONEY: " + PrefsManager.Instance.GetMoney());
+                Debug.Log("COLLABORATION: " + PrefsManager.Instance.GetCollaboration());
+                Debug.Log("END_BRANCH: " + PrefsManager.Instance.GetEndBranch());
+                Debug.Log("DAY: " + PrefsManager.Instance.GetDay());
+                
             }
             catch {
                 notificationTitle.text = "Error al cargar partida";
