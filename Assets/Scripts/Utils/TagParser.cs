@@ -16,6 +16,9 @@ public class TagParser : MonoBehaviour
     }
 
     [SerializeField]
+    public AddMoneyGameEvent addMoneyGameEvent;
+
+    [SerializeField]
     public DialogEventGameEvent addOptionalDialogGameEvent;
 
     private const string PREF = "pref";
@@ -76,7 +79,8 @@ public class TagParser : MonoBehaviour
              switch(key) {
                 case "compra":
                     Debug.Log("Compa de " + value + " unidades registrada");
-                    PrefsManager.Instance.AddSalesMoney(float.Parse(value));
+                    AddMoney eventInfo = new AddMoney(float.Parse(value), "Compra", true);
+                    addMoneyGameEvent.Raise(eventInfo);
                     break;
                 default:
                     Debug.Log("Key " + key + " is not defined under pref tag");

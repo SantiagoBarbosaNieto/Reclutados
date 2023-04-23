@@ -6,16 +6,17 @@ using ScriptableObjectArchitecture;
 public class MainMenu : MonoBehaviour {
 
     [SerializeField]
-    private DaySO initialDay;
+    private GameEvent newGameEvent;
+
     [SerializeField]
-    private LoadDayRequestGameEvent loadInitialDay;
-    [SerializeField]
-    private GameEvent startNewDay;
+    private GameEvent loadGameSaveEvent;
 
     public void NewGame() {
-        LoadDayRequest request = new LoadDayRequest(initialDay);
-        PrefsManager.Instance.ResetPrefs();
-        loadInitialDay.Raise(request);
+        newGameEvent.Raise();
+    }
+
+    public void LoadGame() {
+        loadGameSaveEvent.Raise();
     }
     public void Exit() {
         UnityEngine.Debug.Log("Salir...");

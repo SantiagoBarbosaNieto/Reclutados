@@ -18,10 +18,10 @@ public class SaveGame : MonoBehaviour {
         if (!Directory.Exists(directoryName))
             Directory.CreateDirectory(directoryName);
 
-        saveGameData.day = PrefsManager.Instance.GetDay();
-        saveGameData.money = PrefsManager.Instance.GetMoney();
-        saveGameData.endBranch = PrefsManager.Instance.GetEndBranch();
-        saveGameData.collaboration = PrefsManager.Instance.GetCollaboration();
+        saveGameData.day = GameStateManager.Instance._dia;
+        saveGameData.money = GameStateManager.Instance._moneyDayStart; //Se guarda solo la plata al inicio del día para evitar el exploit de que gane plata y antes de acabar el día guarde y vuelva a cargar la partida (lo que reinicia ese dia)
+        saveGameData.endBranch = GameStateManager.Instance._endBranch;
+        saveGameData.collaboration = GameStateManager.Instance._collaborations;
 
         try {
             BinaryFormatter formatter = new BinaryFormatter();

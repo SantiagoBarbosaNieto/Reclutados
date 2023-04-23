@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
 public class GameStateManager : MonoBehaviour
 {   
@@ -23,6 +24,10 @@ public class GameStateManager : MonoBehaviour
             Instance = this;
         }
     }
+    #region EventosLlamados
+        [SerializeField]
+        public GameEvent UpdateUIEvent;
+    #endregion
 
     #region Attributes
 
@@ -57,6 +62,9 @@ public class GameStateManager : MonoBehaviour
         //Diccionario de eventos por día
         public Dictionary<int, List<Evento>> _eventos {get; private set;}
 
+        public bool _roadEventHappened {get; private set;}
+
+
         #endregion
 
         #region Backpack
@@ -84,18 +92,25 @@ public class GameStateManager : MonoBehaviour
     #region Setters
         public void SetMoneyDayStart(float money) {
             _moneyDayStart = money;
+            UpdateUIEvent.Raise();
         }
 
         public void SetMoneyDay(float money) {
             _moneyDay = money;
+            UpdateUIEvent.Raise();
         }
 
         public void SetDia(int dia) {
             _dia = dia;
+            UpdateUIEvent.Raise();
         }
 
         public void SetEventos(Dictionary<int, List<Evento>> eventos) {
             _eventos = eventos;
+        }
+
+        public void SetRoadEventHappened(bool happened) {
+            _roadEventHappened = happened;
         }
 
         public void SetBackpack(Backpack backpack) {
@@ -136,6 +151,7 @@ public class GameStateManager : MonoBehaviour
             //#TODO revisar si nombreEvento es válido 
             _moneyDay += eventInfo.money;
             AddEvent(eventInfo.description, eventInfo.money, eventInfo.isVentas);
+            UpdateUIEvent.Raise();
         }
 
 
@@ -160,13 +176,13 @@ public class GameStateManager : MonoBehaviour
             _moneyDayStart += _moneyDay;
             _moneyDay = 0;
             _dia++;
+            _roadEventHappened = false;
+            UpdateUIEvent.Raise();
         }
 
-        public void LoadGameState(int dia, float moneyDayStart, Dictionary<int, List<Evento>> eventos) {
-            _dia = dia;
-            _moneyDayStart = moneyDayStart;
-            _moneyDay = 0;
-            _eventos = eventos;
+        public void LoadGameSave()
+        {
+            Debug.LogWarning("LoadGameSave no implementado en GameStateManager");
         }
 
         public void ResetGameState()
@@ -177,6 +193,8 @@ public class GameStateManager : MonoBehaviour
             _collaborations = 0;
             _endBranch = 0;
             _eventos = new Dictionary<int, List<Evento>>();
+            _roadEventHappened = false;
+            UpdateUIEvent.Raise();
         }
         
         public void AddCollaboration() {

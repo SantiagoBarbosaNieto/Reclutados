@@ -14,12 +14,11 @@ public class HUDManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        _money = PrefsManager.Instance.GetSalesMoney();
-        _day = PrefsManager.Instance.GetDay();
-        Debug.Log("UPDATE MONEY: " + _money);
+        _money = GameStateManager.Instance.GetTotalMoney();
+        _day = GameStateManager.Instance._dia;
 
         dayText.GetComponent<TextMeshProUGUI>().text = "Día " + _day;
-        moneyText.GetComponent<TextMeshProUGUI>().text = _money + "$";
+        moneyText.GetComponent<TextMeshProUGUI>().text = _money.ToString("F2") + "$";
     }
 
     public void EnableUI(bool enable)

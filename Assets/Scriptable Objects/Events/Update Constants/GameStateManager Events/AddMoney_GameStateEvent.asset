@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0c4c4d0ef975746bb0ad5354f0f786, type: 3}
-  m_Name: PrefsScene
+  m_Script: {fileID: 11500000, guid: d9745c6706c1499479883949766b1ab7, type: 3}
+  m_Name: AddMoney_GameStateEvent
   m_EditorClassIdentifier: 
-  sceneName: PrefsScene
-  type: 
+  _debugValue:
+    description: 
+    money: 0
+    isVentas: 0

@@ -12,35 +12,50 @@ public class ItemSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int day = PrefsManager.Instance.GetDay();
+        int day = GameStateManager.Instance._dia;
         numDia.GetComponent<TMPro.TextMeshProUGUI>().text = ""+day;
 
-        List<(string, float)> events = PrefsManager.Instance.GetEvents(day);
-        int numEvents = PlayerPrefs.GetInt(day+"_events");
+        List<GameStateManager.Evento> events = GameStateManager.Instance.GetCurrentDayEvents();
+        
+        //Item de ahorros
         GameObject item = Instantiate (itemPrefab) as GameObject;
         item.transform.SetParent( content);
         item.GetComponent<ItemInitialize>().SetName("Ahorros");
-        float ahorro = PrefsManager.Instance.GetMoney();
+        float ahorro = GameStateManager.Instance._moneyDayStart;
         item.GetComponent<ItemInitialize>().SetValue(ahorro);
-        item.transform.localScale = new Vector3(1,1,1);
-        float total = 0;
-        foreach( (string,float)ev in events)
-        {
-            string name = ev.Item1;
-            float value = ev.Item2;
-            total += value;
 
-            item = Instantiate (itemPrefab) as GameObject;
-            item.transform.SetParent( content);
-            item.GetComponent<ItemInitialize>().SetName(name);
-            item.GetComponent<ItemInitialize>().SetValue(value);
-            item.transform.localScale = new Vector3(1,1,1);
+        item.transform.localScale = new Vector3(1,1,1);
+
+
+        float salesTotal = 0;
+        foreach( GameStateManager.Evento ev in events)
+        {
+            string name = ev._nombre;
+            float value = ev._valor;
+            if(ev.isVentas)
+            {
+                salesTotal += value;
+            }
+            else
+            {
+                item = Instantiate (itemPrefab) as GameObject;
+                item.transform.SetParent( content);
+                item.GetComponent<ItemInitialize>().SetName(name);
+                item.GetComponent<ItemInitialize>().SetValue(value);
+                item.transform.localScale = new Vector3(1,1,1);
+            }
+
         }
 
+        item = Instantiate (itemPrefab) as GameObject;
+        item.transform.SetParent( content);
+        item.GetComponent<ItemInitialize>().SetName("Total Ventas");
+        item.GetComponent<ItemInitialize>().SetValue(salesTotal);
+        item.transform.localScale = new Vector3(1,1,1);
+
         TMPro.TextMeshProUGUI  TMvalue = valueObject.GetComponent<TMPro.TextMeshProUGUI>();
-        float screenTotal = total + ahorro;
-        TMvalue.text = "$ "  + (screenTotal >= 0 ? " " : "") + screenTotal.ToString();
-        PrefsManager.Instance.AddMoney(total);
+        float screenTotal = GameStateManager.Instance.GetTotalMoney();
+        TMvalue.text = "$ "  + (screenTotal >= 0 ? " " : "") + screenTotal.ToString("F2");
     }
 
     // Update is called once per frame

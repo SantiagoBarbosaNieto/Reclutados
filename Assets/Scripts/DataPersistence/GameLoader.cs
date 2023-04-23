@@ -29,6 +29,9 @@ public class GameLoader : MonoBehaviour {
     
     [SerializeField]
     private LoadDayRequestGameEvent loadDay;
+
+    [SerializeField]
+    public GameEvent resetGameStateEvent;
     
     public void LoadFromFile() {
 
@@ -55,7 +58,7 @@ public class GameLoader : MonoBehaviour {
                     case 1:
                         Debug.Log("Attempting to load day 1... ");
                         request = new LoadDayRequest(day1);
-                        PrefsManager.Instance.ResetPrefs();
+                        resetGameStateEvent.Raise();
                         loadDay.Raise(request);
                         Debug.Log("Day 1 loaded!");
                         break;
@@ -63,7 +66,7 @@ public class GameLoader : MonoBehaviour {
                     case 2:
                     Debug.Log("Attempting to load day 2... ");
                         request = new LoadDayRequest(day2);
-                        PrefsManager.Instance.ResetPrefs();
+                        resetGameStateEvent.Raise();
                         loadDay.Raise(request);
                         Debug.Log("Day 2 loaded!");
                         break;
@@ -71,7 +74,7 @@ public class GameLoader : MonoBehaviour {
                     case 3:
                         Debug.Log("Attempting to load day 3... ");
                         request = new LoadDayRequest(day3);
-                        PrefsManager.Instance.ResetPrefs();
+                        resetGameStateEvent.Raise();
                         loadDay.Raise(request);
                         Debug.Log("Day 3 loaded!");
                         break;
@@ -79,7 +82,7 @@ public class GameLoader : MonoBehaviour {
                     case 4:
                         Debug.Log("Attempting to load day 4... ");
                         request = new LoadDayRequest(day4);
-                        PrefsManager.Instance.ResetPrefs();
+                        resetGameStateEvent.Raise();
                         loadDay.Raise(request);
                         Debug.Log("Day 4 loaded!");
                         break;
@@ -87,7 +90,7 @@ public class GameLoader : MonoBehaviour {
                     case 5:
                         Debug.Log("Attempting to load day 5... ");
                         request = new LoadDayRequest(day5);
-                        PrefsManager.Instance.ResetPrefs();
+                        resetGameStateEvent.Raise();
                         loadDay.Raise(request);
                         Debug.Log("Day 5 loaded!");
                         break;
@@ -95,7 +98,7 @@ public class GameLoader : MonoBehaviour {
                     case 6:
                         Debug.Log("Attempting to load day 6... ");
                         request = new LoadDayRequest(day6);
-                        PrefsManager.Instance.ResetPrefs();
+                        resetGameStateEvent.Raise();
                         loadDay.Raise(request);
                         Debug.Log("Day 6 loaded!");
                         break;
@@ -106,16 +109,16 @@ public class GameLoader : MonoBehaviour {
                         break;
                 }
 
-                PrefsManager.Instance.UpdateMoney(loadData.money);
-                PrefsManager.Instance.SetDay(loadData.day);
-                PrefsManager.Instance.UpdateEndBranch(loadData.endBranch);
-                PrefsManager.Instance.UpdateCollaboration(loadData.collaboration);
+                GameStateManager.Instance.SetMoneyDayStart(loadData.money);
+                GameStateManager.Instance.SetDia(loadData.day);
+                GameStateManager.Instance.SetEndBranch(loadData.endBranch);
+                GameStateManager.Instance.SetCollaborations(loadData.collaboration);
 
                 Debug.Log("~~~ LOADED GAME DATA ~~~");
-                Debug.Log("MONEY: " + PrefsManager.Instance.GetMoney());
-                Debug.Log("COLLABORATION: " + PrefsManager.Instance.GetCollaboration());
-                Debug.Log("END_BRANCH: " + PrefsManager.Instance.GetEndBranch());
-                Debug.Log("DAY: " + PrefsManager.Instance.GetDay());
+                Debug.Log("MONEY: " + GameStateManager.Instance.GetTotalMoney());
+                Debug.Log("COLLABORATION: " + GameStateManager.Instance._collaborations);
+                Debug.Log("END_BRANCH: " + GameStateManager.Instance._endBranch);
+                Debug.Log("DAY: " + GameStateManager.Instance._dia);
                 
             }
             catch {

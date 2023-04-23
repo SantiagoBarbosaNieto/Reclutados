@@ -379,7 +379,7 @@ MonoBehaviour:
   popUpBox: {fileID: 183262120}
   player: {fileID: 1314571896}
   popUpText: {fileID: 1837444495}
-  gameEvent: {fileID: 11400000, guid: 23033b9129fdc8b428dae391fe178eab, type: 2}
+  addMoneyEvent: {fileID: 11400000, guid: 85d7fdf2892196a4292ded1ec538091b, type: 2}
 --- !u!4 &386054743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3524056317332142540, guid: bbe85c169dca5d94fb66c8505ec8b9d4,
@@ -8958,12 +8958,12 @@ PrefabInstance:
     - target: {fileID: 2561051085164596609, guid: 42a9df5afc6b76e47b2d424294492586,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.000023126602
+      value: 0.00000500679
       objectReference: {fileID: 0}
     - target: {fileID: 2561051085164596609, guid: 42a9df5afc6b76e47b2d424294492586,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0058054924
+      value: -0.0076375008
       objectReference: {fileID: 0}
     - target: {fileID: 2561051085164596609, guid: 42a9df5afc6b76e47b2d424294492586,
         type: 3}

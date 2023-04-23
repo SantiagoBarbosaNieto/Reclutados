@@ -14,6 +14,8 @@ public class DayController : MonoBehaviour
     public LoadDialogSceneRequestGameEvent LoadDialogSceneRequest;
     public LoadSceneRequestGameEvent LoadLevelRequest;
 
+    public AddMoneyGameEvent addMoneyEvent;
+
     private int dayNumber;
 
     //There should be a Queue here for info scenes
@@ -114,9 +116,8 @@ public class DayController : MonoBehaviour
         }
         else if(transition != null && transition.scene != null) {
             EventManager.Instance.EnableUI(false);
-            int day = PrefsManager.Instance.GetDay();
-            TransitionItem item = new TransitionItem(day, 0, "Gastos del día", -1.2f*day);
-            PrefsManager.Instance.AddTransitionItem(item);
+            AddMoney eventInfo = new AddMoney(-1.2f*GameStateManager.Instance._dia, "Gastos del día");
+            addMoneyEvent.Raise(eventInfo);
             currentRequest = transition;
         }
         else { //Fin del dia

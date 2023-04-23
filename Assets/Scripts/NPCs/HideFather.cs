@@ -8,7 +8,8 @@ public class HideFather : MonoBehaviour {
     public SpriteRenderer spriteRenderer;
 
     void Start() {
-        if(PrefsManager.Instance.GetDay() == 2 || PrefsManager.Instance.GetDay() == 4 || PrefsManager.Instance.GetDay() >= 6) {
+        int day =  GameStateManager.Instance._dia;
+        if(day == 2 || day == 4 || day >= 6) {
             spriteRenderer.enabled = false;
         } else {
             spriteRenderer.enabled = true;

@@ -7,7 +7,9 @@ public class ScreenMessage : MonoBehaviour {
     public GameObject popUpBox;
     public GameObject player;
     public TMP_Text popUpText;
-    public TransitionItemGameEvent gameEvent;
+    //TODO remove this
+    //public TransitionItemGameEvent gameEvent;
+    public AddMoneyGameEvent addMoneyEvent;
 
 
     public void PopUp() {
@@ -21,7 +23,7 @@ public class ScreenMessage : MonoBehaviour {
         posibleEventsDescription[2] = "*Ves algo en el camino* ¡Encontraste $" + dinero + " en el suelo!";
         posibleEventsDescription[3] = "*Tropiezas con una roca* ¡Se te cayeron $" + dinero + " del bolsillo!";
 
-        if(PrefsManager.Instance.getEventHappended() == 0) {
+        if(!GameStateManager.Instance._roadEventHappened) {
 
             Debug.Log("OPCIÓN ");
             Debug.Log(opcion);
@@ -29,19 +31,28 @@ public class ScreenMessage : MonoBehaviour {
             player.SetActive(false);
             popUpBox.SetActive(true);
             popUpText.text = posibleEventsDescription[opcion];
-            PrefsManager.Instance.eventHappendedTrue();
+            GameStateManager.Instance.SetRoadEventHappened(true);
+            //TODO remove this
+            //PrefsManager.Instance.eventHappendedTrue();
 
             Debug.Log("EVENT CALLED");
 
             if(opcion == 2) {
-                TransitionItem item = new TransitionItem(PrefsManager.Instance.GetDay(), 1, "Dinero que encontraste", dinero);
-                gameEvent.Raise(item);
-                PrefsManager.Instance.AddSalesMoney(dinero);
+                AddMoney evento = new AddMoney(dinero, "Dinero que encontraste" );
+                addMoneyEvent.Raise(evento);
+                //TODO remove this
+                //TransitionItem item = new TransitionItem(PrefsManager.Instance.GetDay(), 1, "Dinero que encontraste", dinero);
+                //gameEvent.Raise(item);
+                //PrefsManager.Instance.AddSalesMoney(dinero);
             }
             else if(opcion == 3) {
-                TransitionItem item = new TransitionItem(PrefsManager.Instance.GetDay(), 1, "Dinero que perdiste", -dinero);
-                gameEvent.Raise(item);
-                PrefsManager.Instance.AddSalesMoney(-dinero);
+                AddMoney evento = new AddMoney(-dinero, "Dinero que perdiste" );
+                addMoneyEvent.Raise(evento);
+                
+                //TODO remove this
+                //TransitionItem item = new TransitionItem(PrefsManager.Instance.GetDay(), 1, "Dinero que perdiste", -dinero);
+                //gameEvent.Raise(item);
+                //PrefsManager.Instance.AddSalesMoney(-dinero);
             }
         }    
     }

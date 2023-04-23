@@ -1095,9 +1095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780ae34c4550f5340bcdbea90dc51460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDay: {fileID: 11400000, guid: 0f78497812f47824987eca22a92d4931, type: 2}
-  loadInitialDay: {fileID: 11400000, guid: 48b67f75ad204264c8c9ce01f01782a0, type: 2}
-  startNewDay: {fileID: 11400000, guid: bba8bcb876f5aaf43a2d5dd1d48d6218, type: 2}
+  newGameEvent: {fileID: 11400000, guid: 2d2644eb264c84d4fb0c83065d9da22e, type: 2}
+  loadGameSaveEvent: {fileID: 11400000, guid: 36a02e8fea797a94b8be82b71f686a78, type: 2}
 --- !u!114 &795922012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,6 +1121,8 @@ MonoBehaviour:
   day5: {fileID: 11400000, guid: e06a293f080c86a4fb657b7eacaa50ff, type: 2}
   day6: {fileID: 11400000, guid: 34fe4f5a8b80d2e499a7e8ecb45d1293, type: 2}
   loadDay: {fileID: 11400000, guid: 48b67f75ad204264c8c9ce01f01782a0, type: 2}
+  resetGameStateEvent: {fileID: 11400000, guid: cc8fdb71b08f8114b9335dc8a54de571,
+    type: 2}
 --- !u!114 &795922013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1799,9 +1800,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 795922012}
-        m_TargetAssemblyTypeName: GameLoader, Assembly-CSharp
-        m_MethodName: LoadFromFile
+      - m_Target: {fileID: 795922011}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
