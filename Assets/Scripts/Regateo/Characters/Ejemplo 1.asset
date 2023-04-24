@@ -10,11 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef979aebbca23ae4982cdd551e4d8481, type: 3}
-  m_Name: Ejemplo
+  m_Name: Ejemplo 1
   m_EditorClassIdentifier: 
-  name: Maria
-  sprite: {fileID: 21300000, guid: 25146b9afeff2da44a3001ae5bfab8d6, type: 3}
-  productosProbabilidad: []
+  name: Pedro
+  sprite: {fileID: 21300000, guid: bf7a388a124a91c4098f11a3b5bad75d, type: 3}
+  productosProbabilidad:
+  - probabilidad: 40
+    idProducto: 0
+  - probabilidad: 60
+    idProducto: 1
+  - probabilidad: 20
+    idProducto: 2
+  - probabilidad: 40
+    idProducto: 3
   toleranciaBase: 40
   saludos:
   - Buenas joven como le va?

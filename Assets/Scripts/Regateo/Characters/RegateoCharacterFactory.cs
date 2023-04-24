@@ -9,70 +9,53 @@ public static class RegateoCharacterFactory
 
     public static RegateoCharacter CreateRegateoCharacter(RegateoCharacterSO regateoCharacterSO, List<RegateoProduct> potentialProducts) {
         int productAmount = Random.Range(productMin, productMax);
+        
         Dictionary<RegateoProduct, int> products = new Dictionary<RegateoProduct, int>();
 
         for (int i = 0; i < productAmount; i++) {
-            //TODO implementar con distribucion de probabilidad de los productos
-            int randomIndex = Random.Range(0, potentialProducts.Count);
-            RegateoProduct randomProduct = potentialProducts[randomIndex];
+            //TODO probar distribucion
+            RegateoProduct randomProduct = GetRandomProduct(potentialProducts, regateoCharacterSO);
 
             if(products.ContainsKey(randomProduct))
                 products[randomProduct]++;
             else
                 products[randomProduct] = 1;
         }
+        
+        List<RegateoOrder> orders = new List<RegateoOrder>();
 
-        return new RegateoCharacter(regateoCharacterSO, products);
+        foreach(var product in products) {
+            orders.Add(new RegateoOrder(regateoCharacterSO.GeneratePedido(product.Value, product.Key.name, product.Key.pluralName), product.Key, product.Value));
+        }
+
+        return new RegateoCharacter(regateoCharacterSO, orders);
+
+    }
+
+    private static RegateoProduct GetRandomProduct(List<RegateoProduct> potentialProducts, RegateoCharacterSO regateoCharacterSO) {
+
+        RegateoCharacterProbabilidadProducto[] probabilidadProductos = regateoCharacterSO.GetProductosProbabilidad();
+        if(potentialProducts.Count == 0)
+            throw new System.Exception("No hay productos disponibles");
+
+        int totalWeight = 0;
+        foreach(var producto in probabilidadProductos) {
+            totalWeight += producto.probabilidad;
+        }
+
+        int randomWeight = Random.Range(0, totalWeight);
+
+        foreach(var producto in probabilidadProductos) {
+            if(randomWeight < producto.probabilidad)
+                return potentialProducts.Find(p => p.id == producto.idProducto);
+            randomWeight -= producto.probabilidad;
+        }
+
+
+        // if distribution doesnt work, return random product
+        return potentialProducts[Random.Range(0, potentialProducts.Count)];
 
     }
 
 
-}
-
-[System.Serializable]
-public class RegateoCharacter {
-
-    public RegateoCharacterSO regateoCharacterSO {get; private set;}
-
-    public Dictionary<RegateoProduct, int> products {get; private set;}
-
-    public RegateoCharacter(RegateoCharacterSO regateoCharacterSO, Dictionary<RegateoProduct, int> products)
-    {
-        this.regateoCharacterSO = regateoCharacterSO;
-        this.products = products;
-    }
-
-    public string GenerateSaludo()
-    {
-        return regateoCharacterSO.GenerateSaludo();
-    }
-
-    public string GeneratePedido(int cantidad, string producto)
-    {
-        return regateoCharacterSO.GeneratePedido(cantidad, producto);
-    }
-
-
-    public string GenerateDespedida()
-    {
-        return regateoCharacterSO.GenerateDespedida();
-    }
-
-    public string GenerateMalTrato()
-    {
-        return regateoCharacterSO.GenerateMalTrato();
-    }
-
-    public string GenerateTrato()
-    {
-        return regateoCharacterSO.GenerateTrato();
-    }
-
-    public string GenerateRechazo() {
-        return regateoCharacterSO.GenerateRechazo();
-    }
-
-    public void DecreaseTolerancia(float decrement) {
-        regateoCharacterSO.DecreaseTolerancia(decrement);
-    }
 }

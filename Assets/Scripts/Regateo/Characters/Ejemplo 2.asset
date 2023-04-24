@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef979aebbca23ae4982cdd551e4d8481, type: 3}
-  m_Name: Ejemplo
+  m_Name: Ejemplo 2
   m_EditorClassIdentifier: 
-  name: Maria
-  sprite: {fileID: 21300000, guid: 25146b9afeff2da44a3001ae5bfab8d6, type: 3}
+  name: Ramon Ortiz
+  sprite: {fileID: 21300000, guid: 5eea95454b846da4ca3425a0db960d0d, type: 3}
   productosProbabilidad: []
   toleranciaBase: 40
   saludos:

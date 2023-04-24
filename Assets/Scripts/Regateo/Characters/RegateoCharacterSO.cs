@@ -13,18 +13,9 @@ public class RegateoCharacterSO : ScriptableObject
 
     [Space (10)]
 
-    [Header("Distribucion de probabilidades: La suma debe ser 100%")]
+    [Header("Distribucion de probabilidades")]
     [SerializeField]
-    [Range(0, 100)]
-    private float percentPlatanos;
-
-    [SerializeField]
-    [Range(0, 100)]
-    private float percentPapas;
-
-    [SerializeField]
-    [Range(0, 100)]
-    private float percentCafe;
+    private RegateoCharacterProbabilidadProducto[] productosProbabilidad;
 
     [Space(10)]
     [Header("Tolerancia al regateo")]
@@ -33,7 +24,7 @@ public class RegateoCharacterSO : ScriptableObject
     [SerializeField]
     private float toleranciaBase;
     
-    private float tolerancia;
+    public float tolerancia {get; private set;}
 
 
     [Space (10)]
@@ -80,7 +71,7 @@ public class RegateoCharacterSO : ScriptableObject
         "Bueno pues",
     };
 
-    private void Start() {
+    private void OnEnable() {
         tolerancia = toleranciaBase;
     }
 
@@ -90,19 +81,26 @@ public class RegateoCharacterSO : ScriptableObject
     }
     
 
-    public string GeneratePedido(int cantidad, string producto)
+    public string GeneratePedido(int cantidad, string nombreProducto, string nombreProductoPlural)
     {
-        bool plurable = producto == "plátanos" || producto == "papas";
-
         string pedido = pedidos[Random.Range(0, pedidos.Count)];
-        pedido = pedido.Replace("y", cantidad.ToString());
-        pedido = pedido.Replace("x", producto);
 
-        if (plurable && cantidad > 1)
-            pedido += "s";
-        
+        if(cantidad > 1) 
+            pedido = pedido.Replace("y", nombreProductoPlural);
+        else
+            pedido = pedido.Replace("y", nombreProducto);
+        pedido = pedido.Replace("x", cantidad.ToString());
 
         return pedido;
+    }
+
+    public int GetProductProbability(int id) {
+        foreach(RegateoCharacterProbabilidadProducto producto in productosProbabilidad) {
+            if(producto.idProducto == id) {
+                return producto.probabilidad;
+            }
+        }
+        return 0;
     }
 
     public string GenerateDespedida()
@@ -126,6 +124,18 @@ public class RegateoCharacterSO : ScriptableObject
 
     public void DecreaseTolerancia(float decrement) {
         tolerancia -= decrement;
+    }
+
+    public string GetName() {
+        return name;
+    }
+
+    public Sprite GetSprite() {
+        return sprite;
+    }
+
+    public RegateoCharacterProbabilidadProducto[] GetProductosProbabilidad() {
+        return productosProbabilidad;
     }
 
 }
