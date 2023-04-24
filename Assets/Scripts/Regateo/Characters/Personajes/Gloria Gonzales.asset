@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef979aebbca23ae4982cdd551e4d8481, type: 3}
+  m_Name: Gloria Gonzales
+  m_EditorClassIdentifier: 
+  name: Gloria Gonzales
+  sprite: {fileID: 21300000, guid: e0c73ee9b04e94046b21461191645951, type: 3}
+  productosProbabilidad:
+  - probabilidad: 76
+    idProducto: 0
+  - probabilidad: 28
+    idProducto: 1
+  - probabilidad: 20
+    idProducto: 2
+  - probabilidad: 56
+    idProducto: 3
+  toleranciaBase: 5
+  saludos:
+  - Papito que pena lo molesto
+  - "Mijo, \xBFcuenteme que vende?"
+  - Buenas mijo como esta?
+  pedidos:
+  - Mijo le compro x y
+  - Ay papito entonces quiero x y
+  - Papito deme x y
+  despedidas:
+  - "Papito muchas gracias, que tenga buen d\xEDa"
+  - Gracias mijo, muy querido
+  - papito gracias, espero verlo pronto
+  malTrato:
+  - Ay mijo, no me alcanza que pena
+  - No papito que pena, pero no tengo para tanto
+  - "Uy papito, \xBFsiempre era tanto? No creo"
+  trato:
+  - Me parece justo
+  - Dale mijo, de acuerdo
+  - Bueno papito, lo tomo
+  rechazo:
+  - 'No pasa nada papito, uno tiene que saber el valor de sus cositas '

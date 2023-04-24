@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Teresa Gonzales
   sprite: {fileID: 21300000, guid: ba0d1821db384c64299f440bdfd67fc4, type: 3}
-  percentPlatanos: 10
-  percentPapas: 10
-  percentCafe: 80
+  productosProbabilidad:
+  - probabilidad: 32
+    idProducto: 0
+  - probabilidad: 55
+    idProducto: 1
+  - probabilidad: 35
+    idProducto: 2
+  - probabilidad: 87
+    idProducto: 3
   toleranciaBase: 20
   saludos:
   - "\xBFJuanito como estas?"

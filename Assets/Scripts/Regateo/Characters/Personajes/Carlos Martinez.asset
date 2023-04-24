@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Carlos Martinez
   sprite: {fileID: 21300000, guid: c2483d90b22b393498a9eca87d95c45c, type: 3}
-  percentPlatanos: 40
-  percentPapas: 20
-  percentCafe: 40
+  productosProbabilidad:
+  - probabilidad: 74
+    idProducto: 0
+  - probabilidad: 23
+    idProducto: 1
+  - probabilidad: 7
+    idProducto: 2
+  - probabilidad: 54
+    idProducto: 3
   toleranciaBase: 80
   saludos:
   - Casi sobrino como le va?

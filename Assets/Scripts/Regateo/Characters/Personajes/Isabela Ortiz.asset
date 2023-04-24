@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef979aebbca23ae4982cdd551e4d8481, type: 3}
+  m_Name: Isabela Ortiz
+  m_EditorClassIdentifier: 
+  name: Isabela Ortiz
+  sprite: {fileID: 21300000, guid: afc5d7d68f91054438a64fd08b006cdf, type: 3}
+  productosProbabilidad:
+  - probabilidad: 0
+    idProducto: 0
+  - probabilidad: 0
+    idProducto: 1
+  - probabilidad: 0
+    idProducto: 2
+  - probabilidad: 0
+    idProducto: 3
+  toleranciaBase: 45.5
+  saludos:
+  - "Disculpa Juan, buen d\xEDa"
+  - Buenas tardes Juan
+  - "\xBFJuan como esta?"
+  pedidos:
+  - Me interesa x y
+  - Lo aprovecho entonces, dame x y
+  - Me puedes regalar x y
+  despedidas:
+  - Gracias Juan, hasta luego
+  - Bueno Juan, que tenga buenas ventas
+  - Con cuidado Juan, buena tarde
+  malTrato:
+  - No contaba con que fuera tanto
+  - "No creo que compre as\xED"
+  - Me sorprende un poco el precio
+  trato:
+  - 'Me parece bien '
+  - Vale, lo tomo
+  - Hmm, esta bien Juan
+  rechazo:
+  - Esta bien Juan, igual te deseo lo mejor

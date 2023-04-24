@@ -14,10 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ana Perez
   sprite: {fileID: 21300000, guid: 4508ced53932037478c04e67efa96d9a, type: 3}
-  percentPlatanos: 30
-  percentPapas: 50
-  percentCafe: 20
-  toleranciaBase: 20
+  productosProbabilidad:
+  - probabilidad: 68
+    idProducto: 0
+  - probabilidad: 48
+    idProducto: 1
+  - probabilidad: 60
+    idProducto: 2
+  - probabilidad: 76
+    idProducto: 3
+  toleranciaBase: 7
   saludos:
   - "Chiquillo buenos d\xEDas."
   - Hola Chiquillo.
