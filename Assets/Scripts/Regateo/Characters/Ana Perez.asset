@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef979aebbca23ae4982cdd551e4d8481, type: 3}
+  m_Name: Ana Perez
+  m_EditorClassIdentifier: 
+  name: Ana Perez
+  sprite: {fileID: 21300000, guid: 4508ced53932037478c04e67efa96d9a, type: 3}
+  percentPlatanos: 30
+  percentPapas: 50
+  percentCafe: 20
+  toleranciaBase: 20
+  saludos:
+  - "Chiquillo buenos d\xEDas."
+  - Hola Chiquillo.
+  - "\xBFChiqui como le va?"
+  pedidos:
+  - Listo, dame x y
+  - Chiqui dame x y
+  - Vendeme  x y
+  despedidas:
+  - Gracias chiqui, hasta luego.
+  - Chiquillo, que le vaya bien.
+  - Bueno chiquillo, te me cuidas.
+  malTrato:
+  - No chiqui lo siento, no tengo tanto.
+  - "Chuquillo, eso est\xE1 muy caro"
+  - "Chuqui, \xBFno le parece mucho?"
+  trato:
+  - Listo chiquillo.
+  - Lo compro chiqui
+  - Esta bien chiqui, se lo compro
+  rechazo:
+  - No pasa nada chiquillo.
