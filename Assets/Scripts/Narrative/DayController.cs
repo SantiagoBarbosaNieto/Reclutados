@@ -16,6 +16,8 @@ public class DayController : MonoBehaviour
 
     public AddMoneyGameEvent addMoneyEvent;
 
+    public BoolGameEvent updateIsDayLoadedEvent;
+
     private int dayNumber;
 
     //There should be a Queue here for info scenes
@@ -43,7 +45,6 @@ public class DayController : MonoBehaviour
 
     public void OnLoadDay(LoadDayRequest request) {
         DaySO day = request.day;
-        Debug.Log("Day " + day.number + " loaded successfully");
         greeting = new Queue<LoadDialogSceneRequest>(day.greeting);
         level = day.level;
         sales = new Queue<LoadDialogSceneRequest>(day.sales);
@@ -52,8 +53,10 @@ public class DayController : MonoBehaviour
         transition = day.transition;
         LoadOptionalScenes(day.number);
         dayLoaded = true;
+        updateIsDayLoadedEvent.Raise(true);
         Advance();
         EventManager.Instance.EnableUI(true);
+        Debug.Log("Day " + day.number + " loaded successfully");
     }
 
     //This method is meant to load the optional dialogs that are added through the players desitions

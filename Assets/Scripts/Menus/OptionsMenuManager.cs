@@ -14,6 +14,7 @@ public class OptionsMenuManager : MonoBehaviour {
     public GameObject backToTitleButton;
     public GameObject settingsIcon;
     public LoadSceneRequestGameEvent titleEvent;
+    public GameEvent saveGameEvent;
     public SceneSO titleSO;
     private Scene currentScene;
     public GameObject notificationObject;
@@ -35,6 +36,11 @@ public class OptionsMenuManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Escape)) {
             optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
         }
+    }
+
+    public void SaveGame()
+    {
+        saveGameEvent.Raise();
     }
 
     public void OpenMenu() {

@@ -11,6 +11,8 @@ public class DayToDayManager : MonoBehaviour
     public GameEvent nextDayGameStateEvent;
     public GameEvent resetGameStateEvent;
 
+    public BoolGameEvent updateIsDayLoadedEvent;
+
     private void Start() {
         LoadDayRequest request = new LoadDayRequest(dayProgression[index]);
         //PrefsManager.Instance.ResetPrefs();
@@ -19,11 +21,7 @@ public class DayToDayManager : MonoBehaviour
 
     public void ResetDayProgression()
     {
-        index = 0;
-        LoadDayRequest request = new LoadDayRequest(dayProgression[index]);
-        //PrefsManager.Instance.ResetPrefs();
-        resetGameStateEvent.Raise();
-        loadDayRequestGameEvent.Raise(request);
+        LoadDay(1);
     }
 
     public void NextDay() {
@@ -37,5 +35,18 @@ public class DayToDayManager : MonoBehaviour
             Debug.Log("No hay mas dias para cargar: Aca se debe cargar uno de los finales");
         }
         
+    }
+
+    public void LoadDay(int day) {
+        updateIsDayLoadedEvent.Raise(false);
+        index = day-1;
+        if (index > 0 && index < dayProgression.Count) {
+            
+            LoadDayRequest request = new LoadDayRequest(dayProgression[index]);
+            resetGameStateEvent.Raise();
+            loadDayRequestGameEvent.Raise(request);
+        } else {
+            Debug.Log("No existe el día que se quiere cargar: " + day + " (index: " + index + ")");
+        }
     }
 }

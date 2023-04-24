@@ -12,6 +12,11 @@ public class HUDManager : MonoBehaviour
     public GameObject dayText;
     public GameObject moneyText;
 
+    public GameObject SimpleNotification;
+    public TextMeshProUGUI notificationTitle;
+    public TextMeshProUGUI notificationContent;
+
+
     public void UpdateUI()
     {
         _money = GameStateManager.Instance.GetTotalMoney();
@@ -25,5 +30,17 @@ public class HUDManager : MonoBehaviour
     {
         dayText.gameObject.SetActive(enable);
         moneyText.gameObject.SetActive(enable);
+    }
+
+    public void HideNotification()
+    {
+        SimpleNotification.gameObject.SetActive(false);
+    }
+
+    public void UpdateAndShowNotification(NotificationContent content)
+    {
+        notificationTitle.text = content.title;
+        notificationContent.text = content.content;
+        SimpleNotification.gameObject.SetActive(true);
     }
 }

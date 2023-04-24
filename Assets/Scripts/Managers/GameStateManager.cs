@@ -87,6 +87,11 @@ public class GameStateManager : MonoBehaviour
         public int _collaborations {get; private set;}
 
         #endregion
+        
+        #region Persistance
+            public bool _isDayLoaded {get; private set;}
+        #endregion
+    
     #endregion
 
     #region Setters
@@ -121,9 +126,13 @@ public class GameStateManager : MonoBehaviour
             _endBranch = endBranch;
         }
 
-
         public void SetCollaborations(int collaborations) {
             this._collaborations = collaborations;
+        }
+
+
+        public void SetIsDayLoaded(bool isDayLoaded) {
+            _isDayLoaded = isDayLoaded;
         }
     #endregion
 
@@ -178,11 +187,6 @@ public class GameStateManager : MonoBehaviour
             _dia++;
             _roadEventHappened = false;
             UpdateUIEvent.Raise();
-        }
-
-        public void LoadGameSave()
-        {
-            Debug.LogWarning("LoadGameSave no implementado en GameStateManager");
         }
 
         public void ResetGameState()
