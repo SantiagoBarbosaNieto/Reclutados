@@ -142,7 +142,6 @@ public class Regateo2Controller : MonoBehaviour
             regateoView.UpdateDialogo(pedido);
             regateoView.UpdateOferta(nextOrder.offer);
 
-            // TODO check if the order product and amount are available and activate the buttons accordingly
             PedidoOption();
 
             int currentPrice = nextOrder.GetPrice();
@@ -198,6 +197,7 @@ public class Regateo2Controller : MonoBehaviour
     {
         DialogOption();
         regateoView.UpdateDialogo(regateoCharacter.GenerateTrato());
+        //TODO decrease products, increase money
     }
 
     private void RechazarOferta()

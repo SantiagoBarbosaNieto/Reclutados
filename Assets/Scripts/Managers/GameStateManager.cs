@@ -70,11 +70,11 @@ public class GameStateManager : MonoBehaviour
         #region Backpack
 
         //Backpack
-        public struct Backpack //TODO maybe cambiar a clase, hacer con clase de items... etc
+        public struct Backpack //TODO cambiar a clase, hacer con clase de items... etc
         {
             public int _maxItems;
             public int _numItems;
-            public List<string> _items;
+            public List<RegateoProduct> _items;
         }
 
         
