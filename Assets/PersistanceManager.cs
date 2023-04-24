@@ -86,7 +86,7 @@ public class PersistanceManager : MonoBehaviour
                 }
                 else
                 {
-                    NotificationContent eventInfo = new NotificationContent("Error al cargar partida", "No existe el día "+dia+" en el sistema:  LOADDAYBOOL:" + GameStateManager.Instance._isDayLoaded);
+                    NotificationContent eventInfo = new NotificationContent("Error al cargar partida", "No existe el día "+dia+" en el sistema");
 
                     udpateAndShowNotificationEvent.Raise(eventInfo);
                     return;

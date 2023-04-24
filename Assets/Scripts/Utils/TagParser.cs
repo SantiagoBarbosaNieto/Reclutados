@@ -19,6 +19,11 @@ public class TagParser : MonoBehaviour
     public AddMoneyGameEvent addMoneyGameEvent;
 
     [SerializeField]
+    public GameEvent updateCollaborationEvent;
+    [SerializeField]
+    public IntGameEvent updateEndBranchEvent;
+
+    [SerializeField]
     public DialogEventGameEvent addOptionalDialogGameEvent;
 
     private const string PREF = "pref";
@@ -50,22 +55,19 @@ public class TagParser : MonoBehaviour
             }
             switch(key) {
                 case "money":
-                    if(EventManager.Instance != null) {
-                        Debug.Log("Add money tag parsed");
-                        EventManager.Instance.AddMoney(float.Parse(value));
-                    }
+                    
+                    Debug.Log("Add money tag parsed");
+                    AddMoney eventInfo = new AddMoney(float.Parse(value), "TagParser-PREFAddMoney", false);
+                    addMoneyGameEvent.Raise(eventInfo);
                     break;
                 
                 case "collaboration":
-                    if(EventManager.Instance != null)  {
-                        EventManager.Instance.IncreaseCollaboration();
-                    }
+                    
+                    updateCollaborationEvent.Raise();
                     break;
 
                 case "endBranch":
-                    if(EventManager.Instance != null) {
-                        EventManager.Instance.EndBranch(int.Parse(value));
-                    }
+                    updateEndBranchEvent.Raise(int.Parse(value));
                     break;
                 default:
                     Debug.Log("Key " + key + " is not defined under pref tag");

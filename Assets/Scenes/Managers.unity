@@ -160,62 +160,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &105996501
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 105996503}
-  - component: {fileID: 105996502}
-  m_Layer: 0
-  m_Name: EventManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &105996502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105996501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8948c9237f52d4391fe3ab86bd6ec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NoMoneyEvent: {fileID: 11400000, guid: b20a3c67b6b8dfe41bfc2d807e82e7df, type: 2}
-  AdvanceDayEvent: {fileID: 11400000, guid: edb65ca0f8ae3624392942dd112a4b17, type: 2}
-  LoadDayEvent: {fileID: 11400000, guid: 48b67f75ad204264c8c9ce01f01782a0, type: 2}
-  LoadDialogSceneEvent: {fileID: 11400000, guid: c95e6e9486a9213488039ff38c7eb55d,
-    type: 2}
-  LoadSceneEvent: {fileID: 11400000, guid: acac0cd682a85be498d1ee8c627ed8d9, type: 2}
-  AddMoneyEvent: {fileID: 11400000, guid: 95712248e551e98448d7a8e57691f843, type: 2}
-  IncreaseCollaborationEvent: {fileID: 11400000, guid: 252502a88f6b8034199cd4f27a71b1c1,
-    type: 2}
-  EndBranchEvent: {fileID: 11400000, guid: fc512f35601b9f14d84dcc80ac722054, type: 2}
-  UpdateUIEvent: {fileID: 11400000, guid: c4813ffdd25289447afab03ffaa29a03, type: 2}
-  EnableUIEvent: {fileID: 11400000, guid: 9fe541bd8eef30841b389b4924b580fd, type: 2}
---- !u!4 &105996503
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105996501}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 439.40002, y: 246.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &139909186
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +567,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &246145810
 MonoBehaviour:
@@ -638,6 +582,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addMoneyGameEvent: {fileID: 11400000, guid: 85d7fdf2892196a4292ded1ec538091b, type: 2}
+  updateCollaborationEvent: {fileID: 11400000, guid: 172a1c89a9ceccf4898cdb43e659b162,
+    type: 2}
+  updateEndBranchEvent: {fileID: 11400000, guid: 9834887825c67c2439a234cbb1ba8836,
+    type: 2}
   addOptionalDialogGameEvent: {fileID: 11400000, guid: feb6dad7c88841f458a8edc392d59fa5,
     type: 2}
 --- !u!1 &251085855
@@ -1019,6 +967,7 @@ MonoBehaviour:
   addMoneyEvent: {fileID: 11400000, guid: 85d7fdf2892196a4292ded1ec538091b, type: 2}
   updateIsDayLoadedEvent: {fileID: 11400000, guid: 72f7c36b63fd00e4bafeaaf6fef59911,
     type: 2}
+  enableUIEvent: {fileID: 11400000, guid: 9fe541bd8eef30841b389b4924b580fd, type: 2}
 --- !u!114 &433230835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,7 +1719,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &568750836
 MonoBehaviour:
@@ -2305,7 +2254,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &847950399
 MonoBehaviour:
@@ -2516,7 +2465,7 @@ GameObject:
   - component: {fileID: 1068359903}
   - component: {fileID: 1068359902}
   - component: {fileID: 1068359901}
-  - component: {fileID: 1068359905}
+  - component: {fileID: 1068359910}
   - component: {fileID: 1068359904}
   - component: {fileID: 1068359908}
   - component: {fileID: 1068359907}
@@ -2542,7 +2491,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1068359900
 MonoBehaviour:
@@ -2572,9 +2521,9 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 11400000, guid: 3d782b3762d036e459c5b978d8a86305,
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 172a1c89a9ceccf4898cdb43e659b162,
     type: 2}
-  _event: {fileID: 11400000, guid: 3d782b3762d036e459c5b978d8a86305, type: 2}
+  _event: {fileID: 11400000, guid: 172a1c89a9ceccf4898cdb43e659b162, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
@@ -2684,39 +2633,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: ResetGameState
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1068359905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068359898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugFields: 0
-  _enableGizmoDebugging: 1
-  _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 11400000, guid: 9834887825c67c2439a234cbb1ba8836,
-    type: 2}
-  _event: {fileID: 11400000, guid: 9834887825c67c2439a234cbb1ba8836, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1068359900}
-        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
-        m_MethodName: SetEndBranch
-        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2846,6 +2762,39 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1068359910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068359898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094217878ac039741aa004dbc1f81b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: 9834887825c67c2439a234cbb1ba8836, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1068359900}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: SetEndBranch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _debugValue: 0
 --- !u!1 &1113729487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,7 +4326,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1505154915
 MonoBehaviour:
@@ -4644,7 +4593,7 @@ RectTransform:
   - {fileID: 537926466}
   - {fileID: 351831466}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -40,7 +40,7 @@ public class DayToDayManager : MonoBehaviour
     public void LoadDay(int day) {
         updateIsDayLoadedEvent.Raise(false);
         index = day-1;
-        if (index > 0 && index < dayProgression.Count) {
+        if (index >= 0 && index < dayProgression.Count) {
             
             LoadDayRequest request = new LoadDayRequest(dayProgression[index]);
             resetGameStateEvent.Raise();

@@ -18,6 +18,8 @@ public class DayController : MonoBehaviour
 
     public BoolGameEvent updateIsDayLoadedEvent;
 
+    public BoolGameEvent enableUIEvent;
+
     private int dayNumber;
 
     //There should be a Queue here for info scenes
@@ -55,7 +57,7 @@ public class DayController : MonoBehaviour
         dayLoaded = true;
         updateIsDayLoadedEvent.Raise(true);
         Advance();
-        EventManager.Instance.EnableUI(true);
+        enableUIEvent.Raise(true);
         Debug.Log("Day " + day.number + " loaded successfully");
     }
 
@@ -118,7 +120,7 @@ public class DayController : MonoBehaviour
             currentRequest = dayEnd.Dequeue();
         }
         else if(transition != null && transition.scene != null) {
-            EventManager.Instance.EnableUI(false);
+            enableUIEvent.Raise(false);
             AddMoney eventInfo = new AddMoney(-1.2f*GameStateManager.Instance._dia, "Gastos del día");
             addMoneyEvent.Raise(eventInfo);
             currentRequest = transition;
