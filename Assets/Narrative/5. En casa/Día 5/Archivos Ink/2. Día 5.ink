@@ -8,5 +8,5 @@ Ah me alegra mijo, ¿llegaste cansado?
 *[Si ma, un poco]-> A3
 
 == A3 ==
-Esta bien mijo, ve a dormir si quieres.
+Está bien mijo, ve a dormir si quieres.
 ->END

@@ -7,7 +7,7 @@ A que bueno mijo, me alegra saberlo.
 *[¿Que hiciste hoy ma?]-> a3 
 
 == a3 ==
-Mijo tu sabes, en la casa haciendo oficio y cuidando de la finca. ¿Estas bien, te noto algo raro y tardaste un poco en llegar hoy?
+Mijo tú sabes, en la casa haciendo oficio y cuidando de la finca. ¿Estás bien, te noto algo raro y tardaste un poco en llegar hoy?
 *[No te preocupes mami, un poco cansado y ya] ->a4
 
 == a4 ==
