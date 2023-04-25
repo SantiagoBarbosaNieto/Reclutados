@@ -8,10 +8,10 @@ public class Regateo2Controller : MonoBehaviour
 
     //This list should be generated from a global list of products
     private List<RegateoProduct> allProducts = new List<RegateoProduct>() {
-        new RegateoProduct("papa", "papas", 10, 0),
-        new RegateoProduct("plátano", "plátanos", 20, 1),
-        new RegateoProduct("bolsa de cafe", "bolsas de cafe", 5, 2),
-        new RegateoProduct("panela", "panelas", 5, 3),
+        new RegateoProduct("papa", "papas", 10, 5, 0),
+        new RegateoProduct("plátano", "plátanos", 20, 5, 1),
+        new RegateoProduct("bolsa de cafe", "bolsas de cafe", 5, 5, 2),
+        new RegateoProduct("panela", "panelas", 5, 5, 3),
     };
 
     [SerializeField]
