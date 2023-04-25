@@ -7422,7 +7422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf64d3963b386b468da9104fe681396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 554207215}
+  father: {fileID: 1154202374}
 --- !u!1 &1314571896
 GameObject:
   m_ObjectHideFlags: 0
