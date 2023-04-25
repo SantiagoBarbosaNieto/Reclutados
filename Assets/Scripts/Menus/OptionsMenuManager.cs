@@ -33,9 +33,9 @@ public class OptionsMenuManager : MonoBehaviour {
             backToTitleButton.gameObject.SetActive(true);
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape)) {
-            optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
-        }
+        // if(Input.GetKeyDown(KeyCode.Escape)) {
+        //     optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
+        // }
     }
 
     public void SaveGame()
@@ -44,12 +44,14 @@ public class OptionsMenuManager : MonoBehaviour {
     }
 
     public void OpenMenu() {
+        Time.timeScale = 0;
         Debug.Log("Open Menu");
         settingsIcon.gameObject.SetActive(false);
         optionsMenu.gameObject.SetActive(true);
     }
 
     public void CloseMenu() {
+        Time.timeScale = 1;
         optionsMenu.gameObject.SetActive(false);
         settingsIcon.gameObject.SetActive(true);
     }
@@ -61,6 +63,7 @@ public class OptionsMenuManager : MonoBehaviour {
     }
 
     public void BackToTitleTrue() {
+        Time.timeScale = 1;
         notificationObject.gameObject.SetActive(false);
         LoadSceneRequest request = new LoadSceneRequest(titleSO, false);
         titleEvent.Raise(request);
