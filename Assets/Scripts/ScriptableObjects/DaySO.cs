@@ -12,7 +12,7 @@ public class DaySO : ScriptableObject
 
     public List<LoadDialogSceneRequest> sales;
 
-    public LoadSceneRequest salesEnd;
+    public LoadSceneRequest regateo;
 
     public List<LoadDialogSceneRequest> dayEnd;
 

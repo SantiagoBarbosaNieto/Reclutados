@@ -9,6 +9,8 @@ public static class RegateoCharacterFactory
 
     public static RegateoCharacter CreateRegateoCharacter(RegateoCharacterSO regateoCharacterSO, List<RegateoProduct> potentialProducts) {
         int productAmount = Random.Range(productMin, productMax);
+
+        Debug.Log("Generating RegateoCharacter with: " + potentialProducts.Count + " potential products");
         
         Dictionary<RegateoProduct, int> products = new Dictionary<RegateoProduct, int>();
 
@@ -25,7 +27,7 @@ public static class RegateoCharacterFactory
         List<RegateoOrder> orders = new List<RegateoOrder>();
 
         foreach(var product in products) {
-            orders.Add(new RegateoOrder(regateoCharacterSO.GeneratePedido(product.Value, product.Key.name, product.Key.pluralName), product.Key, product.Value));
+            orders.Add(new RegateoOrder(product.Key, product.Value));
         }
 
         return new RegateoCharacter(regateoCharacterSO, orders);
@@ -33,7 +35,7 @@ public static class RegateoCharacterFactory
     }
 
     private static RegateoProduct GetRandomProduct(List<RegateoProduct> potentialProducts, RegateoCharacterSO regateoCharacterSO) {
-
+        
         RegateoCharacterProbabilidadProducto[] probabilidadProductos = regateoCharacterSO.GetProductosProbabilidad();
         if(potentialProducts.Count == 0)
             throw new System.Exception("No hay productos disponibles");

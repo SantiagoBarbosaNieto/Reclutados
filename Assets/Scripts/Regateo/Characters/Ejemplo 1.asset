@@ -14,15 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pedro
   sprite: {fileID: 21300000, guid: bf7a388a124a91c4098f11a3b5bad75d, type: 3}
-  productosProbabilidad:
-  - probabilidad: 40
-    idProducto: 0
-  - probabilidad: 60
-    idProducto: 1
-  - probabilidad: 20
-    idProducto: 2
-  - probabilidad: 40
-    idProducto: 3
+  productosProbabilidad: []
   toleranciaBase: 40
   saludos:
   - Buenas joven como le va?

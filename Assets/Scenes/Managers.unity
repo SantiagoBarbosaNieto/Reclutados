@@ -1133,6 +1133,7 @@ MonoBehaviour:
   updateIsDayLoadedEvent: {fileID: 11400000, guid: 72f7c36b63fd00e4bafeaaf6fef59911,
     type: 2}
   enableUIEvent: {fileID: 11400000, guid: 9fe541bd8eef30841b389b4924b580fd, type: 2}
+  regateoScene: {fileID: 11400000, guid: d156f07256e913c4c97fdce18749dcc9, type: 2}
 --- !u!114 &433230835
 MonoBehaviour:
   m_ObjectHideFlags: 0

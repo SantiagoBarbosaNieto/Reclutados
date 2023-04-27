@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using ScriptableObjectArchitecture;
 
 // TODO Big refactor was necessary. Check if everythin works well.
 public class Regateo2Controller : MonoBehaviour
@@ -10,8 +10,7 @@ public class Regateo2Controller : MonoBehaviour
     private List<RegateoProduct> allProducts = new List<RegateoProduct>();
 
     [SerializeField]
-    public UnityEvent OnRegateoTerminado;
-    
+    private GameEvent advanceDayRequest;
 
     //This list should be generated from a global list of characters. It can also be customized in case the
     //current day requires it
@@ -105,7 +104,8 @@ public class Regateo2Controller : MonoBehaviour
                 currentState = Pedido();
                 break;
             case States.RegateoTerminado:
-                OnRegateoTerminado.Invoke();
+            //TODO find a way to advance the day.
+                advanceDayRequest.Raise();
                 break;
 
             default:
@@ -139,19 +139,45 @@ public class Regateo2Controller : MonoBehaviour
             RegateoOrder nextOrder = regateoCharacter.orders[0];
             regateoCharacter.RemoveOrder(nextOrder);
 
+            // Check if there is enough stock for the order.
+            List<RegateoInventoryProduct> inventoryProducts = GameStateManager.Instance._backpack._items;
+
+            //Get the quantity of the inventoryProduct that has a regateoProduct equal to nextOrder.product
+            int inventoryQuantity = inventoryProducts.Find(x => x.regateoProduct == nextOrder.product).quantity;
+
+            Debug.Log("Inventory Quantity for this pedido: " + inventoryQuantity);
+
             string pedido = regateoCharacter.GeneratePedido(nextOrder);
             regateoView.UpdateDialogo(pedido);
-            regateoView.UpdateOferta(nextOrder.offer);
 
             PedidoOption();
 
-            // Check if there is enough stock for the order.
+            if(inventoryQuantity == 0) {
+                Debug.Log("No hay inventario en la mochila para este pedido");
 
+                regateoView.SetOptNoText("No me queda");
+                regateoView.SetOptRegatearActive(false);
+                regateoView.SetOptSiActive(false);
+            }
 
-            int currentPrice = nextOrder.GetPrice();
+            else if(inventoryQuantity < nextOrder.amount) {
+                Debug.Log("No hay suficiente inventario en la mochila para este pedido");
+                regateoView.SetOptRegatearActive(false);
 
-            int newPrice = currentPrice + (currentPrice * priceIncreasePercent / 100);
-            regateoView.SetOptRegatearText("Subir precio a " + newPrice + "$");
+                // Ofrece solo la cantidad que hay en el inventario. Actualiza la oferta
+                nextOrder = new RegateoOrder(nextOrder.product, inventoryQuantity);
+
+                regateoView.UpdateOferta(nextOrder.offer);
+            }
+
+            else {
+                int currentPrice = nextOrder.GetPrice();
+                int newPrice = currentPrice + (currentPrice * priceIncreasePercent / 100);
+                regateoView.SetOptRegatearText("Subir precio a " + newPrice + "$");
+            }
+
+            
+            regateoView.UpdateOferta(nextOrder.offer);
 
             return States.Pedido;
         }
@@ -184,6 +210,7 @@ public class Regateo2Controller : MonoBehaviour
         regateoView.SetOptNoActive(true);
         regateoView.SetOptSiActive(true);
         regateoView.SetSiguientePedidoActive(false);
+        regateoView.SetOptNoText("No");
     }
 
     private void DialogOption()

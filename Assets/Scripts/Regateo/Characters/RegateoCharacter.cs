@@ -83,9 +83,8 @@ public class RegateoOrder {
     public RegateoProduct product {get; private set;}
     public int amount {get; private set;}
 
-    public RegateoOrder(string dialog, RegateoProduct product, int amount)
+    public RegateoOrder(RegateoProduct product, int amount)
     {
-        this.dialog = dialog;
         this.product = product;
         this.amount = amount;
         this.offer = GenerateOfferMessage();

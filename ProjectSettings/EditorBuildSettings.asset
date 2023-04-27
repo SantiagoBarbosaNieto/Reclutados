@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScenes/MultiDialog.unity
     guid: d5d7e7f71ffb4a7429c1203a95ce1725
+  - enabled: 1
+    path: Assets/Scenes/NewRegateo.unity
+    guid: 2f9d55f41a1c1834299d28ac1120fcdf
   - enabled: 0
     path: Assets/Scenes/MockRegateo.unity
     guid: 42af756f3437bee4aad68abcc02fa94c

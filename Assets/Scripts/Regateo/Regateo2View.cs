@@ -69,6 +69,10 @@ public class Regateo2View : MonoBehaviour
         return siguientePedido.onClick;
     }
 
+    public void SetOptNoText(string text) {
+        optNo.GetComponentInChildren<TMP_Text>().text = text;
+    }
+
     public UnityEvent GetOptSiEvent() {
         return optSi.onClick;
     }

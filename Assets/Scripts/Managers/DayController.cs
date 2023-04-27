@@ -22,6 +22,9 @@ public class DayController : MonoBehaviour
 
     private int dayNumber;
 
+    [SerializeField]
+    private SceneSO regateoScene;
+
     //There should be a Queue here for info scenes
 
     //This queue will create 
@@ -32,11 +35,11 @@ public class DayController : MonoBehaviour
     //have to be a LoadLevelSceneRequest in the near future
     LoadSceneRequest level;
 
+    LoadSceneRequest regateo;
+
     //Another dialog progression system will take care of the sales until
     //The sales system is in place
     Queue<LoadDialogSceneRequest> sales;
-
-    LoadSceneRequest salesEnd;
 
     Queue<LoadDialogSceneRequest> dayEnd;
 
@@ -50,7 +53,7 @@ public class DayController : MonoBehaviour
         greeting = new Queue<LoadDialogSceneRequest>(day.greeting);
         level = day.level;
         sales = new Queue<LoadDialogSceneRequest>(day.sales);
-        salesEnd = day.salesEnd;
+        regateo = new LoadSceneRequest(regateoScene, false);
         dayEnd = new Queue<LoadDialogSceneRequest>(day.dayEnd);
         transition = day.transition;
         LoadOptionalScenes(day.number);
@@ -107,13 +110,15 @@ public class DayController : MonoBehaviour
             currentRequest = level;
             level = null;
         }
+        //Sales DP list
         else if(sales.Count != 0){
             Debug.Log("sales");
             currentRequest = sales.Dequeue();
         }
-        else if(salesEnd != null && salesEnd.scene != null) {
-            currentRequest = salesEnd;
-            salesEnd = null;
+        //Regateo Scene
+        else if(regateo != null && regateo.scene != null) {
+            currentRequest = regateo;
+            regateo = null;
         }
         else if(dayEnd.Count != 0) {
             Debug.Log("dayEnd");
