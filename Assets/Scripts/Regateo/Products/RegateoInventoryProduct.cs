@@ -1,3 +1,5 @@
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,5 +18,18 @@ public class RegateoInventoryProduct
 
     public void AddQuantity(int quantity) {
         this.quantity += quantity;
+    }
+
+    internal void decreaseQuantity()
+    {
+        if(this.quantity <= 0)
+            return;
+        this.quantity -= 1;
+    }
+    internal void increaseQuantity()
+    {
+        if(this.quantity <= 0)
+            return;
+        this.quantity += 1;
     }
 }

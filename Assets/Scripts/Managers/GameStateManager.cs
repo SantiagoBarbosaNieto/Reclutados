@@ -1,3 +1,4 @@
+//Game State Manager
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,6 +47,9 @@ public class GameStateManager : MonoBehaviour
     #region EventosLlamados
         [SerializeField]
         public GameEvent UpdateUIEvent;
+
+        [SerializeField]
+        public GameEvent UpdateInventoryEvent;
     #endregion
 
     #region Attributes
@@ -253,6 +257,18 @@ public class GameStateManager : MonoBehaviour
         
         public void AddCollaboration() {
             _collaborations++;
+        }
+
+        public void IncreaseBackpackItemQuantity(int id)
+        {
+            _backpack._items.Find(item => item.regateoProduct.id == id).increaseQuantity();
+            UpdateInventoryEvent.Raise();
+        }
+
+        public void DecreaseBackpackItemQuantity(int id)
+        {
+            _backpack._items.Find(item => item.regateoProduct.id == id).decreaseQuantity();
+            UpdateInventoryEvent.Raise();
         }
 
     #endregion

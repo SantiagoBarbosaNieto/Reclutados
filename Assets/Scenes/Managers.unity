@@ -2952,6 +2952,8 @@ GameObject:
   - component: {fileID: 1068359910}
   - component: {fileID: 1068359904}
   - component: {fileID: 1068359908}
+  - component: {fileID: 1068359912}
+  - component: {fileID: 1068359911}
   - component: {fileID: 1068359907}
   - component: {fileID: 1068359906}
   - component: {fileID: 1068359909}
@@ -3007,6 +3009,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d888251550f096e4d97f92157cf9fdd9, type: 2}
   - {fileID: 11400000, guid: f0c9ac44db1b2e74aae1736f80d14ec0, type: 2}
   UpdateUIEvent: {fileID: 11400000, guid: c4813ffdd25289447afab03ffaa29a03, type: 2}
+  UpdateInventoryEvent: {fileID: 11400000, guid: 5cefd5782370ba74a8c9785d0a8de67e,
+    type: 2}
 --- !u!114 &1068359901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3286,6 +3290,72 @@ MonoBehaviour:
       - m_Target: {fileID: 1068359900}
         m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
         m_MethodName: SetEndBranch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _debugValue: 0
+--- !u!114 &1068359911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068359898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094217878ac039741aa004dbc1f81b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: d9f352b89dbfc6845851a87d2c48f3fa, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1068359900}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: DecreaseBackpackItemQuantity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _debugValue: 0
+--- !u!114 &1068359912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068359898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094217878ac039741aa004dbc1f81b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: 088f7c9c4a1827d488b592e7eb1f0887, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1068359900}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: IncreaseBackpackItemQuantity
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6479,6 +6549,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollViewContent: {fileID: 1852274023}
   prefab: {fileID: 4988299969062846185, guid: fab689bc76376294f824bd32cf3bfb11, type: 3}
+  increaseBackpackItemQuantityEvent: {fileID: 0}
+  decreaseBackpackItemQuantityEvent: {fileID: 0}
 --- !u!114 &1852274027
 MonoBehaviour:
   m_ObjectHideFlags: 0

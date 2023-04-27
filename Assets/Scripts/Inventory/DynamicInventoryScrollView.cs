@@ -1,6 +1,9 @@
+//DynamicInventoryScrollView
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using ScriptableObjectArchitecture;
+using System;
 
 public class DynamicInventoryScrollView : MonoBehaviour {
 
@@ -12,22 +15,36 @@ public class DynamicInventoryScrollView : MonoBehaviour {
 
     private List<RegateoInventoryProduct> inventoryProducts;
 
+    public IntGameEvent increaseBackpackItemQuantityEvent;
+    public IntGameEvent decreaseBackpackItemQuantityEvent;
+
+     void Start() {
+        UpdateUI();
+    }
+
     public void UpdateUI() {
         ClearChildren();
-        Debug.Log("UPDATE INV UI");
         inventoryProducts = GameStateManager.Instance._backpack._items;
 
         foreach(RegateoInventoryProduct product in inventoryProducts) {
             GameObject newProduct = Instantiate(prefab, scrollViewContent);
 
             if(newProduct.TryGetComponent<InventoryScrollViewItem>(out InventoryScrollViewItem item)) {
-                item.ChangeNameAndQuantity(product.regateoProduct.name, product.quantity.ToString());
+                item.StartInfo(product.regateoProduct.id,product.regateoProduct.name, product.quantity.ToString(), DecreaseQuantity);
             }
         }
     }
 
+
+    public void IncreaseQuantity(int id) {
+        increaseBackpackItemQuantityEvent.Raise( id);
+    }
+
+    public void DecreaseQuantity(int id) {
+        decreaseBackpackItemQuantityEvent.Raise(id);
+    }
+
     public void ClearChildren() {
-        Debug.Log("DELETING CHILDREN");
         foreach (Transform child in scrollViewContent) {
             GameObject.Destroy(child.gameObject);
         }
