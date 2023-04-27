@@ -3,7 +3,9 @@ using TMPro;
 using ScriptableObjectArchitecture;
 using System;
 
-public class ScreenMessage : MonoBehaviour {
+public class RoadEvents : MonoBehaviour {
+
+    public GameEvent gameEvent;
     public GameObject popUpBox;
     public GameObject player;
     public TMP_Text popUpText;
@@ -11,8 +13,7 @@ public class ScreenMessage : MonoBehaviour {
     //public TransitionItemGameEvent gameEvent;
     public AddMoneyGameEvent addMoneyEvent;
 
-
-    public void PopUp() {
+    public void RandomEvent() {
 
         int dinero = UnityEngine.Random.Range(1, 5);
         int opcion = UnityEngine.Random.Range(0, 4);
@@ -57,9 +58,13 @@ public class ScreenMessage : MonoBehaviour {
         }    
     }
 
-    public void ClosePopUp() {
+    public void CloseRandomEventPopUp() {
         player.SetActive(true);
         popUpBox.SetActive(false);
+    }
+
+    public void AdvanceScene() {
+        gameEvent.Raise();
     }
 
 }

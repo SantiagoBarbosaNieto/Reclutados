@@ -168,14 +168,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3852b99afeb5a94788221c74986101f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: edb65ca0f8ae3624392942dd112a4b17, type: 2}
   validTag: Player
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 20330379}
-        m_TargetAssemblyTypeName: TriggerChecker, Assembly-CSharp
-        m_MethodName: advanceScene
+      - m_Target: {fileID: 1451671769}
+        m_TargetAssemblyTypeName: RoadEvents, Assembly-CSharp
+        m_MethodName: AdvanceScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1854,7 +1853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3852b99afeb5a94788221c74986101f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: edb65ca0f8ae3624392942dd112a4b17, type: 2}
   validTag: Player
   onTriggerEnter:
     m_PersistentCalls:
@@ -1871,9 +1869,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 183262125}
-        m_TargetAssemblyTypeName: ScreenMessage, Assembly-CSharp
-        m_MethodName: PopUp
+      - m_Target: {fileID: 1451671769}
+        m_TargetAssemblyTypeName: RoadEvents, Assembly-CSharp
+        m_MethodName: RandomEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6261,9 +6259,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 183262125}
-        m_TargetAssemblyTypeName: ScreenMessage, Assembly-CSharp
-        m_MethodName: ClosePopUp
+      - m_Target: {fileID: 1264084614}
+        m_TargetAssemblyTypeName: SimpleNotificationMenu, Assembly-CSharp
+        m_MethodName: CloseNotification
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7855,6 +7853,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1264084613}
+  - component: {fileID: 1264084614}
   m_Layer: 0
   m_Name: PopUpMessage
   m_TagString: Untagged
@@ -7878,6 +7877,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1264084614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264084612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e174133e5fc802b458fc8d47ad1373fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationObject: {fileID: 183262120}
 --- !u!4 &1311933164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4825503116747883525, guid: e748422a214185c46a65b6ed72ac868a,
@@ -7978,7 +7990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3852b99afeb5a94788221c74986101f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 0}
   validTag: Player
   onTriggerEnter:
     m_PersistentCalls:
@@ -8096,6 +8107,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccb5c33dff06f62439576383ccf7f9cc, type: 3}
+--- !u!1 &1451671768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1274080565686368228, guid: ccb5c33dff06f62439576383ccf7f9cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1451671767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1451671769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451671768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac29f426a35836b4dbd00d68a5b2c65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: edb65ca0f8ae3624392942dd112a4b17, type: 2}
+  popUpBox: {fileID: 183262120}
+  player: {fileID: 2496483194063343588, guid: 7bdf71e4bed0cd642ab12493643c64dc, type: 3}
+  popUpText: {fileID: 1837444495}
+  addMoneyEvent: {fileID: 11400000, guid: 85d7fdf2892196a4292ded1ec538091b, type: 2}
 --- !u!1 &1517789500
 GameObject:
   m_ObjectHideFlags: 0
@@ -8958,12 +8992,12 @@ PrefabInstance:
     - target: {fileID: 2561051085164596609, guid: 42a9df5afc6b76e47b2d424294492586,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000500679
+      value: -0.000023126602
       objectReference: {fileID: 0}
     - target: {fileID: 2561051085164596609, guid: 42a9df5afc6b76e47b2d424294492586,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0076375008
+      value: -0.0058054924
       objectReference: {fileID: 0}
     - target: {fileID: 2561051085164596609, guid: 42a9df5afc6b76e47b2d424294492586,
         type: 3}

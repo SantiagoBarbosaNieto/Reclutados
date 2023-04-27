@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class InventoryMenu : MonoBehaviour {
 
+    [SerializeField]
+    public GameEvent UpdateInventory;
+
     public GameObject inventoryUI;
     public GameObject inventoryButton;
     private Scene currentScene;
@@ -22,6 +25,7 @@ public class InventoryMenu : MonoBehaviour {
 
     public void OpenInventory() {
         inventoryUI.gameObject.SetActive(true);
+        UpdateInventory.Raise();
     }
     public void CloseInventory() {
         inventoryUI.gameObject.SetActive(false);

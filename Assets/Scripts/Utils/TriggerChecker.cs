@@ -2,9 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using ScriptableObjectArchitecture;
 
-public class TriggerChecker : MonoBehaviour
-{
-    public GameEvent gameEvent;
+public class TriggerChecker : MonoBehaviour {
 
     [Header("Extra config")]
     public string validTag;
@@ -39,10 +37,5 @@ public class TriggerChecker : MonoBehaviour
             if (onTriggerExit != null)
                 onTriggerExit.Invoke();
         }
-    }
-
-    public void advanceScene()
-    {
-        gameEvent.Raise();
     }
 }

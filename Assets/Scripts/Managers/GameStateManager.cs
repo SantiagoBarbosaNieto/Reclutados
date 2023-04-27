@@ -7,6 +7,15 @@ public class GameStateManager : MonoBehaviour
 {   
     public static GameStateManager Instance {get; private set;}
 
+    // TODO reubicar definición de productos
+    private List<RegateoProduct> allProducts = new List<RegateoProduct>() {
+                new RegateoProduct("Papa", "papas", 10, 0, 1),
+                new RegateoProduct("Plátano", "plátanos", 20, 0, 2),
+                new RegateoProduct("Huevo", "Huevos", 15, 0, 3)
+            };
+
+    private int inventoryMaxItems = 6;
+
     private void Start() {
         _moneyDayStart = 0;
         _moneyDay = 0;
@@ -14,6 +23,9 @@ public class GameStateManager : MonoBehaviour
         _collaborations = 0;
         _endBranch = 0;
         _eventos = new Dictionary<int, List<Evento>>();
+
+        // TODO reubicar definición de productos
+        _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
     }
 
     private void Awake() {
@@ -75,6 +87,12 @@ public class GameStateManager : MonoBehaviour
             public int _maxItems;
             public int _numItems;
             public List<RegateoProduct> _items;
+
+            public Backpack(int maxItems, int numItems, List<RegateoProduct> items) {
+                _maxItems = maxItems;
+                _numItems = numItems;
+                _items = items;
+            }
         }
 
         
@@ -130,7 +148,6 @@ public class GameStateManager : MonoBehaviour
             this._collaborations = collaborations;
         }
 
-
         public void SetIsDayLoaded(bool isDayLoaded) {
             _isDayLoaded = isDayLoaded;
         }
@@ -163,7 +180,6 @@ public class GameStateManager : MonoBehaviour
             UpdateUIEvent.Raise();
         }
 
-
         private void AddEvent( string nombre, float valor, bool isVentas = false) {
             Evento evento = new Evento();
             evento._nombre = nombre;
@@ -180,6 +196,9 @@ public class GameStateManager : MonoBehaviour
             }
         }
 
+        public void ResetBackpackForNextDay() {
+            _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
+        }
 
         public void NextDay() {
             _moneyDayStart += _moneyDay;
@@ -187,6 +206,7 @@ public class GameStateManager : MonoBehaviour
             _dia++;
             _roadEventHappened = false;
             UpdateUIEvent.Raise();
+            _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
         }
 
         public void ResetGameState()

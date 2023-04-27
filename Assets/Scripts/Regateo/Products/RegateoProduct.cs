@@ -4,7 +4,7 @@ public class RegateoProduct
     public string name { get; private set;}
     public string pluralName {get; private set;}
     public int price {get; private set;}
-    public int quantity {get; private set;}
+    public int quantity {get; set;}
     public int id {get; private set;}
 
 

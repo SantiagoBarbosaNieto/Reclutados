@@ -5518,7 +5518,6 @@ GameObject:
   - component: {fileID: 1580788908}
   - component: {fileID: 1580788907}
   - component: {fileID: 1580788912}
-  - component: {fileID: 1580788913}
   - component: {fileID: 1580788914}
   m_Layer: 5
   m_Name: Menu
@@ -5649,22 +5648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notificationObject: {fileID: 351831468}
---- !u!114 &1580788913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580788906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcf75a39399af5649b3ab306d33c8fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 0}
-  inventoryButton: {fileID: 727463965}
-  currentScene:
-    m_Handle: 0
 --- !u!114 &1580788914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5677,6 +5660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d311cf11bcfe4409609d1db9809f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UpdateInventory: {fileID: 11400000, guid: 5cefd5782370ba74a8c9785d0a8de67e, type: 2}
   inventoryUI: {fileID: 2059819708}
   inventoryButton: {fileID: 727463965}
 --- !u!1 &1613358908
@@ -6395,6 +6379,7 @@ GameObject:
   - component: {fileID: 1852274024}
   - component: {fileID: 1852274025}
   - component: {fileID: 1852274026}
+  - component: {fileID: 1852274027}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -6476,6 +6461,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollViewContent: {fileID: 1852274023}
   prefab: {fileID: 4988299969062846185, guid: fab689bc76376294f824bd32cf3bfb11, type: 3}
+--- !u!114 &1852274027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852274022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: 5cefd5782370ba74a8c9785d0a8de67e, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1852274026}
+        m_TargetAssemblyTypeName: DynamicInventoryScrollView, Assembly-CSharp
+        m_MethodName: UpdateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1881639690
 GameObject:
   m_ObjectHideFlags: 0
