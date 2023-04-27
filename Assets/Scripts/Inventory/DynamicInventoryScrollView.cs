@@ -10,18 +10,18 @@ public class DynamicInventoryScrollView : MonoBehaviour {
     [SerializeField]
     private GameObject prefab;
 
-    private List<RegateoProduct> inventoryProducts;
+    private List<RegateoInventoryProduct> inventoryProducts;
 
     public void UpdateUI() {
         ClearChildren();
-        Debug.Log("UPDATE INV");
+        Debug.Log("UPDATE INV UI");
         inventoryProducts = GameStateManager.Instance._backpack._items;
 
-        foreach(RegateoProduct product in inventoryProducts) {
+        foreach(RegateoInventoryProduct product in inventoryProducts) {
             GameObject newProduct = Instantiate(prefab, scrollViewContent);
 
             if(newProduct.TryGetComponent<InventoryScrollViewItem>(out InventoryScrollViewItem item)) {
-                item.ChangeNameAndQuantity(product.name, product.quantity.ToString());
+                item.ChangeNameAndQuantity(product.regateoProduct.name, product.quantity.ToString());
             }
         }
     }

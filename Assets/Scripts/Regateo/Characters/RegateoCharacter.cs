@@ -75,6 +75,7 @@ public class RegateoCharacter {
     }
 }
 
+[System.Serializable]
 public class RegateoOrder {
 
     public string dialog {get; private set;}

@@ -35,27 +35,30 @@ public class CropsCollection : MonoBehaviour {
 
     private void AddItemToBackpack() {
         int maxItems = GameStateManager.Instance._backpack._maxItems;
-        int numItems = GameStateManager.Instance._backpack._numItems + quantityPerInteraction;
+        int numItems = GameStateManager.Instance._backpack.GetNumItems() + quantityPerInteraction;
         NotificationContent eventInfo = new NotificationContent("¡Cultivo Recolectado!", "Se ha agregado x" + quantityPerInteraction + " " + itemName + " al inventario");
 
         if(numItems > maxItems) {
-            eventInfo = new NotificationContent("¡No puedes cargar más objetos!", "El número máximo que puedes cargar es " + maxItems);
+            eventInfo = new NotificationContent("¡No puedes cargar más objetos!", "El número máximo de productos que puedes cargar es " + maxItems);
             udpateAndShowNotificationEvent.Raise(eventInfo);
             return;
         }
 
-        List<RegateoProduct> inventoryProducts = GameStateManager.Instance._backpack._items;
+        List<RegateoInventoryProduct> inventoryProducts = GameStateManager.Instance._backpack._items;
 
-        foreach(RegateoProduct item in inventoryProducts) {
-            Debug.Log(item.name);
-            if(string.Compare(itemName, item.name) == 0) {
+        foreach(RegateoInventoryProduct item in inventoryProducts) {
+            Debug.Log(item.regateoProduct.name);
+            if(string.Compare(itemName, item.regateoProduct.name) == 0) {
                 Debug.Log("AGREGADO");
-                item.quantity += 1;
+                item.AddQuantity(quantityPerInteraction);
                 break;
             }
         }
 
-        GameStateManager.Instance.SetBackpack(new GameStateManager.Backpack(maxItems, numItems, inventoryProducts));
+        //This line is not necessary as the backpack is a reference to the one in GameStateManager therefore any changes should be reflected
+        //in the original.
+
+        //GameStateManager.Instance.SetBackpack(new GameStateManager.Backpack(maxItems, numItems, inventoryProducts));
 
         udpateAndShowNotificationEvent.Raise(eventInfo);
     }

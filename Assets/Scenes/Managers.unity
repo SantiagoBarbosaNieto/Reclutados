@@ -2988,6 +2988,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83939515015a4b2469134896470f1bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allProducts:
+  - name: Papa
+    pluralName: papas
+    price: 10
+    id: 1
+  - name: "Pl\xE1tano"
+    pluralName: "pl\xE1tanos"
+    price: 20
+    id: 2
+  - name: Huevo
+    pluralName: Huevos
+    price: 15
+    id: 3
+  allCharacters:
+  - {fileID: 11400000, guid: 1af2e8097bebc7d498c447a9850bca01, type: 2}
+  - {fileID: 11400000, guid: d888251550f096e4d97f92157cf9fdd9, type: 2}
+  - {fileID: 11400000, guid: f0c9ac44db1b2e74aae1736f80d14ec0, type: 2}
   UpdateUIEvent: {fileID: 11400000, guid: c4813ffdd25289447afab03ffaa29a03, type: 2}
 --- !u!114 &1068359901
 MonoBehaviour:

@@ -7,12 +7,7 @@ public class Regateo2Controller : MonoBehaviour
 {
 
     //This list should be generated from a global list of products
-    private List<RegateoProduct> allProducts = new List<RegateoProduct>() {
-        new RegateoProduct("papa", "papas", 10, 5, 0),
-        new RegateoProduct("plátano", "plátanos", 20, 5, 1),
-        new RegateoProduct("bolsa de cafe", "bolsas de cafe", 5, 5, 2),
-        new RegateoProduct("panela", "panelas", 5, 5, 3),
-    };
+    private List<RegateoProduct> allProducts = new List<RegateoProduct>();
 
     [SerializeField]
     public UnityEvent OnRegateoTerminado;
@@ -43,6 +38,12 @@ public class Regateo2Controller : MonoBehaviour
         regateoView.GetOptRegatearEvent().AddListener(Regatear);
         regateoView.GetOptSiEvent().AddListener(AceptarOferta);
         regateoView.GetOptNoEvent().AddListener(RechazarOferta);
+
+        // Sets the current available characters and products from the GameStateManager
+        if(GameStateManager.Instance != null) {
+            allProducts = GameStateManager.Instance.GetAllProducts();
+            currentAvailableCharacters = new List<RegateoCharacterSO>(GameStateManager.Instance.GetAllCharacters());
+        }
 
         CreateRegateoCharacter();
         currentState = States.Saludo;
@@ -143,6 +144,9 @@ public class Regateo2Controller : MonoBehaviour
             regateoView.UpdateOferta(nextOrder.offer);
 
             PedidoOption();
+
+            // Check if there is enough stock for the order.
+
 
             int currentPrice = nextOrder.GetPrice();
 

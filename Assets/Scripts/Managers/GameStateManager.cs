@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
+using System.Linq;
 
 public class GameStateManager : MonoBehaviour
 {   
     public static GameStateManager Instance {get; private set;}
 
     // TODO reubicar definición de productos
+
+    // Represents all products available
+    [SerializeField]
     private List<RegateoProduct> allProducts = new List<RegateoProduct>() {
-                new RegateoProduct("Papa", "papas", 10, 0, 1),
-                new RegateoProduct("Plátano", "plátanos", 20, 0, 2),
-                new RegateoProduct("Huevo", "Huevos", 15, 0, 3)
+                new RegateoProduct("Papa", "papas", 10, 1),
+                new RegateoProduct("Plátano", "plátanos", 20, 2),
+                new RegateoProduct("Huevo", "Huevos", 15, 3)
             };
+
+
+    [SerializeField]
+    private List<RegateoCharacterSO> allCharacters = new List<RegateoCharacterSO>();
 
     private int inventoryMaxItems = 6;
 
@@ -24,7 +32,6 @@ public class GameStateManager : MonoBehaviour
         _endBranch = 0;
         _eventos = new Dictionary<int, List<Evento>>();
 
-        // TODO reubicar definición de productos
         _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
     }
 
@@ -85,14 +92,29 @@ public class GameStateManager : MonoBehaviour
         public struct Backpack //TODO cambiar a clase, hacer con clase de items... etc
         {
             public int _maxItems;
-            public int _numItems;
-            public List<RegateoProduct> _items;
+            public List<RegateoInventoryProduct> _items;
 
             public Backpack(int maxItems, int numItems, List<RegateoProduct> items) {
                 _maxItems = maxItems;
-                _numItems = numItems;
-                _items = items;
+
+                List<RegateoInventoryProduct> products = new List<RegateoInventoryProduct>();
+
+                // TODO verificar que los valores queden correctamente.
+                products = new List<RegateoInventoryProduct>();
+
+                items.ForEach(product => {
+                    products.Add(new RegateoInventoryProduct(product, 0));
+                });
+
+                _items = products;
+
             }
+
+            public int GetNumItems() {
+                int sum = _items.Aggregate(0, (acc, item) => acc + item.quantity);
+                return sum;
+            }
+
         }
 
         
@@ -168,6 +190,14 @@ public class GameStateManager : MonoBehaviour
         public List<Evento> GetCurrentDayEvents()
         {
             return GetEventsByDay(_dia);
+        }
+
+        public List<RegateoProduct> GetAllProducts() {
+            return allProducts;
+        }
+
+        public List<RegateoCharacterSO> GetAllCharacters() {
+            return allCharacters;
         }
 
     #endregion
