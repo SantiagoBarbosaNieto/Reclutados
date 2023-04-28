@@ -2,7 +2,7 @@
 
 == start ==
 Juanito, mi hijo, ¡buenos días!
-*[Buenos días, padre ] -> a2
+*[Buenos días, padre] -> a2
 
 == a2 ==
 ¿Qué tal, cómo dormiste?
@@ -24,11 +24,3 @@ Por hoy no irías, pero no te preocupes que esto no será algo de todos los día
 == a5 ==
 Dale, papito, entonces despídete de tu madre y vamos.
 -> END
-
-/*
-== start ==
-#TAG
-DIALOGO EN PANTALLA
-* [DIALOGO DE RESPUESTA] -> NOBRE_DE_SELECICON
-->END
-*/

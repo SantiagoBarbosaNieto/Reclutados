@@ -1,9 +1,9 @@
 -> start
 
 == start ==
-Papito que pena con usted, ayer yo toda grosera no me presente. 
+Papito que pena con usted, ayer yo toda grosera no me presenté.
 
-* [No se preocupe señora, yo tambien grosero no le pregunté] -> a1
+* [No se preocupe señora, yo también grosero no le pregunté] -> a1
 
 ==a1==
 Tan lindo, mi nombre es doña Gloria, pero me puedes llamar Gloria o Florecita que asi me decían mis amigas.
@@ -34,7 +34,6 @@ Esta bien papito, regaleme 2 unidades si es tan amable
 
 == a4Perfecto ==
 // ACA SE LOGRA VENDER 5 UNIDADES DE LO QUE SEA
-#+S5
 Claro que lo es, usted ya dentro de poco será todo un hombre y me alegra ver que será uno honesto y trabajador. Vendame 5 unidades.
 
 * [Con mucho gusto] -> a5

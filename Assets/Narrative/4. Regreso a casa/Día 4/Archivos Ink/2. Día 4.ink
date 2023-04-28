@@ -70,16 +70,5 @@ Como él no puede estar en dos lugares a la vez, se vio forzado a mandarte a tra
 Mira Juanito, ya está tarde, es mejor que regreses a casa. Solo quiero que sepas que tu padre fue quien me pidió que te contara lo que sucede. -> final2
 
 == final2 ==
-Si tu padre te considera lo suficientemente grande para trabajar, seguro también te considera lo suficientemente grande para entender la situación. Me tengo que ir pero me alegra saber que estás bien.
+Si tu padre te considera lo suficientemente grande para trabajar, seguro también te considera lo suficientemente grande para entender la situación. Me tengo que ir, pero me alegra saber que estás bien.
 ->END
-
-
-
-
-
-
-
-
-
-
-

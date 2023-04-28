@@ -1,4 +1,4 @@
 ->start
 == start ==
-Hijito buenos días, ¿como dormiste?
+Hijito buenos días, ¿cómo dormiste?
 ->END

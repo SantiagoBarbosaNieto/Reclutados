@@ -15,7 +15,7 @@ Ja ja ja, y ya comenzamos mal. Juanito, si yo fuera cualquier otra persona ahora
 
 == a3b==
 #-I1
-Juan, no acabamos de hablar sobre esto? Vamos que yo se que lo lograrás. ->a5
+¿Juan, no acabamos de hablar sobre esto? Vamos que yo sé que lo lograrás. ->a5
 
 == a4 ==
 No te preocupes, te conozco desde que eras chiquito Juan. Ahora, intentemos de nuevo. -> a5
@@ -24,7 +24,7 @@ Entonces ahem, bueno joven, hoy es su día de suerte, ya que yo seré su primer 
 *[Esto será una buena práctica] -> a6
 
 == a6 ==
-Eso, trata siempre de mostrarle interes al cliente y así él tambien te lo mostrará a ti. De igual manera, trata de no ser repetitivo con él cliente o si no este puede perder interes en tí. 
+Eso, trata siempre de mostrarle interés al cliente y así él tambien te lo mostrará a ti. De igual manera, trata de no ser repetitivo con él cliente o si no este puede perder interés en tí. 
 *[Ok, creo que estoy entendiendo esto] -> a7
 *[Entiendo, pero aún no he hecho nada para vender] -> a8
 
@@ -32,19 +32,10 @@ Eso, trata siempre de mostrarle interes al cliente y así él tambien te lo most
 Eso muy bien, y cuanto más hables con un cliente más podrás saber sobre esa persona para el futuro y quien sabe, puede que con solo pasar un rato agradable este decida comprar algo. 
 *[¡Don Carlos muchas gracias! # reg compra 2]->a9
 == a8 ==
-Entiendo Juan, pero creeme cuando te digo que a veces nada más con mantener una buena conversación es suficiente para que un cliente decida comprarte algo. 
+Entiendo Juan, pero créeme cuando te digo que a veces nada más con mantener una buena conversación es suficiente para que un cliente decida comprarte algo. 
 *[¡Don Carlos muchas gracias! # reg compra 2]->a9
 
 == a9 ==
-#+S2
-Mijito un gusto, y pues nada vendame 2 unidades para ver que tal. Si lo que me trajo es bueno, puede que regrese con más frecuencia.
+Mijito un gusto, y pues nada véndame 2 unidades para ver que tal. Si lo que me trajo es bueno, puede que regrese con más frecuencia.
 
 *[¡A la orden don Carlos, y claro que sí, es de lo mejor!]->END
-
-/*
-== start ==
-#TAG
-DIALOGO EN PANTALLA
-* [DIALOGO DE RESPUESTA] -> NOBRE_DE_SELECICON
-->END
-*/

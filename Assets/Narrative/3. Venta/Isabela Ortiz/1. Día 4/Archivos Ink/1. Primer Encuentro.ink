@@ -20,19 +20,19 @@ Sí sí, espero que no te haya dejado aburrido ni nada por estar acá y no en la
 Me extraña, sobre todo porque lo que he escuchado de mi hermanastro, es que el señor Rodriguez siempre la ha ido lo suficientemente bien como para que su hijo se vea en la necesidad de trabajar.
 *[Si le digo la verdad, no estoy muy seguro tampoco la razón. ] -> a5
 == a5 ==
-Ya veo... Y cuenteme Juan, ¿como le ha ido el día de hoy?
-*[Sabe, no me puedo quejar mucho, a parte de ir menos a la escuela bien] -> a6
+Ya veo... Y cuénteme Juan, ¿cómo le ha ido el día de hoy?
+*[Sabe, no me puedo quejar mucho, aparte de ir menos a la escuela bien] -> a6
 
 == a6 ==
-Ja ja, me refería a las ventas, pero me alegra saber que aun tienes la escuela en mente. Se lo comentare a Tere a ver si con eso ya se preocupa menos. Sabes como su debilidad son los niños.
+Ja ja, me refería a las ventas, pero me alegra saber que aun tienes la escuela en mente. Se lo comentaré a Tere a ver si con eso ya se preocupa menos. Sabes como su debilidad son los niños.
 
 *[Gracias, Isabela] -> a7
 
 == a7 ==
 Me puedes decir Isa nada más si así quieres. De paso aprovecho y te ayudo un poco. Dame un par de unidades.
-*[Isa muchas gracias, aqui tienes # reg compra 2] -> a8
+*[Isa muchas gracias, aquí tienes # reg compra 2] -> a8
 
 == a8 ==
-#+S2
+
 Juan te deseo lo mejor.
 ->END

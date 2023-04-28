@@ -1,7 +1,7 @@
 -> start
 
 == start ==
-Ay papito, yo lo vi ayudando a su padre, muy bonito ya se parece a todo un hombre. ¿Cuentame que está vendiendo?
+Ay papito, yo lo vi ayudando a su padre, muy bonito ya se parece a todo un hombre. ¿Cuéntame que está vendiendo?
 
 * [Lo que ve señora] -> a2
 * [Tan querida, me da hasta pena venderle. Por mi se lo regalaba] -> a3
@@ -13,7 +13,7 @@ Joven así no se le habla a una señora de mi edad por favor. Su madre se molest
 == a3 ==
 Ay tan caballero, pero acá el trabajo y el esfuerzo se paga. Uno no puede vivir de la buena fe de los demás. 
 
-Regaleme 3 unidades, papito.
+Regáleme 3 unidades, papito.
 
 * [Claro que sí, a la orden y que dios me la bendiga # reg compra 3] -> a4
 
