@@ -12,6 +12,9 @@ public class Regateo2Controller : MonoBehaviour
     [SerializeField]
     private GameEvent advanceDayRequest;
 
+    [SerializeField]
+    private AddMoneyGameEvent addMoneyGameEvent;
+
     //This list should be generated from a global list of characters. It can also be customized in case the
     //current day requires it
     [SerializeField]
@@ -30,6 +33,9 @@ public class Regateo2Controller : MonoBehaviour
     private int pedidosDisponibles = 0;
 
     private States currentState;
+
+    private RegateoOrder currentOffer;
+    private float currentOfferRegateoPrice;
 
     private void Start()
     {
@@ -173,6 +179,8 @@ public class Regateo2Controller : MonoBehaviour
             else {
                 int currentPrice = nextOrder.GetPrice();
                 int newPrice = currentPrice + (currentPrice * priceIncreasePercent / 100);
+                currentOffer = nextOrder;
+                currentOfferRegateoPrice = newPrice;
                 regateoView.SetOptRegatearText("Subir precio a " + newPrice + "$");
             }
 
@@ -228,7 +236,10 @@ public class Regateo2Controller : MonoBehaviour
     {
         DialogOption();
         regateoView.UpdateDialogo(regateoCharacter.GenerateTrato());
+        
         //TODO decrease products, increase money
+        AddMoney eventInfo = new AddMoney(currentOffer.GetPrice(), "Se vendio " + currentOffer.amount + " " + currentOffer.product.name + " a " + currentOffer.GetPrice() + "$", true);
+        addMoneyGameEvent.Raise(eventInfo);
     }
 
     private void RechazarOferta()
@@ -255,6 +266,8 @@ public class Regateo2Controller : MonoBehaviour
             // Regateo exitoso
             mensaje = regateoCharacter.GenerateTrato();
             // TODO decrease products, increase money
+            AddMoney eventInfo = new AddMoney(currentOffer.GetPrice(), "Se vendio " + currentOffer.amount + " " + currentOffer.product.name + " a " + currentOfferRegateoPrice + "$", true);
+            addMoneyGameEvent.Raise(eventInfo);
         }
         else
         {

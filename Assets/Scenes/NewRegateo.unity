@@ -470,7 +470,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 28.25
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1829,10 +1829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907c6eb4060cd6443a725fc69e9d4a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnRegateoTerminado:
-    m_PersistentCalls:
-      m_Calls: []
   advanceDayRequest: {fileID: 11400000, guid: edb65ca0f8ae3624392942dd112a4b17, type: 2}
+  addMoneyGameEvent: {fileID: 11400000, guid: 85d7fdf2892196a4292ded1ec538091b, type: 2}
   currentAvailableCharacters:
   - {fileID: 11400000, guid: d888251550f096e4d97f92157cf9fdd9, type: 2}
   - {fileID: 11400000, guid: f0c9ac44db1b2e74aae1736f80d14ec0, type: 2}
