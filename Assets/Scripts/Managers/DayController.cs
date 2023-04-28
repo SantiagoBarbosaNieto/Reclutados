@@ -126,7 +126,7 @@ public class DayController : MonoBehaviour
         }
         else if(transition != null && transition.scene != null) {
             enableUIEvent.Raise(false);
-            AddMoney eventInfo = new AddMoney(-1.2f*GameStateManager.Instance._dia, "Gastos del día");
+            AddMoney eventInfo = new AddMoney(-50, "Gastos del día");
             addMoneyEvent.Raise(eventInfo);
             currentRequest = transition;
         }
