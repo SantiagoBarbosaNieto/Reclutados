@@ -15,6 +15,9 @@ public class Regateo2Controller : MonoBehaviour
     [SerializeField]
     private AddMoneyGameEvent addMoneyGameEvent;
 
+    [SerializeField]
+    private IntGameEvent decreaseBackpackItemEvent;
+
     //This list should be generated from a global list of characters. It can also be customized in case the
     //current day requires it
     [SerializeField]
@@ -240,6 +243,8 @@ public class Regateo2Controller : MonoBehaviour
         //TODO decrease products, increase money
         AddMoney eventInfo = new AddMoney(currentOffer.GetPrice(), "Se vendio " + currentOffer.amount + " " + currentOffer.product.name + " a " + currentOffer.GetPrice() + "$", true);
         addMoneyGameEvent.Raise(eventInfo);
+        for (int i = 0; i < currentOffer.amount; i++)
+            decreaseBackpackItemEvent.Raise(currentOffer.product.id);
     }
 
     private void RechazarOferta()
@@ -268,6 +273,8 @@ public class Regateo2Controller : MonoBehaviour
             // TODO decrease products, increase money
             AddMoney eventInfo = new AddMoney(currentOffer.GetPrice(), "Se vendio " + currentOffer.amount + " " + currentOffer.product.name + " a " + currentOfferRegateoPrice + "$", true);
             addMoneyGameEvent.Raise(eventInfo);
+            for (int i = 0; i < currentOffer.amount; i++)
+                decreaseBackpackItemEvent.Raise(currentOffer.product.id);
         }
         else
         {
