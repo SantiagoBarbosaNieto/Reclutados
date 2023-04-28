@@ -119,6 +119,11 @@ public class GameStateManager : MonoBehaviour
                 return sum;
             }
 
+            public bool isEmpty()
+            {
+                return GetNumItems() == 0;
+            }
+
         }
 
         

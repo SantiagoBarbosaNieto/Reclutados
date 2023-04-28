@@ -8182,6 +8182,7 @@ MonoBehaviour:
   onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
+  notificationEvent: {fileID: 11400000, guid: ab51ab2ed2ff53f48b04fc3cd41e92ba, type: 2}
 --- !u!61 &1742618228
 BoxCollider2D:
   m_ObjectHideFlags: 0
