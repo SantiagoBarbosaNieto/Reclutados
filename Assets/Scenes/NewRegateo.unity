@@ -470,7 +470,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.25
+  m_fontSize: 30
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1839,6 +1839,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1af2e8097bebc7d498c447a9850bca01, type: 2}
   priceIncreasePercent: 10
   regateoView: {fileID: 1794210940318802209}
+  regateoAudio: {fileID: 8300000, guid: 4137fde37cea4ce439bfc51858033f27, type: 3}
 --- !u!114 &1794210940318802209
 MonoBehaviour:
   m_ObjectHideFlags: 0

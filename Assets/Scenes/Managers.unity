@@ -2995,19 +2995,15 @@ MonoBehaviour:
   - name: Papa
     pluralName: papas
     price: 10
-    id: 1
+    id: 0
   - name: "Pl\xE1tano"
     pluralName: "pl\xE1tanos"
     price: 20
+    id: 1
+  - name: Huevo
+    pluralName: Huevos
+    price: 15
     id: 2
-  - name: Huevo
-    pluralName: Huevos
-    price: 15
-    id: 3
-  - name: Huevo
-    pluralName: Huevos
-    price: 15
-    id: 3
   allCharacters:
   - {fileID: 11400000, guid: eb62ad857d482d44da1e2975696043db, type: 2}
   - {fileID: 11400000, guid: 314882d76fa47b748ba5a29e8a477e7b, type: 2}

@@ -40,8 +40,14 @@ public class Regateo2Controller : MonoBehaviour
     private RegateoOrder currentOffer;
     private float currentOfferRegateoPrice;
 
+    [SerializeField]
+    private AudioClip regateoAudio;
+
     private void Start()
     {
+        if(AudioManager.Instance != null && regateoAudio != null) {
+            AudioManager.Instance.PlaySoundLooped(regateoAudio);
+        }
         regateoView.GetSiguientePedidoEvent().AddListener(UpdateStateSiguiente);
         regateoView.GetOptRegatearEvent().AddListener(Regatear);
         regateoView.GetOptSiEvent().AddListener(AceptarOferta);
@@ -114,6 +120,9 @@ public class Regateo2Controller : MonoBehaviour
                 break;
             case States.RegateoTerminado:
             //TODO find a way to advance the day.
+                if(AudioManager.Instance != null && regateoAudio != null) {
+                    AudioManager.Instance.StopSound();
+                }
                 advanceDayRequest.Raise();
                 break;
 
