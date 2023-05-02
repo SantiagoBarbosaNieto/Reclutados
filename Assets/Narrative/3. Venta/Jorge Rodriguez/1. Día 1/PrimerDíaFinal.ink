@@ -1,11 +1,14 @@
 -> start
 
 == start ==
-Bien hijo, para ser tu primera vez no te fue mal.
+Bueno amigo que le vaya muy bien, por acá lo esperaremos.
 
-*[Esto es algo de conseguir práctica padre] ->a2
-*[Eso es gracias a que me preparaste de camino acá] -> a2
+* [Hasta luego!] -> a2
+
 
 == a2 ==
-Regresemos a casa mijo.
+(Carlos se va a trabajar) Pues hijo, te deseo mucha suerte. Pronto vendrá tu primer cliente!
+*[Bueno vamos con toda] -> END
+
+
 ->END
