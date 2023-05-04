@@ -13,6 +13,10 @@ public class InventoryMenu : MonoBehaviour {
     public GameObject inventoryButton;
     private Scene currentScene;
 
+    void Start() {
+        UpdateInventoryUI();
+    }
+
     void Update() {
         currentScene = SceneManager.GetActiveScene();
         if(currentScene.name == "TitleScreen") {
@@ -29,5 +33,10 @@ public class InventoryMenu : MonoBehaviour {
     }
     public void CloseInventory() {
         inventoryUI.gameObject.SetActive(false);
+    }
+
+    public void UpdateInventoryUI() {
+        Debug.Log("Updating inventory UI");
+        inventoryButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = GameStateManager.Instance._backpack.GetNumItems() + "/" + GameStateManager.Instance._backpack._maxItems;
     }
 }

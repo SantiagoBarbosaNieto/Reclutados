@@ -114,6 +114,16 @@ public class GameStateManager : MonoBehaviour
 
             }
 
+            public void AddItem(int id) {
+                if(GetNumItems() >= _maxItems)
+                    return;
+                _items.Find(item => item.regateoProduct.id == id).increaseQuantity();
+            }
+
+            public void RemoveItem(int id){
+                _items.Find(item => item.regateoProduct.id == id).decreaseQuantity();
+            }
+
             public int GetNumItems() {
                 int sum = _items.Aggregate(0, (acc, item) => acc + item.quantity);
                 return sum;
@@ -237,6 +247,7 @@ public class GameStateManager : MonoBehaviour
 
         public void ResetBackpackForNextDay() {
             _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
+            UpdateUIEvent.Raise();
         }
 
         public void NextDay() {
@@ -246,6 +257,7 @@ public class GameStateManager : MonoBehaviour
             _roadEventHappened = false;
             UpdateUIEvent.Raise();
             _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
+            UpdateUIEvent.Raise();
         }
 
         public void ResetGameState()
@@ -266,14 +278,17 @@ public class GameStateManager : MonoBehaviour
 
         public void IncreaseBackpackItemQuantity(int id)
         {
-            _backpack._items.Find(item => item.regateoProduct.id == id).increaseQuantity();
+            Debug.Log("Aumentando cantidad de item " + id);
+            _backpack.AddItem(id);
             UpdateInventoryEvent.Raise();
+            UpdateUIEvent.Raise();
         }
 
         public void DecreaseBackpackItemQuantity(int id)
         {
-            _backpack._items.Find(item => item.regateoProduct.id == id).decreaseQuantity();
+            _backpack.RemoveItem(id);
             UpdateInventoryEvent.Raise();
+            UpdateUIEvent.Raise();
         }
 
     #endregion

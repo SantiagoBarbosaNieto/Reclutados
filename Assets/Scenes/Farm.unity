@@ -457,6 +457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   udpateAndShowNotificationEvent: {fileID: 11400000, guid: ab51ab2ed2ff53f48b04fc3cd41e92ba,
     type: 2}
+  increaseBackpackItemEvent: {fileID: 11400000, guid: 088f7c9c4a1827d488b592e7eb1f0887,
+    type: 2}
   validTag: Player
   itemName: "Pl\xE1tano"
   quantityPerInteraction: 1
@@ -5615,6 +5617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   udpateAndShowNotificationEvent: {fileID: 11400000, guid: ab51ab2ed2ff53f48b04fc3cd41e92ba,
     type: 2}
+  increaseBackpackItemEvent: {fileID: 11400000, guid: 088f7c9c4a1827d488b592e7eb1f0887,
+    type: 2}
   validTag: Player
   itemName: "Pl\xE1tano"
   quantityPerInteraction: 1
@@ -8094,6 +8098,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   udpateAndShowNotificationEvent: {fileID: 11400000, guid: ab51ab2ed2ff53f48b04fc3cd41e92ba,
     type: 2}
+  increaseBackpackItemEvent: {fileID: 11400000, guid: 088f7c9c4a1827d488b592e7eb1f0887,
+    type: 2}
   validTag: Player
   itemName: "Pl\xE1tano"
   quantityPerInteraction: 1
@@ -8232,6 +8238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   udpateAndShowNotificationEvent: {fileID: 11400000, guid: ab51ab2ed2ff53f48b04fc3cd41e92ba,
+    type: 2}
+  increaseBackpackItemEvent: {fileID: 11400000, guid: 088f7c9c4a1827d488b592e7eb1f0887,
     type: 2}
   validTag: Player
   itemName: Huevo
@@ -8699,6 +8707,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   udpateAndShowNotificationEvent: {fileID: 11400000, guid: ab51ab2ed2ff53f48b04fc3cd41e92ba,
+    type: 2}
+  increaseBackpackItemEvent: {fileID: 11400000, guid: 088f7c9c4a1827d488b592e7eb1f0887,
     type: 2}
   validTag: Player
   itemName: Papa

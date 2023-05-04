@@ -8,12 +8,28 @@ public class CropsCollection : MonoBehaviour {
     [SerializeField]
     private NotificationContentGameEvent udpateAndShowNotificationEvent;
 
+    [SerializeField]
+    private IntGameEvent increaseBackpackItemEvent;
+
     [Header("Extra config")]
     public string validTag;
     private bool inCrop = false;
     public string itemName;
+    private int itemID;
     public int quantityPerInteraction;
 
+    void Start()
+    {
+        itemID = -1;
+        List<RegateoInventoryProduct> inventoryProducts = GameStateManager.Instance._backpack._items;
+
+        foreach(RegateoInventoryProduct item in inventoryProducts) {
+            if(string.Compare(itemName, item.regateoProduct.name) == 0) {
+                itemID = item.regateoProduct.id;
+                break;
+            }
+        }
+    }
     void Update () {
 		if(Input.GetKeyUp(KeyCode.E) && inCrop) {
             Debug.Log("Got E key");
@@ -43,17 +59,8 @@ public class CropsCollection : MonoBehaviour {
             udpateAndShowNotificationEvent.Raise(eventInfo);
             return;
         }
-
-        List<RegateoInventoryProduct> inventoryProducts = GameStateManager.Instance._backpack._items;
-
-        foreach(RegateoInventoryProduct item in inventoryProducts) {
-            Debug.Log(item.regateoProduct.name);
-            if(string.Compare(itemName, item.regateoProduct.name) == 0) {
-                Debug.Log("AGREGADO");
-                item.AddQuantity(quantityPerInteraction);
-                break;
-            }
-        }
+        Debug.Log("ItemID: " + itemID + " ItemName" + itemName);
+        increaseBackpackItemEvent.Raise(itemID);
 
         //This line is not necessary as the backpack is a reference to the one in GameStateManager therefore any changes should be reflected
         //in the original.
