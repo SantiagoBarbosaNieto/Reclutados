@@ -21,7 +21,9 @@ public class GameStateManager : MonoBehaviour
 
 
     [SerializeField]
-    private List<RegateoCharacterSO> allCharacters = new List<RegateoCharacterSO>();
+    private List<RegateoCharacterSO> _allCharacters = new List<RegateoCharacterSO>();
+
+    private List<RegateoCharacterSO> _currentDayCharacters = new List<RegateoCharacterSO>();
 
     private int inventoryMaxItems = 6;
 
@@ -32,8 +34,8 @@ public class GameStateManager : MonoBehaviour
         _collaborations = 0;
         _endBranch = 0;
         _eventos = new Dictionary<int, List<Evento>>();
-
         _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
+        _currentDayCharacters = _allCharacters;
     }
 
     private void Awake() {
@@ -192,6 +194,11 @@ public class GameStateManager : MonoBehaviour
         public void SetIsDayLoaded(bool isDayLoaded) {
             _isDayLoaded = isDayLoaded;
         }
+
+        public void SetCurrentDayCharacters(List<RegateoCharacterSO> regateoCharacters) {
+            this._currentDayCharacters = regateoCharacters;
+        }
+
     #endregion
 
     #region Additional Getters
@@ -216,7 +223,11 @@ public class GameStateManager : MonoBehaviour
         }
 
         public List<RegateoCharacterSO> GetAllCharacters() {
-            return allCharacters;
+            return _allCharacters;
+        }
+
+        public List<RegateoCharacterSO> GetCurrentDayCharacters() {
+            return _currentDayCharacters;
         }
 
     #endregion

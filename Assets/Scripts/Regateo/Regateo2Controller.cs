@@ -56,7 +56,7 @@ public class Regateo2Controller : MonoBehaviour
         // Sets the current available characters and products from the GameStateManager
         if(GameStateManager.Instance != null) {
             allProducts = GameStateManager.Instance.GetAllProducts();
-            currentAvailableCharacters = new List<RegateoCharacterSO>(GameStateManager.Instance.GetAllCharacters());
+            currentAvailableCharacters = new List<RegateoCharacterSO>(GameStateManager.Instance.GetCurrentDayCharacters());
         }
 
         CreateRegateoCharacter();

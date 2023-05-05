@@ -50,6 +50,7 @@ public class DayController : MonoBehaviour
 
     public void OnLoadDay(LoadDayRequest request) {
         DaySO day = request.day;
+        GameStateManager.Instance.SetCurrentDayCharacters(day.regateoDayCharacters);
         greeting = new Queue<LoadDialogSceneRequest>(day.greeting);
         level = day.level;
         sales = new Queue<LoadDialogSceneRequest>(day.sales);
