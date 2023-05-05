@@ -26,7 +26,7 @@ public class DialogController : MonoBehaviour
 
     private Transform _optionsContainer;
 
-    private Button _dialogEnd;
+    private TMP_Text _dialogEnd;
     private Button _fastForward;
 
     public int _initialTypeSpeed = 10;
@@ -70,7 +70,7 @@ public class DialogController : MonoBehaviour
             _characterSingle.gameObject.SetActive(false);
         }
 
-        _dialogEnd = transform.Find("DialogPanel/Options/DialogEnd").GetComponent<Button>();
+        _dialogEnd = transform.Find("DialogPanel/Options/DialogEnd").GetComponent<TMP_Text>();
         _dialogEnd.gameObject.SetActive(false);
 
         _fastForward = transform.Find("DialogPanel/FastForward").GetComponent<Button>();
