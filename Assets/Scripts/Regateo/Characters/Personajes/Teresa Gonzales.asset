@@ -21,7 +21,7 @@ MonoBehaviour:
     idProducto: 1
   - probabilidad: 35
     idProducto: 2
-  toleranciaBase: 20
+  toleranciaBase: 15
   saludos:
   - "\xBFJuanito como estas?"
   - Buenas tardes juanito.

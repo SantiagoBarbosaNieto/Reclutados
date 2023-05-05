@@ -21,7 +21,7 @@ MonoBehaviour:
     idProducto: 1
   - probabilidad: 20
     idProducto: 2
-  toleranciaBase: 5
+  toleranciaBase: 40
   saludos:
   - Papito que pena lo molesto
   - "Mijo, \xBFcuenteme que vende?"

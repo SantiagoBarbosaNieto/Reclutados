@@ -21,7 +21,7 @@ MonoBehaviour:
     idProducto: 1
   - probabilidad: 7
     idProducto: 2
-  toleranciaBase: 80
+  toleranciaBase: 30
   saludos:
   - Casi sobrino como le va?
   - Buenas tardes Juanito.
