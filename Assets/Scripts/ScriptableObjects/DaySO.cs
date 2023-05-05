@@ -24,5 +24,7 @@ public class DaySO : ScriptableObject
     public bool isEnding;
 
     public List<RegateoCharacterSO> regateoDayCharacters;
+
+    public float baseMoneyLossPercentage = 0f;
     
 }

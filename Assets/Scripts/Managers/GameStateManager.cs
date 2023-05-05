@@ -256,6 +256,21 @@ public class GameStateManager : MonoBehaviour
             }
         }
 
+        public float GenerateDayExpenses(float baseMoneyLoss) {
+            int backpackItemCount = _backpack._items.Aggregate(0, (acc, item) => acc + item.quantity);
+            Debug.Log("Backpack item count: " + backpackItemCount);
+
+            // Will always lose a base percentage of money by day, but when player fails to sell items, for each item not sold, they will lose an additional percentage of money
+            
+            float moneyLosePercentage =  ((float)backpackItemCount / _backpack._maxItems) + baseMoneyLoss;
+            Debug.Log("Money lose percentage: " + moneyLosePercentage);
+
+            moneyLosePercentage *= _moneyDay * -1;
+            Debug.Log("Money lose: " + moneyLosePercentage);
+
+            return moneyLosePercentage;
+        }
+
         public void ResetBackpackForNextDay() {
             _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
             UpdateUIEvent.Raise();
