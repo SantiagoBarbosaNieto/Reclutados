@@ -27,7 +27,7 @@ MonoBehaviour:
   - scene: {fileID: 11400000, guid: 5eb69bdd82ffd304bac74e4e0c832d12, type: 2}
     loadingScreen: 0
     dialogs: {fileID: 11400000, guid: 9f78123573d85d74286129584fe3bee0, type: 2}
-  - scene: {fileID: 11400000, guid: bdca25c8e3072744cb76c88a2ec20f92, type: 2}
+  - scene: {fileID: 11400000, guid: 5eb69bdd82ffd304bac74e4e0c832d12, type: 2}
     loadingScreen: 0
     dialogs: {fileID: 11400000, guid: 3d81e085c4c14cc4181d70f970a1ecf6, type: 2}
   regateo:
@@ -43,3 +43,6 @@ MonoBehaviour:
   transition:
     scene: {fileID: 11400000, guid: c3f78a1d3afcd6f4fadd281a05617d33, type: 2}
     loadingScreen: 0
+  isEnding: 0
+  regateoDayCharacters: []
+  baseMoneyLossPercentage: 0
