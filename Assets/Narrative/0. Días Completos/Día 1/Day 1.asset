@@ -21,10 +21,10 @@ MonoBehaviour:
     scene: {fileID: 11400000, guid: fb65775e3016aaf4fb3aa110d01262c0, type: 2}
     loadingScreen: 0
   sales:
-  - scene: {fileID: 11400000, guid: bdca25c8e3072744cb76c88a2ec20f92, type: 2}
+  - scene: {fileID: 11400000, guid: 5eb69bdd82ffd304bac74e4e0c832d12, type: 2}
     loadingScreen: 0
-    dialogs: {fileID: 11400000, guid: d03ad1f4ee8e7904baf0ce61fd591e30, type: 2}
-  salesEnd:
+    dialogs: {fileID: 11400000, guid: 33d0569448d5cd24c814109d90f26efd, type: 2}
+  regateo:
     scene: {fileID: 0}
     loadingScreen: 0
   dayEnd:
@@ -37,3 +37,9 @@ MonoBehaviour:
   transition:
     scene: {fileID: 11400000, guid: c3f78a1d3afcd6f4fadd281a05617d33, type: 2}
     loadingScreen: 0
+  isEnding: 0
+  regateoDayCharacters:
+  - {fileID: 11400000, guid: 314882d76fa47b748ba5a29e8a477e7b, type: 2}
+  - {fileID: 11400000, guid: 2599c0d3f018ede4a99c2aeab2df3d38, type: 2}
+  - {fileID: 11400000, guid: 0f1b09008df3e8e43886de67141b757d, type: 2}
+  baseMoneyLossPercentage: 0

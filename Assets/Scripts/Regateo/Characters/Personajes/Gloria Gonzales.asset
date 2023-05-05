@@ -21,17 +21,15 @@ MonoBehaviour:
     idProducto: 1
   - probabilidad: 20
     idProducto: 2
-  - probabilidad: 56
-    idProducto: 3
   toleranciaBase: 5
   saludos:
   - Papito que pena lo molesto
   - "Mijo, \xBFcuenteme que vende?"
   - Buenas mijo como esta?
   pedidos:
-  - Mijo le compro x y
-  - Ay papito entonces quiero x y
-  - Papito deme x y
+  - Mijo le compro x z
+  - Ay papito entonces quiero x z
+  - Papito deme x z
   despedidas:
   - "Papito muchas gracias, que tenga buen d\xEDa"
   - Gracias mijo, muy querido

@@ -21,17 +21,15 @@ MonoBehaviour:
     idProducto: 1
   - probabilidad: 7
     idProducto: 2
-  - probabilidad: 54
-    idProducto: 3
   toleranciaBase: 80
   saludos:
   - Casi sobrino como le va?
   - Buenas tardes Juanito.
   - Juani buenas.
   pedidos:
-  - Te recibo x y
-  - Por favor x y
-  - Vendame x y
+  - Te recibo x z
+  - Por favor x z
+  - Vendame x z
   despedidas:
   - Gracias juani, hasta luego.
   - Gracias mijo, saludos.

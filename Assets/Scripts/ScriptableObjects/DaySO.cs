@@ -12,9 +12,19 @@ public class DaySO : ScriptableObject
 
     public List<LoadDialogSceneRequest> sales;
 
+    [HideInInspector]
     public LoadSceneRequest regateo;
 
     public List<LoadDialogSceneRequest> dayEnd;
 
     public LoadSceneRequest transition;
+
+
+    //Desde aca los cambios
+    public bool isEnding;
+
+    public List<RegateoCharacterSO> regateoDayCharacters;
+
+    public float baseMoneyLossPercentage = 0f;
+    
 }

@@ -1,4 +1,4 @@
 -> start
 == start ==
-Al final del día, regresas a casa
+Bueno, ya es momento de que pasen los clientes de hoy.
 ->END

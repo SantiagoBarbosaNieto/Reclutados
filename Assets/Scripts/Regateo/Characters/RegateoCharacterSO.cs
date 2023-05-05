@@ -86,9 +86,9 @@ public class RegateoCharacterSO : ScriptableObject
         string pedido = pedidos[Random.Range(0, pedidos.Count)];
 
         if(cantidad > 1) 
-            pedido = pedido.Replace("y", nombreProductoPlural);
+            pedido = pedido.Replace("z", nombreProductoPlural);
         else
-            pedido = pedido.Replace("y", nombreProducto);
+            pedido = pedido.Replace("z", nombreProducto);
         pedido = pedido.Replace("x", cantidad.ToString());
 
         return pedido;

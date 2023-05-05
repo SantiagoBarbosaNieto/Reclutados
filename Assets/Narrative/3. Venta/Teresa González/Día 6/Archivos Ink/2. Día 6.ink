@@ -5,7 +5,7 @@
 
 == A2 ==
 Entonces asumo que ya volverás todos los días al cole.
-*[Aja, mi papá dijo que mientras tenga que estudiar, no tendre que trabajar]-> A3
+*[Aja, mi papá dijo que mientras tenga que estudiar, no tendré que trabajar]-> A3
 == A3 ==
 Me alegra escuchar eso Juanito, aún que seas solo un niño ya has tenido que vivir cosas de gente grande.
 

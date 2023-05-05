@@ -21,17 +21,15 @@ MonoBehaviour:
     idProducto: 1
   - probabilidad: 60
     idProducto: 2
-  - probabilidad: 76
-    idProducto: 3
   toleranciaBase: 7
   saludos:
   - "Chiquillo buenos d\xEDas."
   - Hola Chiquillo.
   - "\xBFChiqui como le va?"
   pedidos:
-  - Listo, dame x y
-  - Chiqui dame x y
-  - Vendeme  x y
+  - Listo, dame x z
+  - Chiqui dame x z
+  - Vendeme  x z
   despedidas:
   - Gracias chiqui, hasta luego.
   - Chiquillo, que le vaya bien.

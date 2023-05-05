@@ -21,17 +21,15 @@ MonoBehaviour:
     idProducto: 1
   - probabilidad: 0
     idProducto: 2
-  - probabilidad: 0
-    idProducto: 3
   toleranciaBase: 45.5
   saludos:
   - "Disculpa Juan, buen d\xEDa"
   - Buenas tardes Juan
   - "\xBFJuan como esta?"
   pedidos:
-  - Me interesa x y
-  - Lo aprovecho entonces, dame x y
-  - Me puedes regalar x y
+  - Me interesa x z
+  - Lo aprovecho entonces, dame x z
+  - Me puedes regalar x z
   despedidas:
   - Gracias Juan, hasta luego
   - Bueno Juan, que tenga buenas ventas

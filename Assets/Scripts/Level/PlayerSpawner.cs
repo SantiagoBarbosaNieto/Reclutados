@@ -17,6 +17,7 @@ public class PlayerSpawner : MonoBehaviour {
         player.transform.position = entrance.transform.position;
         player.transform.parent = playerParent.transform;
         this.followCamera.Follow = player.transform;
+        player.SetActive(true);
 
         // When player is instantiated and moved, reset path
         playerPath.levelEntrance = null;

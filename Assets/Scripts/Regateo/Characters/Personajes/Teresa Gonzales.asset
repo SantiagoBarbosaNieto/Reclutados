@@ -21,17 +21,15 @@ MonoBehaviour:
     idProducto: 1
   - probabilidad: 35
     idProducto: 2
-  - probabilidad: 87
-    idProducto: 3
   toleranciaBase: 20
   saludos:
   - "\xBFJuanito como estas?"
   - Buenas tardes juanito.
   - Juanito, buenas tardes.
   pedidos:
-  - Regaleme por favor x y
-  - Por favor x y Juanito
-  - Juanito deme x y
+  - Regaleme por favor x z
+  - Por favor x z Juanito
+  - Juanito deme x z
   despedidas:
   - Gracias Juan, que estes bien,
   - Juanito gracias, que le vaya bien.

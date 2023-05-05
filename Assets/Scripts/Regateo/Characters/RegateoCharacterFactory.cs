@@ -48,8 +48,10 @@ public static class RegateoCharacterFactory
         int randomWeight = Random.Range(0, totalWeight);
 
         foreach(var producto in probabilidadProductos) {
-            if(randomWeight < producto.probabilidad)
+            if(randomWeight < producto.probabilidad) {
+                Debug.Log("Returning product: " + producto.idProducto);
                 return potentialProducts.Find(p => p.id == producto.idProducto);
+            }
             randomWeight -= producto.probabilidad;
         }
 

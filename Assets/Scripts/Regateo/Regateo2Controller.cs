@@ -12,6 +12,12 @@ public class Regateo2Controller : MonoBehaviour
     [SerializeField]
     private GameEvent advanceDayRequest;
 
+    [SerializeField]
+    private AddMoneyGameEvent addMoneyGameEvent;
+
+    [SerializeField]
+    private IntGameEvent decreaseBackpackItemEvent;
+
     //This list should be generated from a global list of characters. It can also be customized in case the
     //current day requires it
     [SerializeField]
@@ -31,8 +37,18 @@ public class Regateo2Controller : MonoBehaviour
 
     private States currentState;
 
+    private RegateoOrder currentOffer;
+    private float currentOfferRegateoPrice;
+
+    [SerializeField]
+    private AudioClip regateoAudio;
+
     private void Start()
     {
+        if(AudioManager.Instance != null && regateoAudio != null) {
+            AudioManager.Instance.StopSound();
+            AudioManager.Instance.PlaySoundLooped(regateoAudio);
+        }
         regateoView.GetSiguientePedidoEvent().AddListener(UpdateStateSiguiente);
         regateoView.GetOptRegatearEvent().AddListener(Regatear);
         regateoView.GetOptSiEvent().AddListener(AceptarOferta);
@@ -41,7 +57,8 @@ public class Regateo2Controller : MonoBehaviour
         // Sets the current available characters and products from the GameStateManager
         if(GameStateManager.Instance != null) {
             allProducts = GameStateManager.Instance.GetAllProducts();
-            currentAvailableCharacters = new List<RegateoCharacterSO>(GameStateManager.Instance.GetAllCharacters());
+            currentAvailableCharacters = new List<RegateoCharacterSO>(GameStateManager.Instance.GetCurrentDayCharacters());
+            Debug.Log("Loaded " + currentAvailableCharacters.Count + " characters for this day");
         }
 
         CreateRegateoCharacter();
@@ -105,6 +122,9 @@ public class Regateo2Controller : MonoBehaviour
                 break;
             case States.RegateoTerminado:
             //TODO find a way to advance the day.
+                if(AudioManager.Instance != null && regateoAudio != null) {
+                    AudioManager.Instance.StopSound();
+                }
                 advanceDayRequest.Raise();
                 break;
 
@@ -136,18 +156,18 @@ public class Regateo2Controller : MonoBehaviour
         if (regateoCharacter.OrdersAvailable())
         {
             // Get next order
-            RegateoOrder nextOrder = regateoCharacter.orders[0];
-            regateoCharacter.RemoveOrder(nextOrder);
+            currentOffer = regateoCharacter.orders[0];
+            regateoCharacter.RemoveOrder(currentOffer);
 
             // Check if there is enough stock for the order.
             List<RegateoInventoryProduct> inventoryProducts = GameStateManager.Instance._backpack._items;
 
             //Get the quantity of the inventoryProduct that has a regateoProduct equal to nextOrder.product
-            int inventoryQuantity = inventoryProducts.Find(x => x.regateoProduct == nextOrder.product).quantity;
+            int inventoryQuantity = inventoryProducts.Find(x => x.regateoProduct == currentOffer.product).quantity;
 
             Debug.Log("Inventory Quantity for this pedido: " + inventoryQuantity);
 
-            string pedido = regateoCharacter.GeneratePedido(nextOrder);
+            string pedido = regateoCharacter.GeneratePedido(currentOffer);
             regateoView.UpdateDialogo(pedido);
 
             PedidoOption();
@@ -160,24 +180,25 @@ public class Regateo2Controller : MonoBehaviour
                 regateoView.SetOptSiActive(false);
             }
 
-            else if(inventoryQuantity < nextOrder.amount) {
+            else if(inventoryQuantity < currentOffer.amount) {
                 Debug.Log("No hay suficiente inventario en la mochila para este pedido");
                 regateoView.SetOptRegatearActive(false);
 
                 // Ofrece solo la cantidad que hay en el inventario. Actualiza la oferta
-                nextOrder = new RegateoOrder(nextOrder.product, inventoryQuantity);
+                currentOffer = new RegateoOrder(currentOffer.product, inventoryQuantity);
 
-                regateoView.UpdateOferta(nextOrder.offer);
+                regateoView.UpdateOferta(currentOffer.offer);
             }
 
             else {
-                int currentPrice = nextOrder.GetPrice();
+                int currentPrice = currentOffer.GetPrice();
                 int newPrice = currentPrice + (currentPrice * priceIncreasePercent / 100);
+                currentOfferRegateoPrice = newPrice;
                 regateoView.SetOptRegatearText("Subir precio a " + newPrice + "$");
             }
 
             
-            regateoView.UpdateOferta(nextOrder.offer);
+            regateoView.UpdateOferta(currentOffer.offer);
 
             return States.Pedido;
         }
@@ -228,7 +249,12 @@ public class Regateo2Controller : MonoBehaviour
     {
         DialogOption();
         regateoView.UpdateDialogo(regateoCharacter.GenerateTrato());
+        
         //TODO decrease products, increase money
+        AddMoney eventInfo = new AddMoney(currentOffer.GetPrice(), "Se vendio " + currentOffer.amount + " " + currentOffer.product.name + " a " + currentOffer.GetPrice() + "$", true);
+        addMoneyGameEvent.Raise(eventInfo);
+        for (int i = 0; i < currentOffer.amount; i++)
+            decreaseBackpackItemEvent.Raise(currentOffer.product.id);
     }
 
     private void RechazarOferta()
@@ -255,6 +281,10 @@ public class Regateo2Controller : MonoBehaviour
             // Regateo exitoso
             mensaje = regateoCharacter.GenerateTrato();
             // TODO decrease products, increase money
+            AddMoney eventInfo = new AddMoney(currentOffer.GetPrice(), "Se vendio " + currentOffer.amount + " " + currentOffer.product.name + " a " + currentOfferRegateoPrice + "$", true);
+            addMoneyGameEvent.Raise(eventInfo);
+            for (int i = 0; i < currentOffer.amount; i++)
+                decreaseBackpackItemEvent.Raise(currentOffer.product.id);
         }
         else
         {

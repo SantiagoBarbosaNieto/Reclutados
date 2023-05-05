@@ -28,8 +28,6 @@ public class RegateoInventoryProduct
     }
     internal void increaseQuantity()
     {
-        if(this.quantity <= 0)
-            return;
         this.quantity += 1;
     }
 }

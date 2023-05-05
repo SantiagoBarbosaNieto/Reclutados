@@ -1,13 +1,5 @@
--> start
-
+->start
 == start ==
-Te despides de tu madrecita que se ve un poco desanimada y sales con tu padre al mercado del pueblo.
-->END
+Al despertar le comentas a tu padre lo que sucedió la noche anterior.
 
-/*
-== start ==
-#TAG
-DIALOGO EN PANTALLA
-* [DIALOGO DE RESPUESTA] -> NOBRE_DE_SELECICON
-->END
-*/
+-> END

@@ -21,7 +21,9 @@ public class GameStateManager : MonoBehaviour
 
 
     [SerializeField]
-    private List<RegateoCharacterSO> allCharacters = new List<RegateoCharacterSO>();
+    private List<RegateoCharacterSO> _allCharacters = new List<RegateoCharacterSO>();
+
+    private List<RegateoCharacterSO> _currentDayCharacters = new List<RegateoCharacterSO>();
 
     private int inventoryMaxItems = 6;
 
@@ -32,8 +34,8 @@ public class GameStateManager : MonoBehaviour
         _collaborations = 0;
         _endBranch = 0;
         _eventos = new Dictionary<int, List<Evento>>();
-
         _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
+        _currentDayCharacters = _allCharacters;
     }
 
     private void Awake() {
@@ -114,9 +116,24 @@ public class GameStateManager : MonoBehaviour
 
             }
 
+            public void AddItem(int id) {
+                if(GetNumItems() >= _maxItems)
+                    return;
+                _items.Find(item => item.regateoProduct.id == id).increaseQuantity();
+            }
+
+            public void RemoveItem(int id){
+                _items.Find(item => item.regateoProduct.id == id).decreaseQuantity();
+            }
+
             public int GetNumItems() {
                 int sum = _items.Aggregate(0, (acc, item) => acc + item.quantity);
                 return sum;
+            }
+
+            public bool isEmpty()
+            {
+                return GetNumItems() == 0;
             }
 
         }
@@ -177,6 +194,11 @@ public class GameStateManager : MonoBehaviour
         public void SetIsDayLoaded(bool isDayLoaded) {
             _isDayLoaded = isDayLoaded;
         }
+
+        public void SetCurrentDayCharacters(List<RegateoCharacterSO> regateoCharacters) {
+            this._currentDayCharacters = regateoCharacters;
+        }
+
     #endregion
 
     #region Additional Getters
@@ -201,7 +223,11 @@ public class GameStateManager : MonoBehaviour
         }
 
         public List<RegateoCharacterSO> GetAllCharacters() {
-            return allCharacters;
+            return _allCharacters;
+        }
+
+        public List<RegateoCharacterSO> GetCurrentDayCharacters() {
+            return _currentDayCharacters;
         }
 
     #endregion
@@ -230,8 +256,24 @@ public class GameStateManager : MonoBehaviour
             }
         }
 
+        public float GenerateDayExpenses(float baseMoneyLoss) {
+            int backpackItemCount = _backpack._items.Aggregate(0, (acc, item) => acc + item.quantity);
+            Debug.Log("Backpack item count: " + backpackItemCount);
+
+            // Will always lose a base percentage of money by day, but when player fails to sell items, for each item not sold, they will lose an additional percentage of money
+            
+            float moneyLosePercentage =  ((float)backpackItemCount / _backpack._maxItems) + baseMoneyLoss;
+            Debug.Log("Money lose percentage: " + moneyLosePercentage);
+
+            moneyLosePercentage *= _moneyDay * -1;
+            Debug.Log("Money lose: " + moneyLosePercentage);
+
+            return moneyLosePercentage;
+        }
+
         public void ResetBackpackForNextDay() {
             _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
+            UpdateUIEvent.Raise();
         }
 
         public void NextDay() {
@@ -241,6 +283,7 @@ public class GameStateManager : MonoBehaviour
             _roadEventHappened = false;
             UpdateUIEvent.Raise();
             _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
+            UpdateUIEvent.Raise();
         }
 
         public void ResetGameState()
@@ -261,14 +304,17 @@ public class GameStateManager : MonoBehaviour
 
         public void IncreaseBackpackItemQuantity(int id)
         {
-            _backpack._items.Find(item => item.regateoProduct.id == id).increaseQuantity();
+            Debug.Log("Aumentando cantidad de item " + id);
+            _backpack.AddItem(id);
             UpdateInventoryEvent.Raise();
+            UpdateUIEvent.Raise();
         }
 
         public void DecreaseBackpackItemQuantity(int id)
         {
-            _backpack._items.Find(item => item.regateoProduct.id == id).decreaseQuantity();
+            _backpack.RemoveItem(id);
             UpdateInventoryEvent.Raise();
+            UpdateUIEvent.Raise();
         }
 
     #endregion

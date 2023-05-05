@@ -46,10 +46,15 @@ public class DayController : MonoBehaviour
     //In the end of the day, the results will be shown
     LoadSceneRequest transition;
 
+    DaySO day;
+
     private bool dayLoaded = false;
 
     public void OnLoadDay(LoadDayRequest request) {
-        DaySO day = request.day;
+        day = request.day;
+        Debug.Log("DayController: Loading day " + day.number);
+        if(day.regateoDayCharacters.Count > 0)
+            GameStateManager.Instance.SetCurrentDayCharacters(day.regateoDayCharacters);
         greeting = new Queue<LoadDialogSceneRequest>(day.greeting);
         level = day.level;
         sales = new Queue<LoadDialogSceneRequest>(day.sales);
@@ -126,7 +131,7 @@ public class DayController : MonoBehaviour
         }
         else if(transition != null && transition.scene != null) {
             enableUIEvent.Raise(false);
-            AddMoney eventInfo = new AddMoney(-1.2f*GameStateManager.Instance._dia, "Gastos del día");
+            AddMoney eventInfo = new AddMoney(GameStateManager.Instance.GenerateDayExpenses(day.baseMoneyLossPercentage), "Gastos del día");
             addMoneyEvent.Raise(eventInfo);
             currentRequest = transition;
         }
