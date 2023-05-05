@@ -46,6 +46,7 @@ public class Regateo2Controller : MonoBehaviour
     private void Start()
     {
         if(AudioManager.Instance != null && regateoAudio != null) {
+            AudioManager.Instance.StopSound();
             AudioManager.Instance.PlaySoundLooped(regateoAudio);
         }
         regateoView.GetSiguientePedidoEvent().AddListener(UpdateStateSiguiente);

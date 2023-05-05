@@ -3130,22 +3130,17 @@ MonoBehaviour:
   allProducts:
   - name: Papa
     pluralName: papas
-    price: 10
+    price: 3
     id: 0
   - name: "Pl\xE1tano"
     pluralName: "pl\xE1tanos"
-    price: 20
+    price: 5
     id: 1
   - name: Huevo
     pluralName: Huevos
-    price: 15
+    price: 2
     id: 2
-  allCharacters:
-  - {fileID: 11400000, guid: eb62ad857d482d44da1e2975696043db, type: 2}
-  - {fileID: 11400000, guid: 314882d76fa47b748ba5a29e8a477e7b, type: 2}
-  - {fileID: 11400000, guid: 4a12db82e593f9a438b8fc6c01eb0652, type: 2}
-  - {fileID: 11400000, guid: 2599c0d3f018ede4a99c2aeab2df3d38, type: 2}
-  - {fileID: 11400000, guid: 0f1b09008df3e8e43886de67141b757d, type: 2}
+  _allCharacters: []
   UpdateUIEvent: {fileID: 11400000, guid: c4813ffdd25289447afab03ffaa29a03, type: 2}
   UpdateInventoryEvent: {fileID: 11400000, guid: 5cefd5782370ba74a8c9785d0a8de67e,
     type: 2}
