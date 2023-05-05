@@ -26,5 +26,7 @@ public class DaySO : ScriptableObject
     public List<RegateoCharacterSO> regateoDayCharacters;
 
     public float baseMoneyLossPercentage = 0f;
+
+    public List<InfoExpense> expenses;
     
 }

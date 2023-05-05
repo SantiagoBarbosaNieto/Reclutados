@@ -256,19 +256,17 @@ public class GameStateManager : MonoBehaviour
             }
         }
 
-        public float GenerateDayExpenses(float baseMoneyLoss) {
-            int backpackItemCount = _backpack._items.Aggregate(0, (acc, item) => acc + item.quantity);
-            Debug.Log("Backpack item count: " + backpackItemCount);
+        public int GenerateDayExpenses(float baseMoneyLoss) {
 
-            // Will always lose a base percentage of money by day, but when player fails to sell items, for each item not sold, they will lose an additional percentage of money
-            
-            float moneyLosePercentage =  ((float)backpackItemCount / _backpack._maxItems) + baseMoneyLoss;
-            Debug.Log("Money lose percentage: " + moneyLosePercentage);
+            float lossMoney = 0f;
 
-            moneyLosePercentage *= _moneyDay * -1;
-            Debug.Log("Money lose: " + moneyLosePercentage);
+            foreach(RegateoInventoryProduct p in _backpack._items) {
+                if(p.quantity > 0) {
+                    lossMoney -= p.regateoProduct.price * p.quantity;
+                }
+            }
 
-            return moneyLosePercentage;
+            return (int)lossMoney;
         }
 
         public void ResetBackpackForNextDay() {

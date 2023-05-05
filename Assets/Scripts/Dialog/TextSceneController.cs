@@ -47,7 +47,6 @@ public class TextSceneController : MonoBehaviour
         Color color = image.color;
 
         while (elapsedTime < fadeTime) {
-            Debug.Log("Fading out scene");
             // Calculate the alpha value based on the elapsed time
             float alpha = Mathf.Lerp(1.0f, 0.0f, elapsedTime / fadeTime);
 

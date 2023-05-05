@@ -44,5 +44,8 @@ MonoBehaviour:
     scene: {fileID: 11400000, guid: c3f78a1d3afcd6f4fadd281a05617d33, type: 2}
     loadingScreen: 0
   isEnding: 0
-  regateoDayCharacters: []
-  baseMoneyLossPercentage: 0
+  regateoDayCharacters:
+  - {fileID: 11400000, guid: 2599c0d3f018ede4a99c2aeab2df3d38, type: 2}
+  - {fileID: 11400000, guid: eb62ad857d482d44da1e2975696043db, type: 2}
+  - {fileID: 11400000, guid: 314882d76fa47b748ba5a29e8a477e7b, type: 2}
+  baseMoneyLossPercentage: 50

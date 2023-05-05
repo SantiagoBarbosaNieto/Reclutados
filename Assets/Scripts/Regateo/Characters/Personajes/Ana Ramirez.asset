@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef979aebbca23ae4982cdd551e4d8481, type: 3}
   m_Name: Ana Ramirez
   m_EditorClassIdentifier: 
-  name: 
+  name: Ana Ramirez
   sprite: {fileID: 21300000, guid: c14cf4e533563504081cd8ec0ef594ea, type: 3}
   productosProbabilidad: []
   toleranciaBase: 12
@@ -21,9 +21,9 @@ MonoBehaviour:
   - Buenas tardes
   - Buenas mijo como esta?
   pedidos:
-  - Regaleme por favor x y
-  - Por favor x y
-  - Deme x y
+  - Regaleme por favor x z
+  - Por favor x z
+  - Deme x z
   despedidas:
   - Gracias joven, hasta luego
   - Gracias mijo, que le vaya bien

@@ -37,3 +37,21 @@ MonoBehaviour:
   transition:
     scene: {fileID: 11400000, guid: c3f78a1d3afcd6f4fadd281a05617d33, type: 2}
     loadingScreen: 0
+  isEnding: 0
+  regateoDayCharacters:
+  - {fileID: 11400000, guid: 0f1b09008df3e8e43886de67141b757d, type: 2}
+  - {fileID: 11400000, guid: 4a12db82e593f9a438b8fc6c01eb0652, type: 2}
+  - {fileID: 11400000, guid: 4a77eab860ee8354780fb9ce870c0544, type: 2}
+  - {fileID: 11400000, guid: 764222ed978002b42bf7374600f60202, type: 2}
+  baseMoneyLossPercentage: 0
+  expenses:
+  - description: Comida
+    money: -5
+  - description: Insumos Granja
+    money: -3
+  - description: "Medicina Mam\xE1"
+    money: -3
+  - description: Zapato Roto
+    money: -2
+  - description: "Lluvia arruin\xF3 algunos cultivos"
+    money: -5

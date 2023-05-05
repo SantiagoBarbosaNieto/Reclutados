@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef979aebbca23ae4982cdd551e4d8481, type: 3}
   m_Name: Gabriel Castro
   m_EditorClassIdentifier: 
-  name: 
+  name: Gabriel Castro
   sprite: {fileID: 21300000, guid: b6caa7d6d15ff074990c7e6f658d627b, type: 3}
   productosProbabilidad: []
   toleranciaBase: 70
@@ -21,9 +21,9 @@ MonoBehaviour:
   - Buenas tardes
   - Buenas como esta?
   pedidos:
-  - Regaleme por favor x y
-  - Por favor x y
-  - Deme x y
+  - Regaleme por favor x z
+  - Por favor x z
+  - Deme x z
   despedidas:
   - Gracias, hasta luego
   - Gracias, que le vaya bien

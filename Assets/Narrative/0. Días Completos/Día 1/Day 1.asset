@@ -40,6 +40,11 @@ MonoBehaviour:
   isEnding: 0
   regateoDayCharacters:
   - {fileID: 11400000, guid: 314882d76fa47b748ba5a29e8a477e7b, type: 2}
-  - {fileID: 11400000, guid: 2599c0d3f018ede4a99c2aeab2df3d38, type: 2}
-  - {fileID: 11400000, guid: 0f1b09008df3e8e43886de67141b757d, type: 2}
+  - {fileID: 11400000, guid: 1fa3910e35e021e4b97cc99e15509727, type: 2}
+  - {fileID: 11400000, guid: ebf8d0b23a1a5734fae7e5802bff138e, type: 2}
   baseMoneyLossPercentage: 0
+  expenses:
+  - description: Comida
+    money: -3
+  - description: Insumos Granja
+    money: -2
