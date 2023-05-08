@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ScriptableObjectArchitecture;
+using UnityEngine.SceneManagement;
 using System;
 
 public class DynamicInventoryScrollView : MonoBehaviour {
@@ -18,7 +19,7 @@ public class DynamicInventoryScrollView : MonoBehaviour {
     public IntGameEvent increaseBackpackItemQuantityEvent;
     public IntGameEvent decreaseBackpackItemQuantityEvent;
 
-     void Start() {
+    void Start() {
         UpdateUI();
     }
 
@@ -30,11 +31,18 @@ public class DynamicInventoryScrollView : MonoBehaviour {
             GameObject newProduct = Instantiate(prefab, scrollViewContent);
 
             if(newProduct.TryGetComponent<InventoryScrollViewItem>(out InventoryScrollViewItem item)) {
-                item.StartInfo(product.regateoProduct.id,product.regateoProduct.name, product.quantity.ToString(), DecreaseQuantity);
+
+                if(SceneManager.GetActiveScene().name == "Farm" || SceneManager.GetActiveScene().name == "Road") {
+                    Debug.Log("************************************************************ A");
+                    item.StartInfo(product.regateoProduct.id,product.regateoProduct.name, product.quantity.ToString(), DecreaseQuantity);
+                }
+                else {
+                    Debug.Log("************************************************************ B");
+                    item.ChangeNameAndQuantity(product.regateoProduct.id,product.regateoProduct.name, product.quantity.ToString());
+                }
             }
         }
     }
-
 
     public void IncreaseQuantity(int id) {
         increaseBackpackItemQuantityEvent.Raise( id);

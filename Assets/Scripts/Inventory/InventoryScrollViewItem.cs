@@ -14,17 +14,18 @@ public class InventoryScrollViewItem : MonoBehaviour {
 
     private int id;
 
-    public void ChangeNameAndQuantity(string name, string quantity) {
-        itemName.text = name;
-        itemQuantity.text = quantity;
+    public void ChangeNameAndQuantity(int productId, string name, string quantity) {
+        this.id = productId;
+        this.itemName.text = name;
+        this.itemQuantity.text = quantity;
+        decreaseButton.gameObject.SetActive(false);
     }
 
-    public void StartInfo(int productId, string name, string startQuantity, Action<int> decreaseCallback )
-    {
+    public void StartInfo(int productId, string name, string startQuantity, Action<int> decreaseCallback) {
         this.id = productId;
         this.itemName.text = name;
         this.itemQuantity.text = startQuantity;
-
+        decreaseButton.gameObject.SetActive(true);
         decreaseButton.onClick.AddListener(() => decreaseCallback(this.id));
     }
 
