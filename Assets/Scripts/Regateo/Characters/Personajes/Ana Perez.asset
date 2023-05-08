@@ -21,7 +21,7 @@ MonoBehaviour:
     idProducto: 1
   - probabilidad: 60
     idProducto: 2
-  toleranciaBase: 7
+  toleranciaBase: 10
   saludos:
   - "Chiquillo buenos d\xEDas."
   - Hola Chiquillo.

@@ -26,14 +26,17 @@ public class DialogController : MonoBehaviour
 
     private Transform _optionsContainer;
 
-    private Button _dialogEnd;
+    private TMP_Text _dialogEnd;
     private Button _fastForward;
 
-    public int _initialTypeSpeed = 1;
+    public int _initialTypeSpeed = 10;
 
     [Range(0, 20)]
     public int typeWriterSpeed = 0;
+
+    private string debugText = "";
     
+    private Coroutine textTypeWritingCoroutine;
 
     private List<TMP_Text> _options;
 
@@ -67,7 +70,7 @@ public class DialogController : MonoBehaviour
             _characterSingle.gameObject.SetActive(false);
         }
 
-        _dialogEnd = transform.Find("DialogPanel/Options/DialogEnd").GetComponent<Button>();
+        _dialogEnd = transform.Find("DialogPanel/Options/DialogEnd").GetComponent<TMP_Text>();
         _dialogEnd.gameObject.SetActive(false);
 
         _fastForward = transform.Find("DialogPanel/FastForward").GetComponent<Button>();
@@ -80,27 +83,41 @@ public class DialogController : MonoBehaviour
     private void UpdateDialogText(string newText) {
         _optionsContainer.gameObject.SetActive(false);
         _dialogText.text = "";
-        //_dialogText.text = "<color=#FA6238>" + newText + "</color>";
-        StartCoroutine(AppearText(_dialogText, newText, "<color=#040118>", "<color=#FFFFFF>"));
+        debugText = newText;
+        typeWriterSpeed = _initialTypeSpeed;
+        textTypeWritingCoroutine = StartCoroutine(PrintTextCoroutine());
 
     }
 
-    private IEnumerator AppearText(TMP_Text t, string newText, string backgroundColor, string foregroundColor)
-    {   
-        string stopColor = "</color>";
-        string finalString = "";
-        for(int i = 0; i < newText.Length; i++)
+    private IEnumerator PrintTextCoroutine()
+    {
+        float delay = 1f / typeWriterSpeed;
+        delay = 0.1f/(3+typeWriterSpeed);
+        for (int i = 0; i < debugText.Length; i++)
         {
-            finalString = foregroundColor + newText.Substring(0, i) + stopColor + backgroundColor + newText.Substring(i, newText.Length-i) + stopColor;
-            t.text = finalString;
-            yield return new WaitForSeconds(0.1f/(3+typeWriterSpeed));
-        }
+            _dialogText.text += debugText[i];
+            yield return new WaitForSeconds(delay);
+        } 
         _optionsContainer.gameObject.SetActive(true);
         _fastForward.gameObject.SetActive(false);
-
-        yield return null;
     }
 
+    //private IEnumerator AppearText(TMP_Text t, string newText, string backgroundColor, string foregroundColor)
+    //{   
+    //    string stopColor = "</color>";
+    //    string finalString = "";
+    //    for(int i = 0; i < newText.Length; i++)
+    //    {
+    //        finalString = foregroundColor + newText.Substring(0, i) + stopColor + backgroundColor + newText.Substring(i, newText.Length-i) + stopColor;
+    //        t.text = finalString;
+    //        yield return new WaitForSeconds(0.1f/(3+typeWriterSpeed));
+    //    }
+    //    _optionsContainer.gameObject.SetActive(true);
+    //    _fastForward.gameObject.SetActive(false);
+//
+    //    yield return null;
+    //}
+//
     private void UpdateAllOptions(List<Choice> choices) {
 
         foreach (var option in _options) {
@@ -161,7 +178,9 @@ public class DialogController : MonoBehaviour
         onDialogEnd.Invoke();
     }
     public void FastForward() {
-        typeWriterSpeed = 20;
+        StopCoroutine(textTypeWritingCoroutine);
+        _dialogText.text = debugText;
+        _optionsContainer.gameObject.SetActive(true);
         _fastForward.gameObject.SetActive(false);
     }
 

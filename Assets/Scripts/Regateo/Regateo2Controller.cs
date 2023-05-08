@@ -25,7 +25,7 @@ public class Regateo2Controller : MonoBehaviour
 
     [SerializeField]
     [Range(0, 100)]
-    private int priceIncreasePercent = 10;
+    private int priceIncreasePercent = 50;
 
     private RegateoCharacter regateoCharacter;
 

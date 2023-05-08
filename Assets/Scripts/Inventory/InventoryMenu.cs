@@ -36,7 +36,6 @@ public class InventoryMenu : MonoBehaviour {
     }
 
     public void UpdateInventoryUI() {
-        Debug.Log("Updating inventory UI");
         inventoryButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = GameStateManager.Instance._backpack.GetNumItems() + "/" + GameStateManager.Instance._backpack._maxItems;
     }
 }

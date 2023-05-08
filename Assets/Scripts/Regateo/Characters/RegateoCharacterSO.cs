@@ -40,9 +40,9 @@ public class RegateoCharacterSO : ScriptableObject
 
     [SerializeField]
     private List<string> pedidos = new List<string>() {
-        "Regaleme por favor x y",
-        "Por favor x y",
-        "Deme x y"
+        "Regaleme por favor x z",
+        "Por favor x z",
+        "Deme x z"
     };
 
     [SerializeField]

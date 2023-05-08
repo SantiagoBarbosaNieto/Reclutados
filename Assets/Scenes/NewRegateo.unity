@@ -260,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0025024414, y: 0}
+  m_AnchoredPosition: {x: 0.0024414062, y: 0}
   m_SizeDelta: {x: 0.0048828, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431025839
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.25
+  m_fontSize: 30
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1756,7 +1756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.0025024414, y: 169}
+  m_AnchoredPosition: {x: 0.0024414062, y: 169}
   m_SizeDelta: {x: -643.9878, y: 296.342}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1794210940318802177
@@ -1833,11 +1833,8 @@ MonoBehaviour:
   addMoneyGameEvent: {fileID: 11400000, guid: 85d7fdf2892196a4292ded1ec538091b, type: 2}
   decreaseBackpackItemEvent: {fileID: 11400000, guid: d9f352b89dbfc6845851a87d2c48f3fa,
     type: 2}
-  currentAvailableCharacters:
-  - {fileID: 11400000, guid: d888251550f096e4d97f92157cf9fdd9, type: 2}
-  - {fileID: 11400000, guid: f0c9ac44db1b2e74aae1736f80d14ec0, type: 2}
-  - {fileID: 11400000, guid: 1af2e8097bebc7d498c447a9850bca01, type: 2}
-  priceIncreasePercent: 10
+  currentAvailableCharacters: []
+  priceIncreasePercent: 50
   regateoView: {fileID: 1794210940318802209}
   regateoAudio: {fileID: 8300000, guid: 4137fde37cea4ce439bfc51858033f27, type: 3}
 --- !u!114 &1794210940318802209
