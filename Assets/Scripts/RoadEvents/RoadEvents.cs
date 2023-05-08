@@ -16,8 +16,15 @@ public class RoadEvents : MonoBehaviour {
     public void RandomEvent() {
 
         int dinero = UnityEngine.Random.Range(1, 5);
-        int opcion = UnityEngine.Random.Range(0, 4);
+        int opcion;
 
+        if(GameStateManager.Instance._moneyDayStart - dinero < 0) {
+            opcion = UnityEngine.Random.Range(0, 3);
+        }
+        else {
+            opcion = UnityEngine.Random.Range(0, 4);
+        }
+        
         String[] posibleEventsDescription = new String[4];
         posibleEventsDescription[0] = "¿...? Escuchas sonidos extraños viniendo del bosque. Será mejor ignorarlos...";
         posibleEventsDescription[1] = "*Te limpias el sudor de la frente* ¡El calor es insoportable!";
