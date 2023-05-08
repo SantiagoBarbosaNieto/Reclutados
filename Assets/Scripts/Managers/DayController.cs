@@ -121,7 +121,7 @@ public class DayController : MonoBehaviour
             currentRequest = sales.Dequeue();
         }
         //Regateo Scene
-        else if(regateo != null && regateo.scene != null) {
+        else if(regateo != null && regateo.scene != null && day.regateoActive) {
             currentRequest = regateo;
             regateo = null;
         }

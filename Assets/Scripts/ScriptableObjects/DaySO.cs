@@ -21,7 +21,7 @@ public class DaySO : ScriptableObject
 
 
     //Desde aca los cambios
-    public bool isEnding;
+    public bool regateoActive = true;
 
     public List<RegateoCharacterSO> regateoDayCharacters;
 

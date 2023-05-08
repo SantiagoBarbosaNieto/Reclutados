@@ -17,7 +17,7 @@ Sí sí, espero que no te haya dejado aburrido ni nada por estar acá y no en la
 *[Pues Tere no se veía muy contenta de verme trabajando, pero lo hago por ayudar a mis padres.] -> a4
 
 == a4 ==
-Me extraña, sobre todo porque lo que he escuchado de mi hermanastro, es que el señor Rodriguez siempre la ha ido lo suficientemente bien como para que su hijo se vea en la necesidad de trabajar.
+Me extraña, sobre todo porque lo que he escuchado de mi hermanastro, es que el señor Rodríguez siempre la ha ido lo suficientemente bien como para que su hijo se vea en la necesidad de trabajar.
 *[Si le digo la verdad, no estoy muy seguro tampoco la razón. ] -> a5
 == a5 ==
 Ya veo... Y cuénteme Juan, ¿cómo le ha ido el día de hoy?
@@ -29,8 +29,8 @@ Ja ja, me refería a las ventas, pero me alegra saber que aun tienes la escuela 
 *[Gracias, Isabela] -> a7
 
 == a7 ==
-Me puedes decir Isa nada más si así quieres. De paso aprovecho y te ayudo un poco. Dame un par de unidades.
-*[Isa muchas gracias, aquí tienes # reg compra 2] -> a8
+Bueno Juan, si me disculpa, más tarde paso a comprar algo
+*[Isa muchas gracias] -> a8
 
 == a8 ==
 

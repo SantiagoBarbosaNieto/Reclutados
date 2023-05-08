@@ -1,4 +1,4 @@
 -> start
 == start ==
-Isabela se retira y nuevamente estás por terminar el día.
+Bueno es momento de atender clientes.
 ->END
