@@ -27,15 +27,10 @@ Lo siento, chiquillo. No sé qué me pasa. No debería preocuparle a usted por t
 *[¿Cómo así, doña Ana? ¿Usted también sabe algo?]->a5
 
 ==a5==
-Chiqui, ¿qué es lo que vende hoy?
-*[Hoy vendemos papas]->a6
-*[Doña Ana, ¿qué iba a decir?]->a6
-
-== a6 ==
-¡Ah, son papas! Vea pues, ¿a cuánto me deja el bulto?
-*[Doña Ana, a 5 #pref money 5]-> a7
-*[Doña Ana, a 7 #pref money 7]-> a7
+Chiqui, qué pena me tengo que ir. Pero más tarde paso y le compro
+*[Bueno doña Ana que le vaya bien]->a7
+*[Doña Ana, ¿qué iba a decir?]->a7
 
 == a7 ==
-Listo, chiqui. Muchas gracias. Siga dándole duro para conseguir más plata.
+Hasta luego, chiqui. Que le rinda.
 ->END
