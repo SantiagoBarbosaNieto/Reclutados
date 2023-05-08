@@ -8,6 +8,8 @@ public class ItemInitialize : MonoBehaviour
     public float value = 0;
     public Color positiveColor = Color.green;
     public Color negativeColor = Color.red;
+
+    public Color neutralColor = Color.grey;
     // Start is called before the first frame update
     
     private Transform  NameGameObject;
@@ -25,13 +27,17 @@ public class ItemInitialize : MonoBehaviour
     {
         ValueGameObject = transform.Find("Value");
         TMPro.TextMeshProUGUI TMvalue = ValueGameObject.GetComponent<TMPro.TextMeshProUGUI>();
-        if (value >= 0)
+        if (value > 0)
         {
             TMvalue.faceColor  = positiveColor;
         }
-        else
+        else if (value < 0)
         {
             TMvalue.faceColor  = negativeColor;
+        }
+        else
+        {
+            TMvalue.faceColor = neutralColor;
         }
         TMvalue.text = "$ "  + (value >= 0 ? " " : "") + value.ToString();
     }
