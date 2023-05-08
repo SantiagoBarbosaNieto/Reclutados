@@ -40,6 +40,7 @@ MonoBehaviour:
   transition:
     scene: {fileID: 11400000, guid: c3f78a1d3afcd6f4fadd281a05617d33, type: 2}
     loadingScreen: 0
-  isEnding: 0
+  regateoActive: 0
   regateoDayCharacters: []
   baseMoneyLossPercentage: 0
+  expenses: []
