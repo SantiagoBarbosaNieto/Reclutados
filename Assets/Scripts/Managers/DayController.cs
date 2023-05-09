@@ -134,10 +134,10 @@ public class DayController : MonoBehaviour
             if(day.regateoActive) {
                 AddMoney eventInfo = new AddMoney(GameStateManager.Instance.GenerateDayExpenses(day.baseMoneyLossPercentage), "Mercancía no vendida");
                 addMoneyEvent.Raise(eventInfo);
-                foreach(InfoExpense i in day.expenses) {
-                    eventInfo = new AddMoney(i.money, i.description);
-                    addMoneyEvent.Raise(eventInfo);
-                }
+            }
+            foreach(InfoExpense i in day.expenses) {
+                AddMoney eventInfo = new AddMoney(i.money, i.description);
+                addMoneyEvent.Raise(eventInfo);
             }
             currentRequest = transition;
         }
