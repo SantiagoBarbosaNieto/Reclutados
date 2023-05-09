@@ -3090,6 +3090,7 @@ GameObject:
   - component: {fileID: 1068359908}
   - component: {fileID: 1068359912}
   - component: {fileID: 1068359911}
+  - component: {fileID: 1068359913}
   - component: {fileID: 1068359907}
   - component: {fileID: 1068359906}
   - component: {fileID: 1068359909}
@@ -3144,6 +3145,9 @@ MonoBehaviour:
   UpdateUIEvent: {fileID: 11400000, guid: c4813ffdd25289447afab03ffaa29a03, type: 2}
   UpdateInventoryEvent: {fileID: 11400000, guid: 5cefd5782370ba74a8c9785d0a8de67e,
     type: 2}
+  titleEvent: {fileID: 11400000, guid: d78c9a1dd1f53a64581fe3b2543ccbfc, type: 2}
+  notificationEvent: {fileID: 11400000, guid: ab51ab2ed2ff53f48b04fc3cd41e92ba, type: 2}
+  titleSO: {fileID: 11400000, guid: 7a5305fd5473eb942b832ba1e2c55f6b, type: 2}
 --- !u!114 &1068359901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3499,6 +3503,39 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _debugValue: 0
+--- !u!114 &1068359913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068359898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 178987682a0a7bf4cad81d36f21e3d6f,
+    type: 2}
+  _event: {fileID: 11400000, guid: 178987682a0a7bf4cad81d36f21e3d6f, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1068359900}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1113729487
 GameObject:
   m_ObjectHideFlags: 0
@@ -3911,6 +3948,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1498240533}
     m_Modifications:
+    - target: {fileID: 166903985469099873, guid: 0616484fe2778c94184de7b75b5bebc3,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 166903985469099884, guid: 0616484fe2778c94184de7b75b5bebc3,
         type: 3}
       propertyPath: m_Name

@@ -52,9 +52,16 @@ public class GameStateManager : MonoBehaviour
 
         [SerializeField]
         public GameEvent UpdateInventoryEvent;
+        [SerializeField]
+        public LoadSceneRequestGameEvent titleEvent;
+        [SerializeField]
+        public NotificationContentGameEvent notificationEvent;
     #endregion
 
     #region Attributes
+        #region Utils
+            public SceneSO titleSO;
+        #endregion
 
         #region Money
 
@@ -279,9 +286,7 @@ public class GameStateManager : MonoBehaviour
             _moneyDay = 0;
             _dia++;
             _roadEventHappened = false;
-            UpdateUIEvent.Raise();
-            _backpack = new Backpack(inventoryMaxItems, 0, allProducts);
-            UpdateUIEvent.Raise();
+            ResetBackpackForNextDay();
         }
 
         public void ResetGameState()
@@ -293,6 +298,7 @@ public class GameStateManager : MonoBehaviour
             _endBranch = 0;
             _eventos = new Dictionary<int, List<Evento>>();
             _roadEventHappened = false;
+            ResetBackpackForNextDay();
             UpdateUIEvent.Raise();
         }
         
@@ -313,6 +319,18 @@ public class GameStateManager : MonoBehaviour
             _backpack.RemoveItem(id);
             UpdateInventoryEvent.Raise();
             UpdateUIEvent.Raise();
+        }
+
+        public void GameOver()
+        {
+            NotificationContent content = new NotificationContent("Game Over", "Te quedaste sin dinero! Vuelve a intentarlo!", backToTitleScreen);
+            notificationEvent.Raise(content);
+        }
+        public void backToTitleScreen()
+        {
+            LoadSceneRequest request = new LoadSceneRequest(titleSO, false);
+            titleEvent.Raise(request);
+
         }
 
     #endregion

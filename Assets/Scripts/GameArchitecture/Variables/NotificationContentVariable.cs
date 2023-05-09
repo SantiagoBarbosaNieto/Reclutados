@@ -8,7 +8,7 @@ namespace ScriptableObjectArchitecture
 
 	[CreateAssetMenu(
 	    fileName = "NotificationContentVariable.asset",
-	    menuName = SOArchitecture_Utility.VARIABLE_SUBMENU + "UpdateAndShowNotification Event",
+	    menuName = SOArchitecture_Utility.VARIABLE_SUBMENU + "NotificationContent",
 	    order = 120)]
 	public class NotificationContentVariable : BaseVariable<NotificationContent, NotificationContentEvent>
 	{

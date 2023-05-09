@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
 public class HUDManager : MonoBehaviour
 {
@@ -32,8 +33,23 @@ public class HUDManager : MonoBehaviour
         moneyText.gameObject.SetActive(enable);
     }
 
+
+//Notification
+    public void AddButtonAction(NotificationContent.Action action)
+    {   
+        SimpleNotification.transform.Find("Notification/Button").GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => action());
+    }
+
+    
+    private void ResetButtonActions()
+    {
+        SimpleNotification.transform.Find("Notification/Button").GetComponent<UnityEngine.UI.Button>().onClick.RemoveAllListeners();
+        SimpleNotification.transform.Find("Notification/Button").GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => HideNotification());
+    }
+
     public void HideNotification()
     {
+        ResetButtonActions();
         SimpleNotification.gameObject.SetActive(false);
     }
 
@@ -41,6 +57,10 @@ public class HUDManager : MonoBehaviour
     {
         notificationTitle.text = content.title;
         notificationContent.text = content.content;
+        if(content.action != null)
+        {
+            AddButtonAction(content.action);
+        }
         SimpleNotification.gameObject.SetActive(true);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
 public class ItemSpawner : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class ItemSpawner : MonoBehaviour
     public Transform content;
     public Transform valueObject;
     public Transform numDia; 
+
+    public GameObject buttonObject;
+
+    public GameEvent gameOverEvent;
+    public GameEvent nextDayEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +62,16 @@ public class ItemSpawner : MonoBehaviour
         TMPro.TextMeshProUGUI  TMvalue = valueObject.GetComponent<TMPro.TextMeshProUGUI>();
         float screenTotal = GameStateManager.Instance.GetTotalMoney();
         TMvalue.text = "$ "  + (screenTotal >= 0 ? " " : "") + screenTotal.ToString("F2");
+
+        buttonObject.GetComponent<UnityEngine.UI.Button>().onClick.RemoveAllListeners();
+        if(screenTotal < 0)
+        {
+            buttonObject.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => gameOverEvent.Raise());
+        }
+        else
+        {
+            buttonObject.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => nextDayEvent.Raise());
+        }
     }
 
     // Update is called once per frame

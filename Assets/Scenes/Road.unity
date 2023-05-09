@@ -190,6 +190,7 @@ MonoBehaviour:
   onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
+  notificationEvent: {fileID: 0}
 --- !u!61 &20330380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -271,7 +272,6 @@ GameObject:
   - component: {fileID: 183262124}
   - component: {fileID: 183262123}
   - component: {fileID: 183262122}
-  - component: {fileID: 183262125}
   m_Layer: 5
   m_Name: PopUpBox
   m_TagString: Untagged
@@ -363,22 +363,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &183262125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183262120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c6bfed6a1d032d439bb1483977692f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popUpBox: {fileID: 183262120}
-  player: {fileID: 1314571896}
-  popUpText: {fileID: 1837444495}
-  addMoneyEvent: {fileID: 11400000, guid: 85d7fdf2892196a4292ded1ec538091b, type: 2}
 --- !u!4 &386054743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3524056317332142540, guid: bbe85c169dca5d94fb66c8505ec8b9d4,
@@ -1887,6 +1871,7 @@ MonoBehaviour:
   onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
+  notificationEvent: {fileID: 0}
 --- !u!61 &680233086
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8012,6 +7997,7 @@ MonoBehaviour:
   onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
+  notificationEvent: {fileID: 0}
 --- !u!61 &1434605229
 BoxCollider2D:
   m_ObjectHideFlags: 0
