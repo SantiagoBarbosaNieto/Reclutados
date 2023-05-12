@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AddMoney_GameStateEvent
   m_EditorClassIdentifier: 
   _debugValue:
-    description: 
-    money: 0
+    description: Hacks
+    money: 10000000
     isVentas: 0

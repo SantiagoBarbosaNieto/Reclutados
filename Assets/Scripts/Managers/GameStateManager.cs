@@ -217,7 +217,7 @@ public class GameStateManager : MonoBehaviour
             if(_eventos.ContainsKey(dia)) {
                 return _eventos[dia];
             }
-            return null;
+            return new List<Evento>();
         }
 
         public List<Evento> GetCurrentDayEvents()

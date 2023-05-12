@@ -13,7 +13,7 @@ public class TextSceneController : MonoBehaviour
     public string debugText;
 
     [SerializeField]
-    private Button exit;
+    public Button exit;
 
     [SerializeField]
     private Image image;

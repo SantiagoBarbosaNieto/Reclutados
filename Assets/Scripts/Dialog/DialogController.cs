@@ -124,10 +124,7 @@ public class DialogController : MonoBehaviour
             option.gameObject.SetActive(false);
         }
 
-        if(choices.Count > 3) {
-            Debug.LogError("The choices could not be loaded: A maximum of three choices is required");
-        }
-        else if(choices.Count == 0) {
+        if(choices.Count == 0) {
             _dialogEnd.gameObject.SetActive(true);
         }
 

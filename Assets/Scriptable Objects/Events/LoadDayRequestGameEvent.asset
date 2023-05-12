@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LoadDayRequestGameEvent
   m_EditorClassIdentifier: 
   _debugValue:
-    day: {fileID: 11400000, guid: 0f78497812f47824987eca22a92d4931, type: 2}
+    day: {fileID: 11400000, guid: 5010a5b3ac3589b4187cf39834fca9a8, type: 2}

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
+using System;
+using TMPro;
 
 public class DayController : MonoBehaviour
 {
@@ -26,6 +28,8 @@ public class DayController : MonoBehaviour
 
     [SerializeField]
     private SceneSO regateoScene;
+
+    public GameObject endScreenPrefab;
 
     //There should be a Queue here for info scenes
 
@@ -149,8 +153,25 @@ public class DayController : MonoBehaviour
             if(day.number == 1)
                 menuManager.GetComponent<HelpMenu>().OpenMenuFiltered(6,6);
         }
-        else { //Fin del dia
+        else { //Fin del juego
             //Raise game event to go to the next day
+            if(day.number == 8)
+            {
+
+                var x = Instantiate(endScreenPrefab);
+                TextSceneController te = x.GetComponent<TextSceneController>();
+                te.debugText = "Muchos niños tuvieron que pasar por lo que tuvo que pasar Juanito. Algunos fueron valientes y se resistieron a la guerrilla, pero como resultado muchos tuvieron terribles dificultades y muchos también fueron asesinados junto con sus familias. Otros niños decidieron unirse a la guerrilla: quizás por necesidad, algunos por engaño, otros por odio hacia los otros bandos. Muchos de ellos murieron por una causa en la que no creían, otros lograron mejorar sus condiciones de vida, pero fueron discriminados después de que se firmara la paz en el país, otros fueron forzados a cometer actos horribles.";
+                te.exit.onClick.RemoveAllListeners();
+                te.exit.onClick.AddListener(() => {
+                    #if UNITY_STANDALONE
+                        Application.Quit();
+                    #endif
+                    #if UNITY_EDITOR
+                        UnityEditor.EditorApplication.isPlaying = false;
+                    #endif
+                });
+                te.exit.GetComponentInChildren<TMP_Text>().text = "Fin";
+            }
             Debug.Log("Aqui debe iniciar el siguiente día");
             return;
         }
