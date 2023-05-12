@@ -20,6 +20,8 @@ public class DayController : MonoBehaviour
 
     public BoolGameEvent enableUIEvent;
 
+    public GameObject menuManager;
+
     private int dayNumber;
 
     [SerializeField]
@@ -114,6 +116,8 @@ public class DayController : MonoBehaviour
         else if(level != null && level.scene != null) {
             currentRequest = level;
             level = null;
+            if(day.number == 1)
+                menuManager.GetComponent<HelpMenu>().OpenMenuFiltered(0,1);
         }
         //Sales DP list
         else if(sales.Count != 0){
@@ -124,6 +128,8 @@ public class DayController : MonoBehaviour
         else if(regateo != null && regateo.scene != null && day.regateoActive) {
             currentRequest = regateo;
             regateo = null;
+            if(day.number == 1)
+                menuManager.GetComponent<HelpMenu>().OpenMenuFiltered(2,5);
         }
         else if(dayEnd.Count != 0) {
             Debug.Log("dayEnd");
@@ -140,6 +146,8 @@ public class DayController : MonoBehaviour
                 addMoneyEvent.Raise(eventInfo);
             }
             currentRequest = transition;
+            if(day.number == 1)
+                menuManager.GetComponent<HelpMenu>().OpenMenuFiltered(6,6);
         }
         else { //Fin del dia
             //Raise game event to go to the next day

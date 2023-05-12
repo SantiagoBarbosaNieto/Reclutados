@@ -13,6 +13,8 @@ public class HUDManager : MonoBehaviour
     public GameObject dayText;
     public GameObject moneyText;
 
+    public GameObject statsInfo;
+
     public GameObject SimpleNotification;
     public TextMeshProUGUI notificationTitle;
     public TextMeshProUGUI notificationContent;
@@ -29,8 +31,7 @@ public class HUDManager : MonoBehaviour
 
     public void EnableUI(bool enable)
     {
-        dayText.gameObject.SetActive(enable);
-        moneyText.gameObject.SetActive(enable);
+        statsInfo.gameObject.SetActive(enable);
     }
 
 
