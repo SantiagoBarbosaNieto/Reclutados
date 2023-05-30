@@ -24,7 +24,7 @@ Ya veo... Y cuénteme Juan, ¿cómo le ha ido el día de hoy?
 *[Sabe, no me puedo quejar mucho, aparte de ir menos a la escuela bien] -> a6
 
 == a6 ==
-Ja ja, me refería a las ventas, pero me alegra saber que aun tienes la escuela en mente. Se lo comentaré a Tere a ver si con eso ya se preocupa menos. Sabes como su debilidad son los niños.
+Ja ja, me refería a las ventas, pero me alegra saber que aún tienes la escuela en mente. Se lo comentaré a Tere a ver si con eso ya se preocupa menos. Sabes cómo su debilidad son los niños.
 
 *[Gracias, Isabela] -> a7
 

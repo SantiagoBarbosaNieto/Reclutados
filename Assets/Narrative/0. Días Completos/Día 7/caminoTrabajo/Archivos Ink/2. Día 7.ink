@@ -1,7 +1,6 @@
-# Pablo el guerrillero
 Pelao aquí estaba vealo igualito al papá todo escondido. 
 
-*[Al ver la cara de pablo, la rabia te consume y te lanzas a atacar sin pensarlo #play false false Misc/mixkit-arrow-whoosh-1491 #play false false Misc/mixkit-heartbeat-medium-speed-495] -> piso
+*[Al ver la cara de pedro, la rabia te consume y te lanzas a atacar sin pensarlo #play false false Misc/mixkit-arrow-whoosh-1491 #play false false Misc/mixkit-heartbeat-medium-speed-495] -> piso
 
 == piso ==
 El guerrillero te empuja al piso, pero te vuelves a parar y otra vez tratas de pegarle con lo que sea

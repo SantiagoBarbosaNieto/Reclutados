@@ -1,13 +1,13 @@
 ->start
 == start ==
-¿Mijo como me le fue hoy?
+¿Mijo cómo me le fue hoy?
 *[Bien madrecita]-> a2
 == a2 ==
 A que bueno mijo, me alegra saberlo.
 *[¿Que hiciste hoy ma?]-> a3 
 
 == a3 ==
-Mijo tú sabes, en la casa haciendo oficio y cuidando de la finca. ¿Estás bien, te noto algo raro y tardaste un poco en llegar hoy?
+Mijo tú sabes, en la casa haciendo oficio y cuidando de la finca. ¿Estás bien, te noto algo raro y no tardaste un poco en llegar hoy?
 *[No te preocupes mami, un poco cansado y ya] ->a4
 
 == a4 ==

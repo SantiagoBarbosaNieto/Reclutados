@@ -23,9 +23,9 @@ MonoBehaviour:
     idProducto: 2
   toleranciaBase: 40
   saludos:
-  - Papito que pena lo molesto
-  - "Mijo, \xBFcuenteme que vende?"
-  - Buenas mijo como esta?
+  - "Papito qu\xE9 pena lo molesto"
+  - "Mijo, \xBFcu\xE9nteme qu\xE9 vende?"
+  - "Buenas mijo c\xF3mo est\xE1?"
   pedidos:
   - Mijo le compro x z
   - Ay papito entonces quiero x z
@@ -35,12 +35,12 @@ MonoBehaviour:
   - Gracias mijo, muy querido
   - papito gracias, espero verlo pronto
   malTrato:
-  - Ay mijo, no me alcanza que pena
-  - No papito que pena, pero no tengo para tanto
+  - "Ay mijo, no me alcanza qu\xE9 pena"
+  - "No papito qu\xE9 pena, pero no tengo para tanto"
   - "Uy papito, \xBFsiempre era tanto? No creo"
   trato:
   - Me parece justo
   - Dale mijo, de acuerdo
   - Bueno papito, lo tomo
   rechazo:
-  - 'No pasa nada papito, uno tiene que saber el valor de sus cositas '
+  - No pasa nada papito

@@ -1,11 +1,11 @@
 ->start
 
 ==start==
-Sales más lentamente al mercado. Se te hace tarde pero no puedes evitar parar a ver los potreros de vez en cuando.
+Sales más lentamente al mercado. Se te hace tarde, pero quieres ver los potreros.
 ->A2
 
 ==A2==
-No sabes qué hacer. Viste a tu madre demasiado triste aunque intentara ocultarlo. Sabes que te tendrás que encargar de llevar plata para comer de ahora en adelante
+No sabes qué hacer. Viste a tu madre demasiado triste aunque intentara ocultarlo. Sabes que te tendrás que encargar de llevar plata para comer de ahora en adelante.
 ->A3
 
 ==A3==

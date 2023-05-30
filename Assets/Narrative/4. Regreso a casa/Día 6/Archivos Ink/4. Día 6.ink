@@ -1,6 +1,6 @@
 -> start
 == start ==
-Carlos te lleva a donde tu madre. Los dos se abrazan y lloran la ida Jorge Rodriguez.
+Carlos te lleva con tu madre. Los dos se abrazan y lloran la ida Jorge Rodríguez.
 *[Le iba a pedir disculpas]->A2
 
 == A2 ==

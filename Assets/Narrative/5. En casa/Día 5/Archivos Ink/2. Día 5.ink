@@ -1,6 +1,6 @@
 ->start
 == start ==
-¿Mijito como me le fue hoy en la escuela?
+¿Mijito cómo me le fue hoy en la escuela?
 *[Bien mami]-> A2
 
 == A2 ==

@@ -17,11 +17,11 @@ MonoBehaviour:
   productosProbabilidad: []
   toleranciaBase: 50
   saludos:
-  - Buenas joven como le va?
+  - "Buenas joven c\xF3mo le va?"
   - Buenas tardes
-  - Buenas mijo como esta?
+  - "Buenas mijo c\xF3mo est\xE1?"
   pedidos:
-  - Regaleme por favor x z
+  - "Reg\xE1leme por favor x z"
   - Por favor x z
   - Deme x z
   despedidas:
@@ -35,6 +35,6 @@ MonoBehaviour:
   trato:
   - Listo pues mijo
   - Lo compro
-  - Esta bien joven, se lo compro
+  - "Est\xE1 bien joven, se lo compro"
   rechazo:
   - Bueno pues

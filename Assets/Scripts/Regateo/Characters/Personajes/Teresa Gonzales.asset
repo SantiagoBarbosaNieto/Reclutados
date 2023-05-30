@@ -27,20 +27,20 @@ MonoBehaviour:
   - Buenas tardes juanito.
   - Juanito, buenas tardes.
   pedidos:
-  - Regaleme por favor x z
+  - "Reg\xE1leme por favor x z"
   - Por favor x z Juanito
   - Juanito deme x z
   despedidas:
-  - Gracias Juan, que estes bien,
+  - "Gracias Juan, que est\xE9s bien,"
   - Juanito gracias, que le vaya bien.
   - Juanito hasta luego se me cuida.
   malTrato:
-  - No Juan, me quede dificil.
-  - Esta caro Juan.
+  - "No Juan, me queda dif\xEDcil."
+  - "Est\xE1 caro Juan."
   - "\xBFSiempre fue tanto?"
   trato:
   - Perfecto Juan.
   - Me parece.
   - Dale Juanito, me lo llevo.
   rechazo:
-  - "Est\xE1 bien Juanito, entiendo que tienes que ganarle."
+  - "Est\xE1 bien Juanito"

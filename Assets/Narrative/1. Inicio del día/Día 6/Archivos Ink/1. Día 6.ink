@@ -1,6 +1,6 @@
 -> start
 == start ==
-Despiertas en la mañana del sexto día. No dormiste mucho despues de lo que succedio la noche anterior.
+Despiertas en la mañana. No dormiste mucho después de lo que sucedió la noche anterior.
 -> A2
 
 == A2 ==

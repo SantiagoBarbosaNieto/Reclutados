@@ -1,6 +1,6 @@
 ->start
 == start ==
-Si hijo, no te preocupes. Ya las cosas van a mejorar. Mas bien arreglate y ve a estudiar.
+Si hijo, no te preocupes. Ya las cosas van a mejorar. Mas bien arréglate y ve a estudiar.
 *[¡Claro que sí!]-> A2
 *[¡De una!]-> A2
 

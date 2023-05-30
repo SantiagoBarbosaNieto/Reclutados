@@ -25,7 +25,7 @@ MonoBehaviour:
   saludos:
   - "Disculpa Juan, buen d\xEDa"
   - Buenas tardes Juan
-  - "\xBFJuan como esta?"
+  - "\xBFJuan c\xF3mo est\xE1s?"
   pedidos:
   - Me interesa x z
   - Lo aprovecho entonces, dame x z
@@ -41,6 +41,6 @@ MonoBehaviour:
   trato:
   - 'Me parece bien '
   - Vale, lo tomo
-  - Hmm, esta bien Juan
+  - "Hmm, est\xE1 bien Juan"
   rechazo:
-  - Esta bien Juan, igual te deseo lo mejor
+  - "Est\xE1 bien Juan, igual te deseo lo mejor"

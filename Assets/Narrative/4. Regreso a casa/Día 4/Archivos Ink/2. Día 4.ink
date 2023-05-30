@@ -29,7 +29,7 @@ Pues, más o menos a esta hora regresaste con tu papá la primera vez que te pid
 No te preocupes, mijo, te cuento. ->revelacion
 
 == revelacion ==
-Mira, Juanito, lo que sucede es que tu padre debe cumplir unos deberes, por así decirlo. Él te está protegiendo a ti y a tu madre.
+Mira, Juanito, lo que sucede es que tu padre debe cumplir unos deberes, por así decirlo. Él lo está haciendo para ti y para tu madre.
 *[¿Pero dónde está?]->revelacion2
 
 == revelacion2 ==
@@ -37,13 +37,12 @@ Tu padre está un poco lejos, a un par de horas caminando entre las matas.
 *[¿Y qué hace?]->revelacion3
 
 == revelacion3 ==
-Tu padre se encuentra ahora en un cultivo de cocaína, lo que cosechan en su casa nunca fue suficiente para poder mantenerlos a tu madre y a ti.
-
+Es... Difícil de explicar, en este momento tu padre se encuentra trabajando en un cultivo de cocaína. 
 *[¿Mi papá es un narcotraficante?]->explicacionNarco
 *[¿Pero entonces, para qué me manda a vender en el mercado del pueblo?]->explicacionTrabajar
 
 == explicacionNarco ==
-No, no es así de simple. Es que hay un grupo que controla el movimiento por acá. Tu papá hace lo que hace para asegurarse de que no le pase nada a tu madre y a ti.
+No, no es así. Hay un grupo que controla el movimiento por acá. Tu papá hace lo que hace para asegurarse de que no le pase nada a tu madre y a ti.
 *[¿Pero entonces, para qué me manda a vender en el mercado del pueblo?]->explicacionTrabajarOp2
 
 == explicacionTrabajar ==
@@ -55,7 +54,7 @@ Como él no puede estar en dos lugares a la vez, se vio forzado a mandarte a tra
 *[¿Entonces papá es un narcotraficante?] -> expliacionNarcoOp2
 
 == expliacionNarcoOp2 ==
-No, no es mucho más complicado. Es que hay un grupo que controla el movimiento por acá. Tu papá hace lo que hace para asegurarse de que no les pase nada a tu madre y a ti.
+No, no, es mucho más complicado. Es que hay un grupo que controla el movimiento por acá. Tu papá hace lo que hace para asegurarse de que no les pase nada a tu madre y a ti.
 -> final
 
 == explicacionTrabajarOp2 ==

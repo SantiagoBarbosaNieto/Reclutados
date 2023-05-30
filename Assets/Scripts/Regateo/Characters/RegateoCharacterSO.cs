@@ -19,7 +19,7 @@ public class RegateoCharacterSO : ScriptableObject
 
     [Space(10)]
     [Header("Tolerancia al regateo")]
-    [Tooltip("A mayor tolerancia, mas dificil es regatear")]
+    [Tooltip("A mayor tolerancia, mas difícil es regatear")]
     [Range(0, 100)]
     [SerializeField]
     private float toleranciaBase;
@@ -33,14 +33,14 @@ public class RegateoCharacterSO : ScriptableObject
 
     [SerializeField]
     private List<string> saludos = new List<string>(){
-        "Buenas joven como le va?",
+        "Buenas joven cómo le va?",
         "Buenas tardes",
-        "Buenas mijo como esta?"
+        "Buenas mijo cómo está?"
     };  
 
     [SerializeField]
     private List<string> pedidos = new List<string>() {
-        "Regaleme por favor x z",
+        "Regáleme por favor x z",
         "Por favor x z",
         "Deme x z"
     };
@@ -55,7 +55,7 @@ public class RegateoCharacterSO : ScriptableObject
     [SerializeField]
     private List<string> malTrato = new List<string>() {
         "No joven no me alcanza",
-        "Esta muy caro mijo",
+        "Está muy caro mijo",
         "Antes no era tan caro"
     };
 
@@ -63,7 +63,7 @@ public class RegateoCharacterSO : ScriptableObject
     private List<string> trato = new List<string>() {
         "Listo pues mijo",
         "Lo compro",
-        "Esta bien joven, se lo compro"
+        "Está bien joven, se lo compro"
     };
 
     [SerializeField]

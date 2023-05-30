@@ -1,11 +1,11 @@
 -> start
 == start ==
-Hijo buenos días, ¿que tal la noche dormiste bien?
+Hijo buenos días, ¿qué tal la noche dormiste bien?
 *[Sí]-> A2
 *[  ...  ]-> A2
 
 == A2 ==
-¿Hijo estás bien? Desde anoche te noto raro, pense que era por lo cansado pero tambíen por la mañana me extraña.
+¿Hijo estás bien? Desde anoche te noto raro, pensé que era por lo cansado pero también por la mañana me extraña.
 *[ ... ]-> A3
 *[Es que anoche paso esto...]->L1
 
@@ -15,17 +15,17 @@ Hijo buenos días, ¿que tal la noche dormiste bien?
 //  intente decirle algo al papá, pero se sienta
 //  impotente al intentar hacerlo.
 == L1 ==
-¿Hijo estás bien? Desde anoche te noto raro, pense que era por lo cansado pero tambíen por la mañana me extraña.
+¿Hijo estás bien? Desde anoche te noto raro, pensé que era por lo cansado pero también por la mañana me extraña.
 *[ ... ]->A3
 *["recuerdas que no debes de hablar de eso"]->L2
 
 == L2 ==
-¿Hijo estás bien? Desde anoche te noto raro, pense que era por lo cansado pero tambíen por la mañana me extraña.
+¿Hijo estás bien? Desde anoche te noto raro, pensé que era por lo cansado pero también por la mañana me extraña.
 *[ ... ]->A3
-*["si no les digo nada, no va succeder nada"]-> L3
+*["si no les digo nada, no va pasar nada"]-> L3
 
 == L3 ==
-¿Hijo estás bien? Desde anoche te noto raro, pense que era por lo cansado pero tambíen por la mañana me extraña.
+¿Hijo estás bien? Desde anoche te noto raro, pensé que era por lo cansado pero también por la mañana me extraña.
 *[ ... ]->A3
 
 //  Continuacion de la historia principal
@@ -33,10 +33,10 @@ Hijo buenos días, ¿que tal la noche dormiste bien?
 ...-> A4
 
 == A4 ==
-Esta bien hijo, si quieres arreglate para que no se te vaya hacer tarde ir al colegio. 
-*[¿Hoy tambien voy a ir?]-> A5
+Está bien hijo, si quieres arréglate para que no se te vaya hacer tarde para ir al colegio. 
+*[¿Hoy también voy a ir?]-> A5
 
 == A5 ==
-Obvio hijo, ayer te dije que ya no te tienes que preocupar por eso.
+Claro hijo, ayer te dije que ya no te tienes que preocupar por eso.
 
 ->END

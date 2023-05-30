@@ -1,4 +1,4 @@
 ->start
 == start ==
-Jorge Rodriguez, esposo de Maria de Rodriguez y padre de Juan Rodriguez ha sido asesinado.
+Jorge Rodríguez, esposo de María de Rodríguez y padre de Juan Rodríguez ha sido asesinado.
 ->END

@@ -17,9 +17,9 @@ Lo encontraron en el sendero de regreso a casa.
 
 == A5 ==
 Lo siento mucho Juan. Jorge era un buen hombre, no merecía esto. 
-*[¿Dónde está mamá?]-> A6
+*["temblando" ¿Dónde está mamá?]-> A6
 
 == A6 ==
-Acompañame.
+Acompáñame.
 
 ->END

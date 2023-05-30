@@ -25,11 +25,11 @@ MonoBehaviour:
   saludos:
   - "Chiquillo buenos d\xEDas."
   - Hola Chiquillo.
-  - "\xBFChiqui como le va?"
+  - "\xBFChiqui c\xF3mo le va?"
   pedidos:
   - Listo, dame x z
   - Chiqui dame x z
-  - Vendeme  x z
+  - "V\xE9ndeme  x z"
   despedidas:
   - Gracias chiqui, hasta luego.
   - Chiquillo, que le vaya bien.
@@ -41,6 +41,6 @@ MonoBehaviour:
   trato:
   - Listo chiquillo.
   - Lo compro chiqui
-  - Esta bien chiqui, se lo compro
+  - "Est\xE1 bien chiqui, se lo compro"
   rechazo:
   - No pasa nada chiquillo.

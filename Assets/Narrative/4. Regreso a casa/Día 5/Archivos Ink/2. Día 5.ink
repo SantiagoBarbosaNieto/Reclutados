@@ -17,34 +17,34 @@ Hablo de su papá pelado.-> A5
 //    Rama A donde se resuelve que hace el 
 //    guerrillero hablando con Juan.
  == A3 ==
- Lo que hago aquí es buscarlo, me contaron que a esta hora más o menos es cuando pasas para regresar a tu casa. Aún que hoy fue más temprano de lo habitual.
+ Lo que hago aquí es buscarlo, me contaron que a esta hora más o menos es cuando pasas para regresar a tu casa. Aunque hoy fue más temprano de lo habitual.
  *[¿Qué quieres?]-> A4
  *[¿Por qué me buscas?]-> A4
  
  == A4 ==
- Te vengo a hacer una preguntita nada más. Algo muy sencillo que hasta tu me puedes ayudar a entender.
+ Te vengo a hacer una pregunta nada más. Algo muy sencillo que hasta tú me puedes ayudar a entender.
  *[¿Qué quiere? #play false false Tracks/eerie/Hazy-Darkness-Short]-> A5
  
  == A5 ==
- ¿Tu que sabes del trabajo de tu padre?
+ ¿Tu qué sabes del trabajo de tu padre?
  *[... Pues se encarga de la finca con mi mamá]->A5b
  *[¿Cómo así?]-> A5b
  == A5b ==
- Pelado, no se haga el marica ahora. Usted sabe lo que él hace a sus espaldas. Cuénteme, que tanto sabe.
+ Pelado, no se haga el marica ahora. Usted sabe lo que él hace a sus espaldas. Cuénteme, qué tanto sabe.
  *[...]-> A5c
- *[Se que él procesa droga]-> A6
+ *[Se que él siembra coca...]-> A6
  
  == A5c ==
  Chino, no tengo toda la noche, ¡Hable!
-*[Se que él procesa droga]-> A6
+*[Se que él siembra coca...]-> A6
 
 == A6 ==
-Ahhh, con que sabe donde procesa la procesa.
+Ahhh, con que sabe donde procesa la siembra.
 *[Sí]-> A6b
 *[No no no, solo se que lo hace] -> A6b
 
 == A6b ==
-Ahhh ya veo, ¿y que más sabe?
+Ahhh ya veo, ¿y qué más sabe?
 *[Eso es todo] -> A7
 *[¿Para qué me preguntas todo esto?] -> A6c
 

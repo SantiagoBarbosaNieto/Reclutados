@@ -15,7 +15,7 @@ Mijo me alegra saberlo, ¿qué tal las ventas ayer eh?
 *[Bien, ¿pero dónde estabas estos días? #play true true Misc/mixkit-slow-heartbeat-494]-> 1regreso
 
 == a2saludo ==
-Ah me alegra mucho mijo, mira que te quería comentar que hoy no tendrás que ir a trabajar. Hoy regresaras al colegio.
+Ah me alegra mucho mijo, mira que te quería comentar que hoy no tendrás que ir a trabajar. Hoy regresarás al colegio.
 *[¿Enserio?]-> a3saludo
 *[¿Y eso pa, ya no necesitamos el dinero?]-> 1necesitarDinero
 
@@ -40,7 +40,7 @@ Ay mijo, tenía que hacer unas vueltas por acá cerca. Disculpa si no me veías 
 ... -> 3regreso
 
 == 3regreso ==
-Ah que bien que pasará a saludarte en el mercado, pero hoy no creo que lo veas, hoy irás al colegio mijo.
+Ah que bien que pasara a saludarte en el mercado, pero hoy no creo que lo veas, hoy irás al colegio mijo.
 *[¿Enserio?]-> a3saludo
 == 1fin ==
 Jaja que ánimos los de este chino...

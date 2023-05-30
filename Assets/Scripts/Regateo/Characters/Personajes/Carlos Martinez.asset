@@ -23,13 +23,13 @@ MonoBehaviour:
     idProducto: 2
   toleranciaBase: 30
   saludos:
-  - Casi sobrino como le va?
+  - "Casi sobrino c\xF3mo le va?"
   - Buenas tardes Juanito.
   - Juani buenas.
   pedidos:
   - Te recibo x z
   - Por favor x z
-  - Vendame x z
+  - "V\xE9ndeme x z"
   despedidas:
   - Gracias juani, hasta luego.
   - Gracias mijo, saludos.

@@ -5,12 +5,12 @@ Papito, le contaría, pero yo no me siento capaz. Más bien, esperemos a que tu 
 
 == a2 ==
 Sí, mijito, tu papá ha estado ocupado cuidándonos.
-*[Uy, ¿cómo así madre? Ahora sí me tienes preocupado] -> a3
+*[¿Cómo así madre? Ahora sí me tienes preocupado] -> a3
 
 == a3 ==
 Lo siento, hijo, pero yo no creo que sea la mejor para contártelo.
 *[Pero madre, ya empezaste. Ahora es mejor que me lo cuentes todo] -> a4feo
-*[Está bien madre, no entiendo qué pasa, pero vale] -> a4bien
+*[Está bien madre, no entiendo qué pasa, pero bueno] -> a4bien
 
 == a4feo==
 Hijo, ya te dije, espera a que tu padre regrese y que él te lo cuente.

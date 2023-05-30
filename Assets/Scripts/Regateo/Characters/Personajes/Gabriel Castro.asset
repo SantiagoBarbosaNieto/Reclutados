@@ -17,24 +17,24 @@ MonoBehaviour:
   productosProbabilidad: []
   toleranciaBase: 70
   saludos:
-  - Buenas como le va?
+  - "Buenas c\xF3mo le va?"
   - Buenas tardes
-  - Buenas como esta?
+  - "Buenas c\xF3mo est\xE1?"
   pedidos:
-  - Regaleme por favor x z
+  - "Reg\xE1leme por favor x z"
   - Por favor x z
   - Deme x z
   despedidas:
   - Gracias, hasta luego
   - Gracias, que le vaya bien
-  - Hasta luego, se me cuida
+  - Hasta luego, se cuida
   malTrato:
   - No, no me alcanza
-  - 'Esta muy caro '
+  - "Est\xE1 muy caro "
   - Antes no era tan caro
   trato:
   - Listo pues
   - Lo compro
-  - Esta bien, se lo compro
+  - "Est\xE1 bien, se lo compro"
   rechazo:
   - Bueno pues

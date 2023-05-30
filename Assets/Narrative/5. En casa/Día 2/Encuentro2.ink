@@ -2,7 +2,7 @@
 
 == start ==
 Buenas noches, joven, disculpe el grito. ¿De casualidad su papá o su mamá no están en casa?
-*[¿Quién pregunta, disculpe? #stop #play true false Tracks/eerie/Hazy-Darkness_Looping] -> a2nombre
+*[¿Quién pregunta? #stop #play true false Tracks/eerie/Hazy-Darkness_Looping] -> a2nombre
 *[No tardan en regresar #stop #play true false Tracks/eerie/Hazy-Darkness_Looping] -> a2
 
 == a2nombre ==
